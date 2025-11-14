@@ -25,8 +25,9 @@ export const SECTIONS = [
       {
         title: "Assemblées citoyennes dotées d'un droit de veto",
         detail: [
-          "Les conseils consultatifs de quartier ont disparu à Villefranche et les riveraines et riverains n'ont plus d'espace pour contester les décisions prises à la Bastide. Nous proposons d'installer des assemblées permanentes par quartier, dotées d'un secrétariat et d'une dotation budgétaire minimale de 50 000 € chacune.",
-          "Ces assemblées pourront déclencher un référendum local si 5 % des électeurs signent une pétition, suspendre une décision municipale par un veto motivé et publieront chaque trimestre leurs comptes rendus pour que chacun puisse suivre les arbitrages."],
+          "Les conseils consultatifs de quartier ont disparu à Villefranche en 2020 et les riveraines et riverains n'ont plus d'espace pour contester les décisions prises en mairie. Les habitant·es de la Bastide, du Tricot, de Graves ou de Veuzac n'ont aucun moyen d'intervenir sur les projets d'aménagement, les budgets ou les services publics qui les concernent directement.",
+          "Nous installerons des assemblées permanentes par quartier (Bastide, Tricot, Graves, Veuzac, Rive gauche, hameaux du Ségala), dotées d'un secrétariat municipal et d'une dotation budgétaire minimale de 50 000 € chacune pour financer leurs projets locaux.",
+          "Droit de veto citoyen : si 5 % des électeur·rices du quartier signent une pétition, un référendum local obligatoire devra être organisé sous 2 mois. Les assemblées publieront chaque trimestre leurs comptes rendus sur le site de la ville et pourront suspendre temporairement une décision municipale le temps d'organiser une consultation."],
         example: {
           city: "Saillans (Drôme, 1 200 habitant·es)",
           detail: [
@@ -37,10 +38,11 @@ export const SECTIONS = [
         }
       },
       {
-        title: "Budget participatif porté à 5 %",
+        title: "Budget participatif porté à 5 % des investissements",
         detail: [
-          "Les projets citoyens financés depuis 2020 n'excèdent pas quelques dizaines de milliers d'euros alors que les besoins en rénovation des places ou en services publics sont immenses. Nous portons la part du budget participatif à 5 % des investissements, soit près de 1 million d'euros par an.",
-          "Les jurys seront tirés au sort dans chaque quartier, accompagnés par les maisons des hameaux qui aideront au montage des dossiers et par un comité d'experts citoyens chargé de suivre la réalisation concrète des chantiers retenus."],
+          "Depuis 2020, le budget participatif de Villefranche plafonne à 80 000 €, soit moins de 1 % du budget d'investissement. Résultat : des micro-projets (bancs, plantations) mais aucune capacité d'agir sur les vrais besoins : rénovation de la place Savignac, réfection des cours d'école, amélioration des transports.",
+          "Nous portons le budget participatif à 5 % des investissements municipaux, soit près de 1 million d'euros par an. Cela permettra de financer de vrais équipements : rénovation du stade de Graves, végétalisation massive du Tricot, création de pistes cyclables sécurisées Bastide-Veuzac.",
+          "Processus démocratique renforcé : jurys citoyens tirés au sort dans chaque quartier pour sélectionner les projets, accompagnement municipal gratuit pour monter les dossiers, comité de suivi composé d'habitant·es pour contrôler la réalisation concrète des chantiers votés. Publication trimestrielle de l'avancement sur le site de la ville."],
         example: {
           city: "Grenoble (Isère, 160 000 habitant·es)",
           detail: [
@@ -54,8 +56,9 @@ export const SECTIONS = [
       {
         title: "Charte éthique et révocation citoyenne",
         detail: [
-          "Les démissions successives au conseil municipal ont alimenté la défiance. Nous rendrons publiques toutes les indemnités, les agendas et les délégations afin que chaque habitant sache qui décide quoi.",
-          "Une procédure de révocation sera déclenchée si un quart des assemblées de quartier le demande, forçant le ou la titulaire du mandat à organiser une consultation locale sous un mois."],
+          "Entre 2020 et 2024, quatre démissions au conseil municipal de Villefranche ont alimenté la défiance des habitant·es. Aucune transparence sur les indemnités perçues, aucun compte-rendu public des délégations, aucune explication sur qui décide quoi.",
+          "Transparence totale obligatoire : publication en ligne de toutes les indemnités d'élu·es, agendas publics des adjoint·es, comptes-rendus intégraux des réunions de commissions, déclarations de patrimoine accessibles sur simple demande en mairie.",
+          "Procédure de révocation citoyenne : si un quart des assemblées de quartier (Bastide, Tricot, Graves, Veuzac, etc.) le demande, l'élu·e concerné·e devra organiser une consultation locale sous 30 jours. Si le vote de défiance est majoritaire, démission obligatoire et réattribution de la délégation par le conseil municipal."],
         example: {
           city: "Kingersheim (Haut-Rhin, 13 000 habitant·es)",
           detail: [
@@ -69,8 +72,9 @@ export const SECTIONS = [
       {
         title: "Observatoire des services publics",
         detail: [
-          "Délai pour obtenir un rendez-vous à l'état civil, ouverture des guichets, temps d'attente au CCAS : aucune donnée n'est publiée aujourd'hui. Nous créerons un observatoire réunissant agents municipaux, usagers et universitaires.",
-          "Les indicateurs seront affichés dans chaque maison de quartier, diffusés en open data et débattus publiquement pour corriger les dysfonctionnements dans la Bastide comme dans les hameaux."],
+          "Combien de temps pour obtenir un rendez-vous à l'état civil de Villefranche ? Quels sont les horaires réels d'ouverture du CCAS ? Combien de temps d'attente moyen pour une demande de carte d'identité ? Aucune de ces données n'est publiée, aucun indicateur de qualité n'existe.",
+          "Création d'un observatoire municipal des services publics : agents municipaux volontaires, représentant·es d'usager·es, universitaires (IUT Rodez, associations). Mission : mesurer la qualité réelle des services rendus aux Villefranchois·es.",
+          "Indicateurs publiés en open data et affichés dans chaque mairie de quartier : délais d'obtention des documents d'état civil, taux de réponse aux demandes, qualité de l'accueil, temps d'attente, accessibilité des services. Débat public trimestriel pour corriger les dysfonctionnements constatés dans la Bastide, le Tricot, Graves, Veuzac et les hameaux."],
         example: {
           city: "Paris (Île-de-France, 2,2 millions d'habitant·es)",
           detail: [
@@ -84,11 +88,11 @@ export const SECTIONS = [
       {
         title: "Conseil citoyen permanent du budget",
         detail: [
-          "Le budget municipal reste opaque et les arbitrages se font sans débat public. Les habitant·es découvrent les choix une fois votés, sans possibilité de peser sur les priorités d'investissement.",
-          "Nous créerons un conseil citoyen permanent qui suivra l'exécution du budget en temps réel. Ce conseil sera composé de 30 habitant·es tiré·es au sort (renouvelé par tiers chaque année), épaulé par des expert·es comptables indépendant·es.",
-          "Publication mensuelle en ligne de toutes les dépenses au-dessus de 1000€. Chaque trimestre, ce conseil organisera une assemblée publique pour présenter les choix budgétaires et recueillir les propositions. Tout écart significatif devra être justifié publiquement."
+          "Le budget 2024 de Villefranche (22 millions d'euros en fonctionnement, 7 millions en investissement) est voté sans aucune consultation préalable des habitant·es. Les arbitrages se font en commission fermée et les Villefranchois·es découvrent les choix une fois votés.",
+          "Création d'un conseil citoyen permanent du budget : 30 habitant·es tiré·es au sort (renouvelé par tiers chaque année), représentant tous les quartiers (Bastide, Tricot, Graves, Veuzac, hameaux), épaulé·es par des expert·es comptables indépendant·es et des agents municipaux volontaires.",
+          "Transparence radicale : publication mensuelle en ligne de toutes les dépenses au-dessus de 1000 €, tableau de bord en temps réel accessible sur le site de la ville. Assemblée publique trimestrielle dans chaque quartier pour présenter les choix budgétaires, recueillir les propositions et justifier tout écart par rapport aux engagements."
         ],
-        territories: ["Toute la ville"],
+        territories: ["Toute la ville", "Tous les quartiers"],
         example: {
           city: "Grigny (Rhône, 9 000 habitant·es)",
           detail: [
@@ -102,11 +106,11 @@ export const SECTIONS = [
       {
         title: "Mairies de quartier accessibles 7j/7",
         detail: [
-          "Les services municipaux ferment à 17h et restent inaccessibles le samedi. Impossible pour les salarié·es ou les familles monoparentales de faire leurs démarches sans poser un jour de congé.",
-          "Nous ouvrirons des mairies de quartier dans la Bastide, au Tricot, à Graves et à Veuzac. Horaires étendus : ouverture jusqu'à 19h en semaine et le samedi matin. Permanences le dimanche une fois par mois pour les démarches urgentes.",
-          "Chaque mairie de quartier proposera : état civil, inscriptions scolaires, demandes d'aides, rendez-vous avec les élu·es. Un agent municipal permanent sera chargé d'orienter et d'accompagner les habitant·es."
+          "La mairie de Villefranche ferme à 17h en semaine et reste totalement inaccessible le samedi. Résultat : les salarié·es, les familles monoparentales, les ouvrier·es des Gravasses ou de Veuzac doivent poser un jour de congé pour faire une simple démarche administrative.",
+          "Ouverture de 4 mairies de quartier permanentes : Bastide (place Notre-Dame), Tricot (salle Lafon), Graves (château), Veuzac (salle des fêtes). Horaires étendus : ouverture jusqu'à 19h en semaine, samedi matin 9h-12h30, permanence mensuelle le dimanche pour les urgences.",
+          "Services complets dans chaque mairie de quartier : état civil (cartes d'identité, passeports), inscriptions scolaires et périscolaires, demandes d'aides CCAS, permanences d'élu·es sans rendez-vous. Un agent municipal territorial permanent orientera et accompagnera les habitant·es dans toutes leurs démarches administratives."
         ],
-        territories: ["Bastide", "Le Tricot", "Graves", "Veuzac"],
+        territories: ["Bastide", "Le Tricot", "Graves", "Veuzac", "Hameaux (antenne mobile)"],
         example: {
           city: "Malakoff (Hauts-de-Seine, 31 000 habitant·es)",
           detail: [
@@ -131,8 +135,9 @@ export const SECTIONS = [
       {
         title: "Maison du Peuple Bastide",
         detail: [
-          "Les habitantes de la Bastide se heurtent à des guichets éclatés entre la sous-préfecture, le CCAS et les permanences associatives. Nous regrouperons ces services dans une Maison du Peuple ouverte six jours sur sept avec nocturnes hebdomadaires.",
-          "CAF, CPAM, Département, médiation numérique, permanence juridique et relais associatifs y partageront un guichet unique capable d'accompagner les habitants des Pesquiés ou de la Rive droite sans déplacement supplémentaire."],
+          "Pour faire valoir leurs droits sociaux, les Villefranchois·es doivent aujourd'hui courir entre la CAF rue de la République, la CPAM à Rodez (30 km !), le CCAS place de la Mairie et les permanences associatives éclatées. Parcours du combattant pour les personnes âgées, les familles monoparentales, les précaires.",
+          "Création d'une Maison du Peuple au cœur de la Bastide (ancien bâtiment des Finances publiques, rue Marcellin-Fabre) : 600 m² réunissant CAF, CPAM, services du Département, médiation numérique, permanence juridique gratuite et relais associatifs sous un même toit.",
+          "Guichet unique : un·e seul·e agent·e oriente vers tous les services nécessaires. Fini le parcours du combattant ! Ouverture 6 jours/7 avec nocturnes mardi et jeudi jusqu'à 20h. Médiateur·rices numériques formé·es pour accompagner les démarches en ligne (impôts, Pôle Emploi, retraite)."],
         example: {
           city: "Roubaix (Nord, 99 000 habitant·es)",
           detail: [
@@ -146,8 +151,9 @@ export const SECTIONS = [
       {
         title: "Centre municipal de santé",
         detail: [
-          "La fermeture de cabinets libéraux et la dépendance au centre hospitalier Émile-Borel rendent l'accès aux soins critique. Nous salarierons une équipe pluridisciplinaire installée à Fontanges avec des vacations à Graves, Veuzac et Laurère.",
-          "Le centre municipal offrira des consultations sans dépassements, un service de prévention itinérant dans les hameaux du Ségala et un calendrier de permanence dentaire et sage-femme partagé avec l'hôpital."],
+          "Villefranche est en désert médical avéré : 7000 patients par médecin généraliste (contre 3500 au niveau national), plusieurs semaines d'attente pour un rendez-vous, fermeture de 3 cabinets libéraux depuis 2020. Les habitant·es dépendent du centre hospitalier Émile-Borel saturé ou doivent aller à Rodez.",
+          "Création d'un centre municipal de santé public à Fontanges : équipe pluridisciplinaire salariée de la ville (4 médecins généralistes, 2 dentistes, 1 sage-femme, 1 psychologue, infirmier·ères). Consultations sans dépassement d'honoraires, tiers payant intégral, tarifs accessibles.",
+          "Permanences délocalisées : vacations hebdomadaires à Graves (gymnase), Veuzac (salle des fêtes), Laurère et Mas de Rivals (maisons de hameaux). Service de prévention itinérant dans les hameaux du Ségala : dépistages, vaccinations, consultations à domicile pour les personnes âgées isolées."],
         example: {
           city: "Aubervilliers (Seine-Saint-Denis, 88 000 habitant·es)",
           detail: [
@@ -161,8 +167,9 @@ export const SECTIONS = [
       {
         title: "Plan logement Bastide/Tricot",
         detail: [
-          "Plus de 11 % des logements du centre ancien restent vides et les marchands de sommeil s'installent du Tricot à la Rive droite. Nous renforcerons le permis de louer et créerons une cellule municipale anti-insalubrité.",
-          "Une OPAH-RU sur dix ans permettra de rénover 700 logements, l'office foncier solidaire bloquera la spéculation et les dents creuses seront mobilisées pour créer du logement social dans les deux rives."],
+          "11 % des logements du centre historique de Villefranche sont VIDES (données INSEE 2023) : 850 logements vacants ! Pendant ce temps, les marchands de sommeil s'installent du Tricot à la Rive droite, louant des taudis insalubres à prix d'or aux familles précaires.",
+          "Plan d'action radical : renforcement du permis de louer obligatoire dans tout le centre ancien, création d'une cellule municipale anti-insalubrité (3 agents dédiés) habilitée à verbaliser, réquisition des logements vacants depuis plus de 2 ans.",
+          "OPAH-RU (Opération Programmée d'Amélioration de l'Habitat - Renouvellement Urbain) sur 10 ans : objectif rénover 700 logements de la Bastide, du Tricot et de la Rive droite. Office foncier solidaire pour bloquer la spéculation : la ville reste propriétaire du foncier, vend uniquement le bâti. Mobilisation des dents creuses (terrains vagues rue du Sergent-Bories, place Savignac) pour créer 150 logements sociaux neufs."],
         example: {
           city: "Bègles (Gironde, 28 000 habitant·es)",
           detail: [
@@ -174,10 +181,11 @@ export const SECTIONS = [
         }
       },
       {
-        title: "Cantines locales et sociales",
+        title: "Cantines locales et sociales : 80 % de produits aveyronnais",
         detail: [
-          "Les restaurants scolaires servent aujourd'hui moins de 30 % de produits issus de l'Aveyron et les tarifs restent élevés pour les foyers modestes. Nous renégocierons les marchés pour atteindre 80 % de denrées locales et 60 % bio.",
-          "Les menus à 1 € seront accessibles sous condition de quotient familial, complétés par des ateliers cuisine populaire animés dans chaque école, centre social et maison de hameau."],
+          "Les cantines scolaires de Villefranche servent moins de 30 % de produits issus de l'Aveyron alors que le département produit une alimentation d'exception (bœuf, agneau, fromages, légumes). Les tarifs sont élevés : jusqu'à 5,50 € le repas, excluant les familles modestes.",
+          "Renégociation des marchés publics : objectif 80 % de denrées locales aveyronnaises et 60 % bio d'ici 2028. Partenariats directs avec les producteur·rices du Ségala : maraîcher·es de Laurère, éleveur·ses de Veuzac, boulangerie artisanale de la Bastide.",
+          "Tarification sociale radicale : repas à 1 € pour les foyers sous le seuil de pauvreté (quotient familial < 600 €), jusqu'à 4 € maximum. Ateliers cuisine populaire dans chaque école, centre social (Tricot, Graves) et maison de hameau : apprendre à cuisiner local, de saison et économique."],
         example: {
           city: "Mouans-Sartoux (Alpes-Maritimes, 10 000 habitant·es)",
           detail: [
@@ -209,11 +217,11 @@ export const SECTIONS = [
       {
         title: "Résidence autonomie et maintien à domicile",
         detail: [
-          "29% de la population villefranchoise a plus de 65 ans et ce chiffre augmente. Les personnes âgées peinent à rester chez elles faute d'aide à domicile, et les places en EHPAD sont hors de prix ou saturées.",
-          "Nous créerons une régie municipale d'aide à domicile qui emploiera 40 agent·es en CDI (aide ménagère, portage de repas, télé-assistance). Tarifs calculés selon le quotient familial, de 5€ à 25€/heure maximum.",
-          "Transformation de l'ancien site hospitalier en résidence autonomie de 60 logements adaptés avec services mutualisés : infirmier·ère à demeure, salle commune, jardins partagés. Loyers accessibles dès 350€/mois charges comprises."
+          "29 % de la population villefranchoise a plus de 65 ans (3400 personnes) et ce chiffre augmente chaque année. Les personnes âgées de la Bastide, des hameaux du Ségala ou de Veuzac peinent à rester chez elles : pénurie d'aides à domicile, EHPAD privés hors de prix (2500 €/mois à La Chartreuse), places saturées.",
+          "Création d'une régie municipale publique d'aide à domicile : 40 agent·es en CDI (auxiliaires de vie, aides-soignant·es). Services : aide ménagère, aide à la toilette, portage de repas, courses, télé-assistance 24h/24. Tarifs selon quotient familial : de 5 € à 25 €/heure maximum (contre 22 € à 35 € dans le privé).",
+          "Transformation de l'ancien hôpital Émile-Borel (site Fontanges) en résidence autonomie publique : 60 logements adaptés T1 et T2 avec services mutualisés. Infirmier·ère à demeure, salle commune, bibliothèque, jardins partagés potagers. Loyers accessibles dès 350 €/mois charges comprises (contre 800 € en résidence privée)."
         ],
-        territories: ["Toute la ville", "Hameaux"],
+        territories: ["Toute la ville", "Hameaux du Ségala", "Bastide", "Veuzac"],
         example: {
           city: "Montreuil (Seine-Saint-Denis, 111 000 habitant·es)",
           detail: [
@@ -225,13 +233,13 @@ export const SECTIONS = [
         }
       },
       {
-        title: "Eau publique et tarification sociale",
+        title: "Remunicipalisation de l'eau et tarification sociale",
         detail: [
-          "L'eau est un bien commun mais sa gestion reste opaque. Les tarifs augmentent sans transparence et les familles modestes peinent à payer leurs factures, avec des coupures qui restent possibles.",
-          "Nous remunicipaliserons la gestion de l'eau dès que le contrat actuel arrive à échéance. Création d'une régie publique de l'eau avec une gouvernance associant usagers, agents et élu·es.",
-          "Tarification progressive solidaire : les premiers m³ vitaux seront gratuits (50L/jour/personne), puis prix modéré jusqu'à consommation normale, et prix élevé pour les gros consommateurs. Interdiction absolue des coupures d'eau. Chèque-eau pour les foyers en difficulté."
+          "La gestion de l'eau à Villefranche est déléguée à Veolia depuis 1995. Résultat : hausses tarifaires régulières sans justification (+18 % en 10 ans), opacité totale sur les investissements, coupures d'eau possibles pour impayés. Les familles du Tricot et de la Bastide paient leur eau 20 % plus cher que la moyenne nationale.",
+          "Remunicipalisation dès l'échéance du contrat (2027) : création d'une régie publique de l'eau et de l'assainissement avec gouvernance démocratique associant usager·es, agent·es municipaux et élu·es. Transparence totale : publication annuelle des comptes, des investissements et de la qualité de l'eau.",
+          "Tarification progressive et sociale : les 50 premiers litres par jour et par personne GRATUITS (besoins vitaux), puis tarif modéré jusqu'à 150 L/jour, tarif élevé au-delà pour pénaliser le gaspillage. Interdiction absolue des coupures d'eau. Chèque-eau de 150 €/an pour les foyers en difficulté."
         ],
-        territories: ["Toute la ville"],
+        territories: ["Toute la ville", "Tous les hameaux"],
         example: {
           city: "Grenoble (Isère, 160 000 habitant·es)",
           detail: [
@@ -274,8 +282,9 @@ export const SECTIONS = [
       {
         title: "Plan arbres et fraîcheur : 3000 arbres en 6 ans",
         detail: [
-          "Les épisodes caniculaires se multiplient sur la Bastide et les cours minérales des écoles deviennent invivables. Nous lancerons un inventaire de toutes les surfaces bitumées pour prioriser les lieux où planter 2 000 arbres.",
-          "Les berges de l'Alzou seront renaturées, les places recevront des dispositifs d'ombre et les friches de la Rive gauche accueilleront des jardins partagés ouverts aux habitants."],
+          "Les épisodes caniculaires de 2022 et 2023 ont dépassé 40°C à Villefranche. Les cours minérales des écoles Jean-Jaurès, Calcomier et Treize-Pierres deviennent invivables l'été. Les places de la Bastide (place Notre-Dame, place Savignac) sont des fours sans aucun arbre.",
+          "Plan massif de végétalisation : inventaire participatif de toutes les surfaces bitumées avec les habitant·es, plantation de 3000 arbres d'ici 2030 (500/an) dans les cours d'école, les rues (boulevard Haute-Guyenne, avenue de Bourran), les places et les parkings.",
+          "Renaturalisation des berges de l'Alzou et de l'Aveyron : création de corridors écologiques, espaces de baignade naturelle l'été. Transformation des friches de la Rive gauche (zone du Breil) en jardins partagés ouverts à tou·tes. Objectif : -3°C en ville lors des canicules."],
         example: {
           city: "Clermont-Ferrand (Puy-de-Dôme, 147 000 habitant·es)",
           detail: [
@@ -302,11 +311,12 @@ export const SECTIONS = [
         }
       },
       {
-        title: "Transports gratuits et pistes cyclables partout",
+        title: "Transports publics gratuits et pistes cyclables sécurisées",
         detail: [
-          "Les bus Bastibus s'arrêtent trop tôt et ne desservent pas correctement les lycéens des Gravasses. Nous renforcerons l'offre pour atteindre un passage toutes les 20 minutes sur les lignes structurantes et la gratuité pour les moins de 26 ans.",
-          "Les pôles d'échanges du Tricot et de la gare seront modernisés, 15 km de pistes cyclables sécurisées seront créés et des navettes relieront quotidiennement les hameaux du Ségala.",
-          "Nous voulons un contrat de mobilité intercommunal qui impose l'accès gratuit aux bus Bastibus pendant les travaux, qui finance des vélostations aux Gravasses et qui installe des correspondances directes Bastide–Veuzac tôt le matin pour les salariées et salariés postés."
+          "Les bus Bastibus (3 lignes) s'arrêtent à 19h30, rendant impossible le retour des lycéen·nes des Gravasses après les activités. Fréquence insuffisante : seulement 4-5 bus/jour sur certaines lignes. Tarif de 1,50 € le trajet : 60 €/mois pour un·e lycéen·ne, inabordable pour les familles du Tricot.",
+          "Gratuité immédiate pour les moins de 26 ans, puis extension progressive vers la gratuité totale. Renforcement massif de l'offre : passage toutes les 20 minutes sur les lignes structurantes (Bastide-Gravasses-Lycées), horaires étendus jusqu'à 22h en semaine, service le dimanche.",
+          "Création de 15 km de pistes cyclables sécurisées et continues : axe Bastide-Veuzac (D911), axe Tricot-Graves-Lycées, piste le long de l'Aveyron. Modernisation des pôles d'échanges : Tricot (parking relais + vélostations), gare SNCF (consignes vélos sécurisées). Navettes quotidiennes vers les hameaux du Ségala (Laurère, Mas de Rivals) : 2 allers-retours/jour pour rompre l'isolement.",
+          "Bataille intercommunale : nous exigerons un contrat de mobilité ambitieux avec correspondances directes Bastide-Veuzac dès 6h30 pour les salarié·es posté·es de l'industrie."
         ],
         example: {
           city: "Montpellier, Aubagne, Bonneuil-sur-Marne",
@@ -364,8 +374,12 @@ export const SECTIONS = [
       {
         title: "Soutien massif aux commerces et artisans de la Bastide",
         detail: [
-          "La communauté de communes distribue des aides économiques sans toujours exiger de contreparties, notamment sur l'égalité salariale ou la transition énergétique. Nous conditionnerons les subventions municipales à un socle d'engagements vérifiables.",
-          "Les entreprises soutenues devront publier leurs indicateurs d'emploi local, d'égalité femmes-hommes et d'impact énergétique ; un comité associant syndicats et commerçants contrôlera les résultats."],
+          "La Bastide médiévale se vide : 18 commerces fermés entre 2019 et 2024 (boulangerie rue de la République, mercerie place Notre-Dame, librairie rue Bories). Taux de vacance commerciale de 23 % dans le centre historique contre 12 % en 2015. Les rues Marcellin-Fabre et Raymond-VII comptent 12 vitrines vides qui défigurent le patrimoine architectural.",
+          "La communauté de communes Ouest Aveyron distribue des aides économiques (350 000 € en 2023) sans exiger de contreparties sur l'égalité salariale, l'emploi local ou la transition énergétique. Les zones commerciales périphériques (Intermarché route de Figeac, Leclerc à Monteils) captent les aides publiques tout en affaiblissant le commerce de centre-ville.",
+          "Nous conditionnerons TOUTES les subventions municipales (locaux commerciaux, prêts à taux zéro, exonérations fiscales) à un socle d'engagements vérifiables : emploi local prioritaire, égalité salariale certifiée femmes-hommes, bilan carbone public, interdiction des CDD abusifs. Un comité de contrôle associant CGT, associations de commerçants et élu·es vérifiera trimestriellement le respect des engagements.",
+          "Création d'une régie foncière commerciale municipale : rachat des locaux vacants rue Bories et place Savignac pour les louer à prix modéré (300 €/mois au lieu de 800 €) aux artisan·es et jeunes créateur·rices. Priorité aux métiers d'artisanat d'art, librairie indépendante, commerces alimentaires bio et de proximité.",
+          "Interdiction des nouvelles surfaces commerciales en périphérie tant que le taux de vacance dépasse 15 % en centre-ville. Bataille intercommunale pour stopper l'extension continue des zones commerciales qui tuent la Bastide."
+        ],
         example: {
           city: "Lyon (Rhône, 523 000 habitant·es)",
           detail: [
@@ -379,8 +393,13 @@ export const SECTIONS = [
       {
         title: "Régie municipale du bâtiment : 50 emplois créés",
         detail: [
-          "Les écoles et équipements sportifs souffrent de retards d'entretien faute d'équipes municipales suffisantes. Nous créerons une régie municipale dotée d'un atelier chantier d'insertion pour former et embaucher localement.",
-          "Deux antennes, au Boï et aux Pesquiés, permettront d'intervenir sous 48 heures sur les logements vacants ou les équipements prioritaires, avec un suivi des chantiers publié en ligne."],
+          "Les équipements publics se dégradent faute d'équipes municipales suffisantes : toiture de l'école Jean-Jaurès qui fuit depuis 2022, vestiaires du stade des Gravasses fermés depuis 18 mois, salle Lafon place Notre-Dame dont les radiateurs sont hors service depuis l'hiver 2023. Les services techniques municipaux comptent seulement 12 agents pour 850 logements vacants à rénover et 45 bâtiments communaux à entretenir.",
+          "Le chômage touche 11,2 % de la population active à Villefranche (contre 7,8 % en France) et monte à 18 % dans le Tricot. Pourtant, les entreprises du BTP locales peinent à recruter des jeunes formé·es aux métiers du bâtiment (plomberie, électricité, menuiserie, maçonnerie). Les chantiers de rénovation sont externalisés à des entreprises de Rodez ou Toulouse qui repartent avec l'argent public.",
+          "Nous créerons une régie municipale du bâtiment en CDI : 50 emplois directs (maçon·nes, électricien·nes, plombier·ères, menuisier·ères, peintres) recrutés prioritairement parmi les habitant·es de Villefranche et formé·es par un atelier chantier d'insertion. Salaire minimum 1 900 € net, formation qualifiante incluse (CAP/BEP financés par la ville), possibilité de titularisation dans la fonction publique territoriale.",
+          "Deux antennes techniques permanentes au Boï (rive droite) et aux Pesquiés (rive gauche) permettront d'intervenir sous 48 heures sur les urgences : réparations dans les écoles, entretien des gymnases et salles communales, rénovation des 850 logements vacants du centre-ville pour les remettre sur le marché locatif à loyer modéré.",
+          "Transparence totale : suivi en ligne de tous les chantiers municipaux (planning, budget, photos avant/après) accessible depuis le site de la mairie. Les habitant·es pourront signaler les dégradations via une application mobile et suivre les interventions en temps réel.",
+          "Économies pour la commune : fin de l'externalisation coûteuse, maîtrise des délais et de la qualité, maintien de l'argent public dans l'économie locale. Emplois locaux stables contre précarité et sous-traitance."
+        ],
         example: {
           city: "Grenoble - Quartier Villeneuve (Isère)",
           detail: [
@@ -394,8 +413,13 @@ export const SECTIONS = [
       {
         title: "Pass Culture-Sport gratuit pour tous les jeunes",
         detail: [
-          "Le coût d'adhésion aux clubs sportifs ou aux conservatoires freine les jeunes des Gravasses et des faubourgs. Nous créerons un pass de 120 € par jeune cumulable avec les aides départementales.",
-          "Les établissements scolaires des Gravasses, du Tricot et des hameaux pourront distribuer ces pass avec un accompagnement des familles pour s'inscrire dans les associations locales."],
+          "Le coût d'adhésion aux clubs sportifs villefranchois exclut les jeunes des familles modestes : 280 € l'année au rugby-club, 320 € au basket, 250 € pour le conservatoire de musique. S'y ajoutent l'équipement (150 € de crampons et maillots), les déplacements pour les matchs et les concerts. Pour une famille du Tricot avec 2 enfants, c'est 1 200 € par an : inabordable avec un SMIC.",
+          "Résultat : les jeunes des Gravasses et des faubourgs regardent leurs camarades partir aux entraînements. Les clubs villefranchois (ASVR rugby, Villefranche Basket, École de musique municipale, club de judo) peinent à recruter dans les quartiers populaires. Les collégien·nes de Treize-Pierres n'accèdent ni au théâtre de la Bastide, ni à la médiathèque Fabri de Peiresc, ni aux ateliers d'arts plastiques de la MJC.",
+          "Nous créerons un Pass Culture-Sport gratuit de 150 € par an pour TOUS les jeunes de 6 à 25 ans résidant à Villefranche, sans condition de ressources (universalité pour éviter la stigmatisation). Montant cumulable avec les aides départementales du Conseil départemental de l'Aveyron (Pass'sports 12).",
+          "Utilisable dans toutes les associations villefranchoises conventionnées : clubs sportifs (rugby, basket, foot, judo, tennis, natation au centre aquatique), structures culturelles (conservatoire de musique, théâtre, MJC, médiathèque, école d'arts plastiques), et activités périscolaires. Les jeunes pourront changer d'activité en cours d'année sans pénalité.",
+          "Distribution directe dans les établissements scolaires : collège Kervallon, lycée Raymond-Savignac, lycées agricoles de Laurière et de Langlade. Les équipes éducatives accompagneront les familles pour inscrire les jeunes dans les associations locales et lever les freins (transports, horaires, méconnaissance de l'offre).",
+          "Budget municipal : 450 000 € par an pour 3 000 jeunes concernés. Financement par suppression des niches fiscales accordées aux entreprises qui délocalisent (taxe foncière réduite pour les entrepôts logistiques en périphérie)."
+        ],
         example: {
           city: "Bologne (Italie, 391 000 habitant·es)",
           detail: [
@@ -409,8 +433,13 @@ export const SECTIONS = [
       {
         title: "Pôle culturel et associatif au Château de Graves",
         detail: [
-          "Les associations culturelles et sportives se partagent aujourd'hui des locaux saturés rue Bories. Nous installerons la Maison des associations au Château de Graves, accessible en bus et proche des équipements sportifs.",
-          "Des studios médias, ateliers mutualisés et un guichet d'accompagnement aux coopératives permettront aussi aux collectifs ruraux de bénéficier d'espaces partagés lorsqu'ils viennent en ville."],
+          "Les 85 associations villefranchoises (sportives, culturelles, caritatives, environnementales) se partagent des locaux saturés et inadaptés : salle Bories rue Bories (180 m² pour 15 associations), salles municipales réservées 6 mois à l'avance, absence de lieux de stockage pour le matériel. Les collectifs de jeunes (ateliers de création musicale, collectifs artistiques, associations étudiantes) n'ont aucun local permanent et squattent les salles des fêtes quand elles sont libres.",
+          "Le Château de Graves (propriété municipale de 1 200 m² sur 3 niveaux) est sous-utilisé : quelques bureaux administratifs au rez-de-chaussée, étages vides ou utilisés pour du stockage. Pourtant, le bâtiment est situé à 5 minutes à pied de la place Notre-Dame, desservi par la ligne 1 de Bastibus, à proximité immédiate du complexe sportif des Gravasses (stade, gymnase, piscine).",
+          "Nous transformerons le Château de Graves en Maison des Associations de Villefranche : 1 200 m² d'espaces mutualisés accessibles 7j/7 de 8h à 23h. Rez-de-chaussée : accueil-secrétariat permanent tenu par 2 agent·es municipaux·ales pour accompagner les associations (subventions, comptabilité, montage de projets), salle polyvalente 150 places modulable (AG, conférences, projections).",
+          "Premier étage : 8 salles de réunion équipées (wifi, vidéoprojecteur) réservables en ligne gratuitement, espace de coworking associatif 40 postes, local de stockage mutualisé 80 m². Deuxième étage : studios de création (musique, vidéo, podcast) équipés et insonorisés, ateliers partagés (sérigraphie, menuiserie, couture), cuisine collective pour les événements associatifs.",
+          "Accès prioritaire aux associations villefranchoises, mais ouverture aussi aux collectifs ruraux des hameaux et villages associés (Laurère, Mas de Rivals, Veuzac) qui pourront utiliser les espaces partagés lors de leurs venues en ville (réunions, formations, événements). Conventionnement avec les coopératives et SCOP locales pour partager expertise et matériel.",
+          "Budget d'aménagement : 800 000 € (rénovation énergétique, mise aux normes accessibilité, équipements). Fonctionnement : 150 000 €/an (2 emplois permanents + charges). Financement par récupération de subventions aujourd'hui versées à des structures privées (salles de réception commerciales, espaces de coworking lucratifs)."
+        ],
         example: {
           city: "Nantes (Loire-Atlantique, 320 000 habitant·es)",
           detail: [
@@ -424,9 +453,13 @@ export const SECTIONS = [
       {
         title: "Emplois jeunes municipaux",
         detail: [
-          "Le chômage des jeunes atteint 22% dans le Tricot et la Bastide. Nous créerons 30 emplois jeunes municipaux en CDI sur 3 ans : animation sportive et culturelle, médiation numérique, entretien des espaces verts, aide aux devoirs.",
-          "Salaire 1800€ net minimum, formation qualifiante incluse, possibilité de titularisation dans la fonction publique territoriale. Priorité aux jeunes des quartiers prioritaires et aux décrocheurs scolaires.",
-          "Partenariat avec la Mission Locale pour repérer et accompagner les jeunes éloignés de l'emploi. Ces postes créeront des services publics de proximité qui manquent aujourd'hui."
+          "Le chômage des jeunes de 18 à 25 ans atteint 22 % dans le Tricot et la Bastide, contre 15 % en moyenne nationale. À Villefranche : 320 jeunes inscrits à la Mission Locale Ouest Aveyron (basée rue Bories) dont 180 sans emploi depuis plus d'un an, 45 décrocheur·euses scolaires sorti·es du système sans diplôme ni qualification. Les petits boulots saisonniers (restauration rapide, grande distribution) alternent avec de longues périodes de chômage : précarité, perte de confiance, désocialisation.",
+          "Pendant ce temps, les services publics municipaux manquent cruellement de personnel : médiateurs·rices absents dans les quartiers, espaces verts mal entretenus (jardin du Tricot, square Savignac), animations périscolaires en sous-effectif, aide aux devoirs inexistante dans les écoles primaires, absence de médiation numérique pour les personnes âgées et les familles du Ségala (démarches CAF, impôts, santé en ligne).",
+          "Nous créerons 30 emplois jeunes municipaux en CDI sur le premier mandat (10 par an pendant 3 ans) : animateur·rices sportif·ves et culturel·les (accompagnement périscolaire, activités de quartier), médiateur·rices numériques (aide aux démarches en ligne, ateliers d'initiation), agent·es d'entretien des espaces verts et du patrimoine, assistant·es d'aide aux devoirs dans les écoles (Jean-Jaurès, Calcomier, Treize-Pierres).",
+          "Conditions d'emploi dignes : CDI de droit public à temps plein, salaire 1 900 € net minimum (contre 1 400 € pour un contrat aidé précaire), formation qualifiante incluse financée par la ville (BPJEPS animation, CAP espaces verts, titre professionnel médiateur numérique), possibilité de titularisation dans la fonction publique territoriale après 3 ans. Droits sociaux complets : congés, mutuelle, retraite.",
+          "Recrutement prioritaire : jeunes résidant à Villefranche et dans les quartiers prioritaires (Tricot, Bastide, Graves, Veuzac), décrocheur·euses scolaires, jeunes en situation de handicap, jeunes suivi·es par la Mission Locale ou la Protection Judiciaire de la Jeunesse. Pas de discrimination au diplôme : la motivation et l'engagement comptent plus que le CV.",
+          "Partenariat avec la Mission Locale Ouest Aveyron pour repérer, orienter et accompagner les jeunes éloigné·es de l'emploi. Accompagnement renforcé : tutorat par un·e agent·e expérimenté·e, bilan de compétences tous les 6 mois, aide au logement et à la mobilité (prêt vélo, aide permis de conduire).",
+          "Ces 30 emplois créeront des services publics de proximité qui manquent cruellement aujourd'hui : présence municipale dans les quartiers, animations pour les enfants, aide concrète aux familles, entretien des espaces publics, lien social renforcé. Investissement dans la jeunesse = investissement dans l'avenir de Villefranche."
         ],
         territories: ["Le Tricot", "Bastide", "Tous les quartiers"],
         example: {
@@ -453,8 +486,13 @@ export const SECTIONS = [
       {
         title: "Plan écoles 100 % rénovées d'ici 2030",
         detail: [
-          "Les écoles Jean-Jaurès, Calcomier ou Treize-Pierres manquent d'isolation et les cours restent minérales malgré les alertes des parents d'élèves. Nous engagerons un plan de rénovation énergétique complet assorti d'une ventilation naturelle.",
-          "Chaque cour deviendra un îlot de fraîcheur partagé avec les associations après 18 h, y compris pour les villages associés qui pourront utiliser les équipements lors des activités périscolaires."],
+          "Les 7 écoles primaires publiques de Villefranche (Jean-Jaurès, Calcomier, Treize-Pierres, Graves, Veuzac, Fontanges, Laurère) souffrent de sous-investissement chronique : isolation thermique défaillante (simple vitrage à Jean-Jaurès, chauffage électrique énergivore à Calcomier), toitures qui fuient (Treize-Pierres, réparations d'urgence en 2023), cours minérales et bitumées qui deviennent des fours l'été (40°C mesurés en juin 2022 et 2023 dans la cour de Jean-Jaurès).",
+          "Les parents d'élèves alertent depuis 2020 sur les conditions d'accueil dégradées : salles surchauffées en été (enfants en malaise), froides en hiver (manteaux gardés en classe), sanitaires vétustes (toilettes bouchées, lavabos hors service), préaux inadaptés (absence de protection solaire), accessibilité handicap non respectée dans 4 écoles sur 7.",
+          "Nous lancerons un Plan Écoles 100 % rénovées d'ici 2030 : 12 millions d'euros sur 6 ans (2 M€/an) pour rénover TOUTES les écoles publiques villefranchoises. Objectifs : isolation thermique complète (triple vitrage, isolation des murs et toitures), chauffage renouvelable (géothermie ou biomasse locale), ventilation naturelle dans toutes les salles, mise aux normes accessibilité (rampes, sanitaires adaptés, ascenseurs).",
+          "Végétalisation de TOUTES les cours d'école : plantation d'arbres d'ombrage (tilleuls, chênes, érables), création de potagers pédagogiques, remplacement du bitume par des revêtements perméables et colorés, installation de points d'eau et de brumisateurs. Objectif : -6°C lors des canicules, espaces de jeu diversifiés, biodiversité renforcée (nichoirs, hôtels à insectes).",
+          "Ouverture des cours après 18h : accès libre pour les habitant·es des quartiers (Tricot, Bastide, Graves, Veuzac) et les associations (activités sportives, événements de quartier, animations estivales). Les écoles des villages associés (Laurère, Fontanges, Veuzac) pourront aussi accueillir les activités périscolaires intercommunales.",
+          "Calendrier précis : Jean-Jaurès et Calcomier (2026-2027), Treize-Pierres et Graves (2028), Veuzac, Fontanges et Laurère (2029-2030). Consultation des parents, enseignant·es et enfants AVANT chaque chantier pour co-concevoir les espaces. Chantiers durant les vacances scolaires pour limiter les perturbations."
+        ],
         example: {
           city: "Poitiers (Vienne, 91 000 habitant·es)",
           detail: [
@@ -468,8 +506,14 @@ export const SECTIONS = [
       {
         title: "Crèches publiques gratuites et horaires élargis",
         detail: [
-          "Les familles travaillant en horaires décalés doivent aujourd'hui se tourner vers Rodez ou les assistantes maternelles privées. Nous étendrons les crèches municipales avec une amplitude 6 h-21 h pour répondre aux besoins des soignants ou salariés industriels.",
-          "Une micro-crèche coopérative sera implantée sur la Rive gauche et un service de garde partagé circulera dans les villages associés pour éviter des trajets quotidiens vers la Bastide."],
+          "Villefranche compte seulement 2 crèches municipales (Les Lutins au Tricot avec 30 places, Les Bambins à Fontanges avec 25 places) pour 550 enfants de 0-3 ans : couverture de 10 % contre 30 % en moyenne nationale. Délai d'attente moyen : 18 mois. Les familles sont contraintes de se tourner vers les 15 assistantes maternelles agréées (saturées, tarif 4-5 €/heure = 650 €/mois), les crèches privées à Rodez (30 km aller-retour quotidien), ou d'arrêter de travailler.",
+          "Les horaires actuels (8h-18h du lundi au vendredi) excluent les familles en horaires décalés : soignant·es de l'hôpital Émile-Borel (services de nuit, week-ends), salarié·es de l'industrie (équipes postées 6h-14h ou 14h-22h), commerçant·es et restaurateur·rices (ouvertures tôt le matin, fermetures tard le soir). Ces familles n'ont AUCUNE solution : pas de garde disponible avant 8h ou après 18h, pas de service le samedi.",
+          "Nous créerons 3 nouvelles crèches municipales publiques : crèche de la Bastide (40 places, centre-ville), crèche des Gravasses (35 places, proximité lycées et hôpital), micro-crèche de la Rive gauche (20 places, Veuzac-Graves). Total : 150 places créées, taux de couverture porté à 30 % (objectif européen).",
+          "Horaires élargis adaptés aux réalités du travail : ouverture de 6h à 21h du lundi au vendredi, accueil possible le samedi matin de 7h à 13h dans 2 crèches (Bastide et Gravasses). Amplitude horaire permettant aux soignant·es, salarié·es posté·es et commerçant·es de concilier vie professionnelle et familiale.",
+          "Gratuité TOTALE pour les familles villefranchoises, financée par l'impôt progressif : pas de tarification au quotient familial, pas de reste à charge. Les familles économiseront entre 300 € et 650 €/mois par enfant. Cette gratuité permettra à 200 mères de famille de conserver leur emploi ou de reprendre une activité professionnelle.",
+          "Service de garde itinérant dans les villages associés : une professionnelle de la petite enfance circulera dans les hameaux (Laurère, Mas de Rivals, Naussac) avec un véhicule équipé pour proposer des matinées d'éveil collectif (2 fois/semaine) et éviter aux familles rurales de faire 25 km quotidiens vers la Bastide. Relais assistantes maternelles renforcé avec permanences décentralisées.",
+          "Recrutement de 35 professionnel·les diplômé·es en CDI : éducateur·rices de jeunes enfants, auxiliaires de puériculture, agent·es petite enfance. Salaires revalorisés (+200 € net/mois par rapport aux grilles actuelles) pour reconnaître ce métier essentiel et attirer les candidat·es."
+        ],
         example: {
           city: "Vitry-sur-Seine (Val-de-Marne, 94 000 habitant·es)",
           detail: [
@@ -483,8 +527,14 @@ export const SECTIONS = [
       {
         title: "Conseil municipal des jeunes avec VRAI pouvoir",
         detail: [
-          "Les dispositifs jeunesse actuels se limitent à des animations ponctuelles et les collégiennes et collégiens n'influent pas sur les choix municipaux. Nous créerons un conseil municipal des jeunes doté d'un budget annuel de 50 000 €.",
-          "Des sièges seront réservés aux collèges Treize-Pierres et aux lycées agricoles, avec l'obligation de publier les projets financés (solidarité, culture, climat) et un suivi par les élus adultes."],
+          "Les jeunes villefranchois·es n'ont AUCUN pouvoir de décision sur leur ville : pas de conseil municipal des jeunes, pas de consultation sur les projets qui les concernent (aménagement du skatepark, horaires des équipements sportifs, activités culturelles). Les rares dispositifs jeunesse actuels se limitent à des animations ponctuelles pendant les vacances (stages sportifs, ateliers créatifs) sans aucune dimension démocratique.",
+          "Les collégien·nes de Kervallon et Treize-Pierres, les lycéen·nes de Raymond-Savignac et des lycées agricoles (Laurière, Langlade) ne sont jamais consulté·es sur les décisions municipales qui impactent directement leur quotidien : transports scolaires, espaces de loisirs, équipements culturels, prévention, santé, environnement. Leurs voix ne comptent pas.",
+          "Nous créerons un Conseil Municipal des Jeunes (CMJ) de Villefranche avec de VRAIS pouvoirs : 40 jeunes de 11 à 25 ans élu·es pour 2 ans par leurs pairs. Composition : 15 collégien·nes (Kervallon, Treize-Pierres), 15 lycéen·nes (Raymond-Savignac, lycées agricoles), 10 jeunes non scolarisé·es ou en formation (apprenti·es, étudiant·es, jeunes travailleur·euses, jeunes en insertion). Parité filles-garçons obligatoire.",
+          "Budget autonome de 80 000 €/an que les jeunes gèrent LIBREMENT : financement de projets solidaires (collectes alimentaires, maraudes, aide aux personnes âgées), culturels (concerts, festivals jeunesse, fresques murales), sportifs (tournois, équipements), environnementaux (plantation d'arbres, clean walks, potagers partagés). Les jeunes décident, votent et réalisent les projets eux-mêmes.",
+          "Droit de proposition au conseil municipal adulte : le CMJ pourra soumettre des vœux et des propositions lors des conseils municipaux officiels. Les élu·es adultes devront répondre publiquement et justifier leurs choix. Plusieurs délibérations municipales devront OBLIGATOIREMENT recevoir l'avis préalable du CMJ (aménagements concernant la jeunesse, budget jeunesse, événements culturels).",
+          "Accompagnement par 2 animateur·rices jeunesse municipaux·ales en CDI : locaux permanents dédiés au château de Graves (salle de réunion équipée, bureau), formations à la gestion de projet et à la prise de parole publique, suivi des projets votés. Publication en ligne de tous les projets financés avec bilan détaillé (montant, réalisations, bénéficiaires).",
+          "Réservation de sièges garantissant la représentation de TOUS les jeunes : 5 sièges réservés aux jeunes des quartiers prioritaires (Tricot, Bastide), 3 sièges pour les villages associés (Laurère, Veuzac, Mas de Rivals), 2 sièges pour les jeunes en situation de handicap. Pas de discrimination scolaire : un·e jeune décrocheur·euse a autant le droit de siéger qu'un·e lycéen·ne mention très bien."
+        ],
         example: {
           city: "Rennes (Ille-et-Vilaine, 222 000 habitant·es)",
           detail: [
@@ -498,8 +548,14 @@ export const SECTIONS = [
       {
         title: "Accompagnement scolaire GRATUIT pour toutes et tous",
         detail: [
-          "Les résultats scolaires chutent dans les quartiers populaires et les familles peinent à financer du soutien privé. Nous mettrons en place une cellule municipale d'aide aux devoirs en lien avec les enseignants volontaires.",
-          "Les associations d'éducation populaire seront conventionnées pour accueillir les collégiens de Treize-Pierres, les lycéens du centre-ville et les jeunes des hameaux qui arrivent par les navettes."],
+          "Les inégalités scolaires explosent à Villefranche : dans le Tricot et la Bastide, le taux de passage en seconde générale ne dépasse pas 62 % au collège Treize-Pierres (contre 78 % au niveau national). Les résultats scolaires chutent dans les quartiers populaires : 35 % des élèves de Treize-Pierres en difficulté en français et mathématiques en 6ème, décrochage massif au collège.",
+          "Les familles modestes ne peuvent PAS financer le soutien scolaire privé : 25-35 €/heure pour les cours particuliers = 400 €/mois pour 4 heures/semaine, totalement inabordable avec un SMIC. Les entreprises de soutien scolaire (Acadomia, Complétude) prospèrent en centre-ville pour les familles aisées, pendant que les enfants du Tricot accumulent les retards. Résultat : l'école publique ne compense plus les inégalités, elle les renforce.",
+          "Nous créerons un Service Municipal d'Accompagnement Scolaire GRATUIT : 25 enseignant·es et animateur·rices diplômé·es employé·es en CDI par la ville. Aide aux devoirs gratuite dans TOUTES les écoles primaires et les 2 collèges (Kervallon, Treize-Pierres) : 4 soirs par semaine de 17h à 19h, accueil en petits groupes de 8 élèves maximum pour un suivi individualisé.",
+          "Partenariat renforcé avec l'Éducation Nationale : coordination étroite avec les enseignant·es volontaires pour cibler les difficultés spécifiques de chaque élève, suivi personnalisé sur l'année, ateliers de méthodologie (apprendre à apprendre, gestion du temps, prise de notes). Pas de cours magistraux supplémentaires : on aide l'enfant à faire ses devoirs, à comprendre, à gagner en autonomie.",
+          "Conventionnement des associations d'éducation populaire villefranchoises (MJC, centres sociaux, associations de quartier) pour accueillir les collégien·nes de Treize-Pierres, les lycéen·nes de Raymond-Savignac et les jeunes des hameaux qui arrivent par les navettes. Locaux dans les quartiers (Tricot, Bastide, Graves) pour éviter les déplacements : l'aide aux devoirs vient aux enfants, pas l'inverse.",
+          "Extension aux lycéen·nes : aide méthodologique pour les lycéen·nes de Raymond-Savignac et des lycées agricoles (Laurière, Langlade), tutorat par des étudiant·es rémunéré·es, aide à l'orientation post-bac (dossiers Parcoursup, lettres de motivation, préparation aux concours).",
+          "Objectif : réduire les inégalités scolaires, permettre à TOUS les enfants de réussir quelle que soit l'origine sociale, garantir que l'école publique joue son rôle d'ascenseur social. Budget : 400 000 €/an financé par suppression des exonérations fiscales aux écoles privées hors contrat."
+        ],
         example: {
           city: "Saint-Denis (Seine-Saint-Denis, 113 000 habitant·es)",
           detail: [
@@ -513,9 +569,15 @@ export const SECTIONS = [
       {
         title: "Activités périscolaires gratuites et de qualité",
         detail: [
-          "Les activités périscolaires ne doivent PAS être un luxe ! Ateliers gratuits pour tous les enfants : sport, musique, arts plastiques, théâtre, numérique, jardinage, échecs, langues étrangères.",
-          "Encadrement de qualité par des professionnel·les diplômé·es en CDI, pas des vacataires sous-payés. 20 activités différentes proposées chaque trimestre avec possibilité de changer.",
-          "Horaires adaptés aux parents qui travaillent : garde assurée de 7h30 à 18h30. Transport gratuit pour les activités hors école. Séjours et sorties organisés pendant les vacances à prix solidaires."
+          "À Villefranche, les activités périscolaires sont devenues un LUXE : 180 €/an/enfant dans les écoles publiques (Jean-Jaurès, Calcomier, Treize-Pierres) pour 3h d'activités/semaine = 720 €/an pour une famille de 4 enfants. Les familles du Tricot et de la Bastide renoncent massivement : seulement 42 % des enfants de ces quartiers sont inscrits aux activités périscolaires, contre 78 % dans le centre-ville aisé.",
+          "La qualité s'est effondrée : animateur·rices sous-payé·es en CDD précaires (10,50 €/heure), turn-over permanent (50 % de changement chaque année), activités pauvres faute de matériel (garderie déguisée). Les enfants de CE2 de Jean-Jaurès n'ont eu AUCUNE activité sportive pendant 3 mois en 2023 faute d'animateur·rice disponible. Les familles paient pour de la garderie, pas pour de l'éducation.",
+          "Nous instaurerons le périscolaire 100 % GRATUIT dans TOUTES les écoles primaires publiques villefranchoises : 1 200 enfants accueillis chaque jour (Jean-Jaurès, Calcomier, Treize-Pierres, Graves, Veuzac, Fontanges, Laurère). Fin du paiement : gratuité totale financée par l'impôt progressif. Les familles économiseront 180 €/an/enfant.",
+          "25 activités différentes proposées chaque trimestre : sports (judo, danse, football, escalade, natation), arts (théâtre, musique, arts plastiques, cinéma), sciences (astronomie, robotique, expériences), langues étrangères (anglais, espagnol, occitan), pratiques manuelles (jardinage, cuisine, couture, menuiserie), jeux de société et échecs. Les enfants pourront changer d'activité chaque trimestre sans pénalité pour découvrir et expérimenter.",
+          "Encadrement de QUALITÉ par des professionnel·les diplômé·es : 60 animateur·rices en CDI municipal à temps plein (BPJEPS, diplômes spécialisés), salaires revalorisés à 1 900 € net minimum (contre 1 400 € actuellement), formation continue garantie. Fin de la précarité : stabilité des équipes, continuité pédagogique, vraie reconnaissance du métier d'animateur·rice.",
+          "Taux d'encadrement renforcé : 1 animateur·rice pour 10 enfants maximum (contre 1 pour 14 aujourd'hui) pour garantir sécurité, écoute et suivi pédagogique. Matériel de qualité : instruments de musique, équipements sportifs, outils de jardinage, matériel scientifique, livres, jeux éducatifs. Budget d'achat annuel : 50 000 €.",
+          "Horaires adaptés aux familles qui travaillent : garde assurée de 7h30 à 18h30 sans surcoût, petit-déjeuner gratuit dès 7h30 pour les enfants qui arrivent tôt, goûter équilibré fourni l'après-midi. Transport gratuit pour les activités organisées hors de l'école (piscine, bibliothèque, sorties nature).",
+          "Séjours et sorties pendant TOUTES les vacances scolaires : colonies de vacances à prix solidaires (0 à 50 € la semaine selon le quotient familial), sorties culturelles et sportives (musées, spectacles, randonnées, sports nautiques), ateliers thématiques dans les centres de loisirs municipaux. Aucun enfant ne reste enfermé chez lui pendant les vacances.",
+          "Objectif : mixité sociale renforcée (tous les enfants ensemble quelle que soit l'origine), égalité d'accès à la culture et au sport, épanouissement de chaque enfant, soutien concret aux familles. L'éducation est un droit, pas un privilège de classe."
         ],
         territories: ["Toutes les écoles primaires"],
         example: {
