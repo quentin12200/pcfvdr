@@ -6,23 +6,50 @@ import "./index.css";
 
 const JOIN_URL = "https://www.pcf.fr/adherer";
 const ActionCard = ({ action }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const contentId = React.useId();
+
   return (
-    <div className="rounded-3xl bg-gradient-to-br from-white to-red-50 border border-red-100 p-6 flex flex-col gap-4 shadow-sm">
-      <div>
-        <p className="text-xs uppercase tracking-[0.3em] text-red-500 font-semibold">Mesure communiste</p>
-        <h4 className="mt-2 text-xl font-semibold text-slate-900">{action.title}</h4>
-        <p className="mt-2 text-sm text-slate-700">{action.detail}</p>
-      </div>
-      {action.example && (
-        <div className="rounded-2xl border border-red-100 bg-white/80 p-4">
-          <p className="text-xs uppercase tracking-widest text-red-500 font-semibold">Déjà réalisé</p>
-          <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
-          <p className="mt-1 text-sm text-slate-600">{action.example.detail}</p>
+    <div className={`rounded-3xl border border-red-100 bg-white/80 shadow-sm transition-all ${isOpen ? "ring-2 ring-red-200" : "hover:border-red-200"}`}>
+      <button
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+        aria-controls={contentId}
+        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+      >
+        <div>
+          <p className="text-xs uppercase tracking-[0.3em] text-red-500 font-semibold">Mesure communiste</p>
+          <h4 className="mt-2 text-xl font-semibold text-slate-900">{action.title}</h4>
+          <p className="mt-2 text-sm text-slate-600">{isOpen ? "Fiche détaillée ouverte" : "Cliquer pour dérouler la fiche"}</p>
         </div>
-      )}
-      <div className="rounded-2xl border border-dashed border-red-200 bg-white/60 p-4 text-sm text-slate-700 leading-relaxed">
-        Cette fiche est prête pour les ateliers populaires. Ajoutez vos idées lors des réunions de quartier pour la mettre en
-        œuvre dès 2026.
+        <span
+          className={`flex h-10 w-10 items-center justify-center rounded-full border border-red-200 bg-white text-red-600 transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
+          aria-hidden
+        >
+          ↓
+        </span>
+      </button>
+      <div
+        id={contentId}
+        className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
+      >
+        <div className="px-6 pb-6 flex flex-col gap-5">
+          <p className="text-base text-slate-700 leading-relaxed">{action.detail}</p>
+          {action.example && (
+            <div className="rounded-2xl border border-red-100 bg-white p-4">
+              <p className="text-xs uppercase tracking-widest text-red-500 font-semibold">Déjà réalisé</p>
+              <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
+              <p className="mt-1 text-sm text-slate-600">{action.example.detail}</p>
+            </div>
+          )}
+          <div className="rounded-2xl border border-dashed border-red-200 bg-red-50/60 p-4 text-sm text-slate-700 leading-relaxed">
+            Cette fiche est prête pour les ateliers populaires. Ajoutez vos idées lors des réunions de quartier pour la mettre
+            en œuvre dès 2026.
+          </div>
+        </div>
       </div>
     </div>
   );
