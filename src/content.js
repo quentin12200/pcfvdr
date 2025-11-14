@@ -8,10 +8,6 @@ export const INTRO = {
   ],
   commitments: [
     { title: "Transparence totale", detail: "Publication de toutes nos propositions et budgets estimatifs" },
-    {
-      title: "Actions immédiates",
-      detail: "Caisse de solidarité pour les factures d’énergie et l’alimentation, activée avec les associations locales dès 2024",
-    },
     { title: "Appel aux candidatures populaires", detail: "Accompagnement de citoyennes et citoyens prêts à porter le programme" }
   ],
   signature: "Document présenté par Patrick Cabandé, responsable des communistes villefranchois"
