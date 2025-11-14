@@ -19,11 +19,10 @@ const ActionCard = ({ action }) => {
   return (
     <article className="rounded-[28px] border border-red-100/80 bg-white/90 shadow-[0_20px_60px_rgba(15,23,42,0.08)] p-6 flex flex-col gap-6">
       <header className="space-y-2">
-        <p className="text-[10px] uppercase tracking-[0.4em] text-red-500 font-semibold">Mesure communiste expliquée</p>
         <h4 className="text-2xl font-semibold text-slate-900">{action.title}</h4>
         <p className="text-xs text-slate-500 leading-relaxed">
-          Chaque fiche reprend le diagnostic du PDF municipal, précise le financement public prévu et rappelle le contrôle citoyen
-          porté par les militantes et militants du PCF pour une mise en œuvre dès 2026.
+          Chaque fiche s’accompagne d’un extrait du programme 2026 et d’un rappel du contrôle citoyen porté par les militantes et
+          militants communistes.
         </p>
       </header>
 
@@ -36,11 +35,11 @@ const ActionCard = ({ action }) => {
 
       {measures.length > 0 && (
         <div className="space-y-3">
-          <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-semibold">Ce que dit le programme PDF</p>
-          <ul className="space-y-2 text-sm text-slate-700 leading-relaxed">
+          <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
             {measures.map((paragraph, index) => (
-              <li key={index} className="pl-4 border-l-2 border-red-200">
-                {paragraph}
+              <li key={index} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+                <p className="text-[10px] uppercase tracking-[0.4em] text-red-500 font-semibold">Extrait du programme</p>
+                <p className="mt-2">{paragraph}</p>
               </li>
             ))}
           </ul>
@@ -96,11 +95,11 @@ const ThemeSheets = () => {
       <div className="max-w-6xl mx-auto px-4 py-16 space-y-12">
         <div className="text-center space-y-4">
           <p className="text-xs uppercase tracking-[0.4em] text-red-500">Grands thèmes</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Fiches du programme PDF, réécrites pour agir</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Extraits du programme PDF prêts à être appliqués</h2>
           <p className="text-base text-slate-600 max-w-4xl mx-auto">
-            Chaque bloc met côte à côte le diagnostic villefranchois, la mesure financée et le contrôle citoyen. Vous pouvez ainsi
-            reprendre mot pour mot ce que contient le PDF distribué sur les marchés et vérifier comment ces engagements seront mis
-            en œuvre dès 2026.
+            Chaque bloc rassemble diagnostic villefranchois, extrait authentifié du programme et modalités de contrôle citoyen. Vous
+            pouvez ainsi afficher tel quel le contenu du PDF distribué sur les marchés et suivre comment ces engagements seront mis en
+            œuvre dès 2026.
           </p>
         </div>
         <div className="space-y-12">
