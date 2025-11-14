@@ -1,10 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { INTRO, SECTIONS, PARTICIPER, STATS, POUR_ALLER_PLUS_LOIN } from "./content";
 import logoPcf from "../logo.png";
 import bandeau from "../bandeau.png";
 import "./index.css";
 
 const JOIN_URL = "https://www.pcf.fr/adherer";
+
+// Hook pour détecter quand un élément entre dans le viewport
+const useIntersectionObserver = (options = {}) => {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    }, options);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return [ref, isVisible];
+};
+
+// Composant pour animer les chiffres
+const AnimatedCounter = ({ target, suffix = "", prefix = "", duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.3 });
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (isVisible && !hasAnimated.current) {
+      hasAnimated.current = true;
+      let start = 0;
+      const increment = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          setCount(target);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(start));
+        }
+      }, 16);
+      return () => clearInterval(timer);
+    }
+  }, [isVisible, target, duration]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{count.toLocaleString()}{suffix}
+    </span>
+  );
+};
 
 // Fonction de génération de texte de partage
 const generateShareText = (action, sectionTitle) => {
@@ -807,156 +864,459 @@ const ComparateurAvantApres = () => {
   );
 };
 
-// Carte interactive de Villefranche
-const CarteInteractive = () => {
-  const [selectedProjet, setSelectedProjet] = React.useState(null);
+// Bouton flottant pour accéder aux mesures
+const FloatingButton = () => {
+  const [isVisible, setIsVisible] = React.useState(false);
 
-  const projets = [
-    {
-      id: 1,
-      nom: "Centre de santé municipale",
-      icon: "🏥",
-      description: "Consultations à 20€, médecins généralistes et spécialistes",
-      zone: "Centre-ville",
-      top: "45%",
-      left: "50%",
-      color: "green"
-    },
-    {
-      id: 2,
-      nom: "Jardins partagés",
-      icon: "🌱",
-      description: "15 parcelles cultivables pour les habitants",
-      zone: "Quartier Nord",
-      top: "25%",
-      left: "40%",
-      color: "teal"
-    },
-    {
-      id: 3,
-      nom: "Transports gratuits",
-      icon: "🚌",
-      description: "Bus urbains 100% gratuits sur toutes les lignes",
-      zone: "Toute la ville",
-      top: "60%",
-      left: "35%",
-      color: "orange"
-    },
-    {
-      id: 4,
-      nom: "Écoles cantines gratuites",
-      icon: "🍽️",
-      description: "Repas gratuits dans toutes les écoles",
-      zone: "Toutes les écoles",
-      top: "40%",
-      left: "70%",
-      color: "purple"
-    },
-    {
-      id: 5,
-      nom: "Maison des associations",
-      icon: "🏛️",
-      description: "Locaux municipaux gratuits pour la vie associative",
-      zone: "Centre-ville",
-      top: "55%",
-      left: "55%",
-      color: "blue"
-    },
-    {
-      id: 6,
-      nom: "Budget participatif",
-      icon: "🗳️",
-      description: "300 000€/an décidés par les citoyens",
-      zone: "Projets de quartier",
-      top: "70%",
-      left: "60%",
-      color: "red"
+  React.useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  const scrollToMesures = () => {
+    const element = document.getElementById('themes');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  ];
-
-  const colorClasses = {
-    purple: "bg-purple-600 border-purple-400",
-    orange: "bg-orange-600 border-orange-400",
-    blue: "bg-blue-600 border-blue-400",
-    red: "bg-red-600 border-red-400",
-    green: "bg-green-600 border-green-400",
-    teal: "bg-teal-600 border-teal-400"
   };
 
   return (
-    <section className="bg-gradient-to-br from-slate-100 to-slate-200 py-16">
-      <div className="max-w-6xl mx-auto px-4">
+    <>
+      {isVisible && (
+        <button
+          onClick={scrollToMesures}
+          className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-black px-6 py-4 rounded-full shadow-2xl transition-all hover:scale-110 animate-bounce"
+          style={{ boxShadow: '0 10px 40px rgba(220, 38, 38, 0.4)' }}
+        >
+          <div className="flex items-center gap-2">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="hidden sm:inline">Voir les mesures</span>
+            <span className="sm:hidden">📋</span>
+          </div>
+        </button>
+      )}
+    </>
+  );
+};
+
+// Barre de recherche pour les mesures
+const SearchBar = () => {
+  const [searchTerm, setSearchTerm] = React.useState('');
+  const [results, setResults] = React.useState([]);
+  const [isSearching, setIsSearching] = React.useState(false);
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    if (term.length < 2) {
+      setResults([]);
+      setIsSearching(false);
+      return;
+    }
+
+    setIsSearching(true);
+    const searchResults = [];
+    SECTIONS.forEach(section => {
+      section.actions.forEach(action => {
+        const searchString = `${action.title} ${JSON.stringify(action.detail)} ${action.example?.city || ''}`.toLowerCase();
+        if (searchString.includes(term.toLowerCase())) {
+          searchResults.push({
+            action,
+            sectionTitle: section.title,
+            sectionIcon: section.icon,
+            sectionId: section.id,
+            sectionColor: section.color
+          });
+        }
+      });
+    });
+    setResults(searchResults);
+  };
+
+  return (
+    <div className="bg-white border-y-2 border-slate-200 py-8 sticky top-[72px] z-40 shadow-md">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="relative">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => handleSearch(e.target.value)}
+            placeholder="🔍 Rechercher une mesure (ex: cantine, transport, logement...)"
+            className="w-full px-6 py-4 pr-12 text-lg border-3 border-slate-300 rounded-2xl focus:outline-none focus:border-red-500 focus:ring-4 focus:ring-red-100 transition-all"
+          />
+          {searchTerm && (
+            <button
+              onClick={() => handleSearch('')}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
+        </div>
+
+        {isSearching && results.length > 0 && (
+          <div className="mt-4 bg-slate-50 rounded-2xl border-2 border-slate-200 p-4 max-h-96 overflow-y-auto">
+            <p className="text-sm font-bold text-slate-500 mb-3">
+              {results.length} résultat{results.length > 1 ? 's' : ''} trouvé{results.length > 1 ? 's' : ''} :
+            </p>
+            <div className="space-y-2">
+              {results.map((result, index) => (
+                <a
+                  key={index}
+                  href={`#themes`}
+                  className="block p-3 bg-white rounded-xl border-2 border-slate-200 hover:border-red-400 hover:shadow-lg transition-all"
+                  onClick={() => setIsSearching(false)}
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl flex-shrink-0">{result.sectionIcon}</span>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-slate-900">{result.action.title}</h4>
+                      <p className="text-xs text-slate-500 mt-1">
+                        📂 {result.sectionTitle}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {isSearching && results.length === 0 && (
+          <div className="mt-4 bg-yellow-50 rounded-2xl border-2 border-yellow-200 p-4 text-center">
+            <p className="text-sm text-yellow-800">
+              Aucune mesure trouvée pour "{searchTerm}"
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// Système de gestion des avis
+const AvisSection = () => {
+  const [avis, setAvis] = React.useState([]);
+  const [nom, setNom] = React.useState('');
+  const [commentaire, setCommentaire] = React.useState('');
+  const [submitted, setSubmitted] = React.useState(false);
+
+  React.useEffect(() => {
+    const storedAvis = localStorage.getItem('avis_pcf_villefranche');
+    if (storedAvis) {
+      setAvis(JSON.parse(storedAvis).filter(a => a.valide));
+    }
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!nom || !commentaire) return;
+
+    const newAvis = {
+      id: Date.now(),
+      nom,
+      commentaire,
+      date: new Date().toISOString(),
+      valide: false
+    };
+
+    const allAvis = JSON.parse(localStorage.getItem('avis_pcf_villefranche') || '[]');
+    allAvis.push(newAvis);
+    localStorage.setItem('avis_pcf_villefranche', JSON.stringify(allAvis));
+
+    setNom('');
+    setCommentaire('');
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
+  };
+
+  return (
+    <section className="bg-gradient-to-br from-slate-50 to-slate-100 py-16">
+      <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-black text-slate-900 mb-3">📍 Carte des projets</h2>
+          <h2 className="text-4xl font-black text-slate-900 mb-3">💬 Ils soutiennent notre programme</h2>
           <p className="text-xl text-slate-600">
-            Nos mesures localisées à Villefranche
+            Partagez votre avis sur nos propositions
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-2xl p-8">
-          {/* Carte stylisée */}
-          <div className="relative bg-gradient-to-br from-blue-100 to-green-100 rounded-2xl overflow-hidden border-4 border-slate-300" style={{ height: '500px' }}>
-            {/* Fond de carte stylisé */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400 to-green-400"></div>
-            </div>
-
-            {/* Nom de la ville */}
-            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-6 py-2 rounded-full font-black text-lg shadow-xl z-10">
-              🏛️ VILLEFRANCHE
-            </div>
-
-            {/* Projets sur la carte */}
-            {projets.map(projet => (
-              <div
-                key={projet.id}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
-                style={{ top: projet.top, left: projet.left }}
-                onClick={() => setSelectedProjet(projet.id === selectedProjet ? null : projet.id)}
-              >
-                <div className={`${colorClasses[projet.color]} border-4 rounded-full w-16 h-16 flex items-center justify-center text-3xl shadow-xl transition-all group-hover:scale-125 ${
-                  selectedProjet === projet.id ? 'scale-150 ring-4 ring-white' : ''
-                }`}>
-                  {projet.icon}
-                </div>
-
-                {/* Info-bulle */}
-                {selectedProjet === projet.id && (
-                  <div className="absolute top-20 left-1/2 transform -translate-x-1/2 bg-white rounded-xl shadow-2xl p-4 w-64 z-20 border-4 border-slate-900 animate-pulse">
-                    <h4 className="font-black text-slate-900 mb-2">{projet.nom}</h4>
-                    <p className="text-sm text-slate-600 mb-2">{projet.description}</p>
-                    <p className="text-xs font-bold text-slate-500">📍 {projet.zone}</p>
+        {/* Avis validés */}
+        {avis.length > 0 && (
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {avis.map(a => (
+              <div key={a.id} className="bg-white rounded-2xl p-6 border-2 border-slate-200 shadow-lg">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl flex-shrink-0">
+                    👤
                   </div>
-                )}
+                  <div>
+                    <h4 className="font-bold text-slate-900">{a.nom}</h4>
+                    <p className="text-xs text-slate-500">
+                      {new Date(a.date).toLocaleDateString('fr-FR')}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-slate-700 italic">"{a.commentaire}"</p>
               </div>
             ))}
           </div>
+        )}
 
-          {/* Légende */}
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
-            {projets.map(projet => (
-              <div
-                key={projet.id}
-                className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-slate-400 cursor-pointer transition-all"
-                onClick={() => setSelectedProjet(projet.id === selectedProjet ? null : projet.id)}
-              >
-                <div className={`${colorClasses[projet.color]} border-2 rounded-full w-12 h-12 flex items-center justify-center text-2xl flex-shrink-0`}>
-                  {projet.icon}
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-900">{projet.nom}</p>
-                  <p className="text-xs text-slate-500">{projet.zone}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Formulaire */}
+        <div className="bg-white rounded-3xl shadow-2xl p-8 border-2 border-slate-200">
+          <h3 className="text-2xl font-black text-slate-900 mb-6">✍️ Laissez votre avis</h3>
 
-          <p className="text-center mt-6 text-sm text-slate-500 italic">
-            💡 Cliquez sur les icônes pour en savoir plus
-          </p>
+          {submitted && (
+            <div className="mb-6 bg-green-50 border-2 border-green-300 rounded-xl p-4 text-green-800 font-bold animate-pulse">
+              ✅ Merci ! Votre avis sera publié après validation.
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-2">
+                Votre nom ou pseudo
+              </label>
+              <input
+                type="text"
+                value={nom}
+                onChange={(e) => setNom(e.target.value)}
+                placeholder="Ex: Marie D., Habitant de Villefranche"
+                className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-2">
+                Votre avis sur le programme
+              </label>
+              <textarea
+                value={commentaire}
+                onChange={(e) => setCommentaire(e.target.value)}
+                placeholder="Dites-nous ce que vous pensez de nos propositions..."
+                rows={4}
+                className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-black text-lg py-4 rounded-xl transition-all hover:scale-105 shadow-xl"
+            >
+              📤 ENVOYER MON AVIS
+            </button>
+
+            <p className="text-xs text-slate-500 text-center">
+              Votre avis sera vérifié avant publication
+            </p>
+          </form>
         </div>
       </div>
     </section>
+  );
+};
+
+// Panel administrateur (discret)
+const AdminPanel = () => {
+  const [isAdmin, setIsAdmin] = React.useState(false);
+  const [password, setPassword] = React.useState('');
+  const [avisEnAttente, setAvisEnAttente] = React.useState([]);
+
+  const loadAvis = () => {
+    const allAvis = JSON.parse(localStorage.getItem('avis_pcf_villefranche') || '[]');
+    setAvisEnAttente(allAvis.filter(a => !a.valide));
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (password === 'pcfvillefranche2026') {
+      setIsAdmin(true);
+      loadAvis();
+    } else {
+      alert('Mot de passe incorrect');
+    }
+  };
+
+  const validerAvis = (id) => {
+    const allAvis = JSON.parse(localStorage.getItem('avis_pcf_villefranche') || '[]');
+    const updated = allAvis.map(a => a.id === id ? { ...a, valide: true } : a);
+    localStorage.setItem('avis_pcf_villefranche', JSON.stringify(updated));
+    loadAvis();
+    window.location.reload();
+  };
+
+  const supprimerAvis = (id) => {
+    const allAvis = JSON.parse(localStorage.getItem('avis_pcf_villefranche') || '[]');
+    const filtered = allAvis.filter(a => a.id !== id);
+    localStorage.setItem('avis_pcf_villefranche', JSON.stringify(filtered));
+    loadAvis();
+  };
+
+  if (!isAdmin) {
+    return (
+      <div className="bg-slate-900 text-white py-8">
+        <div className="max-w-md mx-auto px-4">
+          <form onSubmit={handleLogin} className="bg-slate-800 rounded-xl p-6">
+            <h3 className="text-lg font-bold mb-4">🔐 Administration</h3>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Mot de passe"
+              className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white mb-4"
+            />
+            <button
+              type="submit"
+              className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded-lg"
+            >
+              Connexion
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-slate-900 text-white py-8">
+      <div className="max-w-6xl mx-auto px-4">
+        <h3 className="text-2xl font-black mb-6">👮 Gestion des avis ({avisEnAttente.length} en attente)</h3>
+
+        {avisEnAttente.length === 0 && (
+          <p className="text-slate-400">Aucun avis en attente de validation.</p>
+        )}
+
+        <div className="grid md:grid-cols-2 gap-4">
+          {avisEnAttente.map(a => (
+            <div key={a.id} className="bg-slate-800 rounded-xl p-4 border border-slate-700">
+              <div className="flex justify-between items-start mb-3">
+                <div>
+                  <h4 className="font-bold">{a.nom}</h4>
+                  <p className="text-xs text-slate-400">
+                    {new Date(a.date).toLocaleString('fr-FR')}
+                  </p>
+                </div>
+              </div>
+              <p className="text-sm text-slate-300 mb-4 italic">"{a.commentaire}"</p>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => validerAvis(a.id)}
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg"
+                >
+                  ✅ Valider
+                </button>
+                <button
+                  onClick={() => supprimerAvis(a.id)}
+                  className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded-lg"
+                >
+                  ❌ Supprimer
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button
+          onClick={() => setIsAdmin(false)}
+          className="mt-6 bg-slate-700 hover:bg-slate-600 text-white font-bold px-6 py-2 rounded-lg"
+        >
+          🚪 Déconnexion
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// Footer avec mentions légales
+const Footer = () => {
+  return (
+    <footer className="bg-slate-900 text-white border-t-4 border-red-600">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          {/* Colonne 1 */}
+          <div>
+            <h4 className="text-xl font-black mb-4 text-red-400">📍 PCF Villefranche</h4>
+            <p className="text-slate-300 text-sm mb-3">
+              Parti Communiste Français<br />
+              Section de Villefranche
+            </p>
+            <p className="text-slate-400 text-xs">
+              Programme municipal 2026<br />
+              Pour une ville solidaire et démocratique
+            </p>
+          </div>
+
+          {/* Colonne 2 */}
+          <div>
+            <h4 className="text-xl font-black mb-4 text-red-400">🔗 Liens utiles</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="#themes" className="text-slate-300 hover:text-white transition-colors">
+                  📋 Notre programme
+                </a>
+              </li>
+              <li>
+                <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition-colors">
+                  🤝 Adhérer au PCF
+                </a>
+              </li>
+              <li>
+                <a href="https://www.pcf.fr" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition-colors">
+                  🌐 PCF National
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Colonne 3 */}
+          <div>
+            <h4 className="text-xl font-black mb-4 text-red-400">⚖️ Informations légales</h4>
+            <ul className="space-y-2 text-sm">
+              <li className="text-slate-300">
+                <strong>Éditeur :</strong> PCF Section Villefranche
+              </li>
+              <li className="text-slate-300">
+                <strong>Hébergement :</strong> Site local
+              </li>
+              <li className="text-slate-400 text-xs mt-4">
+                Les données personnelles collectées via le formulaire d'avis sont stockées localement et ne sont pas transmises à des tiers.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Ligne de séparation */}
+        <div className="border-t border-slate-700 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-slate-400 text-sm">
+              © 2026 PCF Villefranche - Tous droits réservés
+            </p>
+            <div className="flex gap-4">
+              <a href="#mentions-legales" className="text-slate-400 hover:text-white text-sm transition-colors">
+                Mentions légales
+              </a>
+              <span className="text-slate-600">•</span>
+              <a href="#admin" className="text-slate-600 hover:text-slate-400 text-xs transition-colors">
+                Admin
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 
@@ -1068,13 +1428,29 @@ const StatsPage = ({ onBack }) => {
             ))}
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {STATS.highlights.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-red-100 bg-red-50/50 p-5">
-                <p className="text-sm uppercase tracking-widest text-red-500 font-semibold">{stat.label}</p>
-                <p className="mt-2 text-2xl font-bold text-slate-900">{stat.value}</p>
-                <p className="mt-2 text-xs text-slate-500">{stat.source}</p>
-              </div>
-            ))}
+            {STATS.highlights.map((stat) => {
+              // Extraire le nombre pour l'animation
+              const match = stat.value.match(/(\d+[\s\d]*)/);
+              const hasNumber = match && match[1];
+              const number = hasNumber ? parseInt(match[1].replace(/\s/g, '')) : null;
+
+              return (
+                <div key={stat.label} className="rounded-2xl border border-red-100 bg-red-50/50 p-5">
+                  <p className="text-sm uppercase tracking-widest text-red-500 font-semibold">{stat.label}</p>
+                  <p className="mt-2 text-2xl font-bold text-slate-900">
+                    {number ? (
+                      <>
+                        <AnimatedCounter target={number} />
+                        {stat.value.replace(match[0], '')}
+                      </>
+                    ) : (
+                      stat.value
+                    )}
+                  </p>
+                  <p className="mt-2 text-xs text-slate-500">{stat.source}</p>
+                </div>
+              );
+            })}
           </div>
           <ul className="mt-8 space-y-3 text-sm text-slate-700">
             {STATS.socio.map((item) => (
@@ -1286,9 +1662,6 @@ export default function App() {
           {/* Comparateur Avant/Après */}
           <ComparateurAvantApres />
 
-          {/* Carte interactive */}
-          <CarteInteractive />
-
           {/* Section Compétences Municipales */}
           <section className="bg-slate-50 border-b border-slate-200">
             <div className="max-w-7xl mx-auto px-4 py-16">
@@ -1410,6 +1783,8 @@ export default function App() {
           </div>
         </section>
 
+        {/* Barre de recherche pour les mesures */}
+        <SearchBar />
 
         <ThemeSheets />
 
@@ -1467,15 +1842,19 @@ export default function App() {
       </main>
       )}
 
-      <footer className="bg-white border-t border-red-100">
-        <div className="max-w-6xl mx-auto px-4 py-8 flex flex-wrap gap-4 items-center justify-between text-sm text-slate-600">
-          <div>
-            <p className="font-bold text-slate-900">PCF Villefranchois</p>
-            <p>Programme partagé 2026 – Contribution libre pour les futures listes citoyennes.</p>
-          </div>
-          <p className="text-slate-500">Conception : collectif militant • Impression libre</p>
-        </div>
-      </footer>
+      {/* Section avis */}
+      <AvisSection />
+
+      {/* Panel admin (discret, accessible via #admin) */}
+      <div id="admin">
+        <AdminPanel />
+      </div>
+
+      {/* Footer avec mentions légales */}
+      <Footer />
+
+      {/* Bouton flottant pour accéder aux mesures */}
+      <FloatingButton />
     </div>
   );
 }

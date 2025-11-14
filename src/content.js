@@ -314,10 +314,11 @@ export const SECTIONS = [
         }
       },
       {
-        title: "Transports publics gratuits et pistes cyclables sécurisées",
+        title: "Basti'Bus pérennisé, gratuit et fréquence doublée",
         detail: [
-          "Les bus Bastibus (3 lignes) s'arrêtent à 19h30, rendant impossible le retour des lycéen·nes des Gravasses après les activités. Fréquence insuffisante : seulement 4-5 bus/jour sur certaines lignes. Tarif de 1,50 € le trajet : 60 €/mois pour un·e lycéen·ne, inabordable pour les familles du Tricot.",
-          "Gratuité immédiate pour les moins de 26 ans, puis extension progressive vers la gratuité totale. Renforcement massif de l'offre : passage toutes les 20 minutes sur les lignes structurantes (Bastide-Gravasses-Lycées), horaires étendus jusqu'à 22h en semaine, service le dimanche.",
+          "Le Basti'Bus (3 lignes existantes) s'arrête à 19h30, rendant impossible le retour des lycéen·nes des Gravasses après les activités. Fréquence insuffisante : seulement 4-5 bus/jour sur certaines lignes, horaires inadaptés aux travailleurs (départs trop tardifs le matin, arrêts trop précoces le soir). Tarif de 1,50 € le trajet : 60 €/mois pour un·e lycéen·ne, inabordable pour les familles du Tricot.",
+          "Nous PÉRENNISONS le Basti'Bus en service permanent et DOUBLONS sa fréquence : passage toutes les 20 minutes sur les lignes structurantes (Bastide-Gravasses-Lycées), horaires adaptés aux horaires de travail (premier départ 6h30, dernier bus 22h en semaine), service le dimanche et jours fériés pour l'accès aux loisirs.",
+          "Gratuité immédiate pour les moins de 26 ans, puis extension progressive vers la gratuité totale. Le Basti'Bus devient un vrai service public accessible à tous, tout le temps.",
           "Création de 15 km de pistes cyclables sécurisées et continues : axe Bastide-Veuzac (D911), axe Tricot-Graves-Lycées, piste le long de l'Aveyron. Modernisation des pôles d'échanges : Tricot (parking relais + vélostations), gare SNCF (consignes vélos sécurisées). Navettes quotidiennes vers les hameaux du Ségala (Laurère, Mas de Rivals) : 2 allers-retours/jour pour rompre l'isolement.",
           "Bataille intercommunale : nous exigerons un contrat de mobilité ambitieux avec correspondances directes Bastide-Veuzac dès 6h30 pour les salarié·es posté·es de l'industrie."
         ],
