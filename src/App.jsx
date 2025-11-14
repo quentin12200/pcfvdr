@@ -110,9 +110,6 @@ const ThemeSheets = () => {
                     <div className="flex-1 rounded-3xl border border-red-100 bg-gradient-to-br from-red-50 to-white p-5 text-sm text-red-900">
                       <p className="text-[11px] uppercase tracking-[0.4em] text-red-500 font-semibold">Fil rouge budgétaire</p>
                       <p className="mt-2 text-base font-semibold">{section.focus}</p>
-                      <p className="mt-3 text-xs text-red-500">
-                        Cette orientation est rappelée dans chaque atelier populaire pour garantir financement public maîtrisé et suivi citoyen.
-                      </p>
                     </div>
                   )}
                 </div>
@@ -344,19 +341,7 @@ export default function App() {
               </div>
             </div>
             <div className="rounded-3xl bg-white border border-red-100 p-6 space-y-5">
-              <h3 className="text-lg font-semibold text-slate-900">Comment agir</h3>
-              <ul className="space-y-3 text-sm text-slate-700">
-                {PARTICIPER.steps.map((step) => (
-                  <li key={step.title} className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-red-600" aria-hidden></span>
-                    <div>
-                      <p className="font-semibold text-slate-900">{step.title}</p>
-                      <p>{step.detail}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-2 flex flex-col gap-3">
+              <div className="flex flex-col gap-3">
                 <a
                   href={JOIN_URL}
                   target="_blank"
