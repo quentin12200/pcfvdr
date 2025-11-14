@@ -23,15 +23,14 @@ export const SECTIONS = [
       "Refonder la démocratie locale en donnant la parole aux quartiers – de la Bastide à la Rive droite – tout en ouvrant les finances publiques et en imposant l’éthique républicaine aux futurs élus.",
     actions: [
       {
-        title: "Assemblées citoyennes dotées d’un droit de veto",
+        title: "Assemblées citoyennes dotées d'un droit de veto",
         detail: [
           "Les conseils consultatifs de quartier ont disparu à Villefranche et les riveraines et riverains n'ont plus d'espace pour contester les décisions prises à la Bastide. Nous proposons d'installer des assemblées permanentes par quartier, dotées d'un secrétariat et d'une dotation budgétaire minimale de 50 000 € chacune.",
           "Ces assemblées pourront déclencher un référendum local si 5 % des électeurs signent une pétition, suspendre une décision municipale par un veto motivé et publieront chaque trimestre leurs comptes rendus pour que chacun puisse suivre les arbitrages."],
         example: {
           city: "Saillans (Drôme)",
-          detail: "L’assemblée des habitantes et habitants valide chaque décision municipale depuis 2014."
-        },
-        validations: 74
+          detail: "L'assemblée des habitantes et habitants valide chaque décision municipale depuis 2014."
+        }
       },
       {
         title: "Budget participatif porté à 5 %",
@@ -41,8 +40,7 @@ export const SECTIONS = [
         example: {
           city: "Grenoble",
           detail: "5 M€ sont fléchés chaque année vers des projets décidés par les habitantes et habitants."
-        },
-        validations: 58
+        }
       },
       {
         title: "Charte éthique et révocation citoyenne",
@@ -52,8 +50,7 @@ export const SECTIONS = [
         example: {
           city: "Kingersheim (Haut-Rhin)",
           detail: "Tous les élus signent une charte éthique publique depuis plus de dix ans."
-        },
-        validations: 62
+        }
       },
       {
         title: "Observatoire des services publics",
@@ -63,8 +60,7 @@ export const SECTIONS = [
         example: {
           city: "Paris",
           detail: "Les indicateurs de services publics sont publiés en open data chaque trimestre."
-        },
-        validations: 41
+        }
       }
     ],
     focus: "La Ville doit redevenir exemplaire : zéro euro sans contrôle citoyen."
@@ -85,8 +81,7 @@ export const SECTIONS = [
         example: {
           city: "Roubaix",
           detail: "La Maison du Peuple mutualise guichets sociaux, numériques et accompagnement juridique."
-        },
-        validations: 69
+        }
       },
       {
         title: "Centre municipal de santé",
@@ -96,8 +91,7 @@ export const SECTIONS = [
         example: {
           city: "Aubervilliers",
           detail: "Le centre municipal de santé y salarie généralistes et spécialistes depuis 1935."
-        },
-        validations: 77
+        }
       },
       {
         title: "Plan logement Bastide/Tricot",
@@ -106,9 +100,8 @@ export const SECTIONS = [
           "Une OPAH-RU sur dix ans permettra de rénover 700 logements, l'office foncier solidaire bloquera la spéculation et les dents creuses seront mobilisées pour créer du logement social dans les deux rives."],
         example: {
           city: "Bègles",
-          detail: "L’office foncier solidaire bloque la spéculation et sécurise l’accession sociale."
-        },
-        validations: 83
+          detail: "L'office foncier solidaire bloque la spéculation et sécurise l'accession sociale."
+        }
       },
       {
         title: "Cantines locales et sociales",
@@ -117,9 +110,21 @@ export const SECTIONS = [
           "Les menus à 1 € seront accessibles sous condition de quotient familial, complétés par des ateliers cuisine populaire animés dans chaque école, centre social et maison de hameau."],
         example: {
           city: "Mouans-Sartoux",
-          detail: "La ferme communale permet d’atteindre 100 % de bio et des tarifs accessibles."
-        },
-        validations: 64
+          detail: "La ferme communale permet d'atteindre 100 % de bio et des tarifs accessibles."
+        }
+      },
+      {
+        title: "Accès au numérique pour toutes et tous",
+        detail: [
+          "La fracture numérique frappe durement les personnes âgées, les précaires et les habitants des hameaux. Les démarches administratives 100 % en ligne excluent une partie de la population.",
+          "Nous créerons des points d'accès numérique gratuits dans chaque quartier avec accompagnement par des médiateur·rices formé·es. Ateliers hebdomadaires gratuits : utiliser internet, faire ses démarches CAF/impôts, protéger ses données.",
+          "Wifi public gratuit dans tous les équipements municipaux, places publiques et zones prioritaires. Prêt gratuit d'ordinateurs et tablettes pour les familles qui en ont besoin. Partenariat avec des associations d'insertion pour recycler et redistribuer du matériel informatique."
+        ],
+        territories: ["Bastide", "Le Tricot", "Hameaux du Ségala", "Graves"],
+        example: {
+          city: "Lille",
+          detail: "Les Maisons de quartier offrent un accompagnement numérique gratuit avec 20 médiateur·rices."
+        }
       }
     ],
     focus: "Aucun service public essentiel ne doit être laissé au privé." 
@@ -130,57 +135,66 @@ export const SECTIONS = [
     category: "Grand thème",
     icon: "🌱",
     description:
-      "Faire de Villefranche une ville respirable, sobre en énergie et nourrie par son territoire agricole, en accompagnant les habitantes et habitants de la Bastide aux hameaux ruraux dans la transition.",
+      "Faire de Villefranche une ville respirable, sobre en énergie et nourrie par son territoire agricole. La transition écologique ne sera pas un luxe de bobos : elle créera des emplois locaux, baissera les factures et protègera notre santé.",
     actions: [
       {
-        title: "Plan arbres et fraîcheur",
+        title: "Plan arbres et fraîcheur : 3000 arbres en 6 ans",
         detail: [
           "Les épisodes caniculaires se multiplient sur la Bastide et les cours minérales des écoles deviennent invivables. Nous lancerons un inventaire de toutes les surfaces bitumées pour prioriser les lieux où planter 2 000 arbres.",
           "Les berges de l'Alzou seront renaturées, les places recevront des dispositifs d'ombre et les friches de la Rive gauche accueilleront des jardins partagés ouverts aux habitants."],
         example: {
           city: "Clermont-Ferrand",
           detail: "Un plan de 20 000 arbres et de cours végétalisées a été engagé dès 2020."
-        },
-        validations: 59
+        }
       },
       {
-        title: "Énergie citoyenne",
+        title: "Révolution solaire et énergie citoyenne",
         detail: [
           "Les bâtiments municipaux consomment plus d'un million d'euros d'énergie par an. Une société publique locale mutualisera la pose de panneaux solaires sur 50 % des toitures publiques dès le premier mandat.",
           "Nous aiderons les habitantes et habitants à créer des coopératives d'autoconsommation et proposerons un achat groupé de rénovations pour faire reculer la précarité énergétique dans les hameaux."],
         example: {
           city: "Loos-en-Gohelle",
           detail: "Une régie énergétique citoyenne y accompagne habitants et services publics depuis 15 ans."
-        },
-        validations: 66
+        }
       },
       {
-        title: "Plan mobilités publiques",
+        title: "Transports gratuits et pistes cyclables partout",
         detail: [
           "Les bus Bastibus s'arrêtent trop tôt et ne desservent pas correctement les lycéens des Gravasses. Nous renforcerons l'offre pour atteindre un passage toutes les 20 minutes sur les lignes structurantes et la gratuité pour les moins de 26 ans.",
           "Les pôles d'échanges du Tricot et de la gare seront modernisés, 15 km de pistes cyclables sécurisées seront créés et des navettes relieront quotidiennement les hameaux du Ségala.",
           "Nous voulons un contrat de mobilité intercommunal qui impose l'accès gratuit aux bus Bastibus pendant les travaux, qui finance des vélostations aux Gravasses et qui installe des correspondances directes Bastide–Veuzac tôt le matin pour les salariées et salariés postés."
         ],
         example: {
-          city: "Montpellier (34), Aubagne (13) et Bonneuil-sur-Marne (94)",
+          city: "Montpellier, Aubagne, Bonneuil-sur-Marne",
           detail: [
-            "Montpellier (34) : avec l’appui des élu·es PCF, la métropole de Montpellier a rendu l’ensemble des transports gratuits en 2023. Une mesure écologique, sociale et qui permet de renforcer le pouvoir d’achat de l’ensemble des habitant·es de la métropole tout en favorisant l’utilisation des transports publics.",
-            "En 2009, c’était la mairie communiste d’Aubagne (13) qui avait rendu les transports gratuits, permettant de tripler l’utilisation des transports en commun !",
-            "Bonneuil sur Marne (94) : en 2021, sur le baromètre des villes cyclables réalisé par la fédération des usagers de bicyclette, Bonneuil est la ville du Val-de-Marne la mieux classée du département : la ville obtient par ailleurs sa meilleure note sur le critère « effort de la ville », signe que la commune s'engage à continuer de progresser !"
+            "Montpellier (34) : avec l'appui des élu·es PCF, la métropole a rendu l'ensemble des transports gratuits en 2023. Résultat : +40% de fréquentation et des économies pour toutes les familles.",
+            "Aubagne (13) : transports gratuits depuis 2009, fréquentation TRIPLÉE !",
+            "Bonneuil-sur-Marne (94) : meilleure ville cyclable du Val-de-Marne grâce à un plan massif d'aménagements."
           ]
-        },
-        validations: 52
+        }
       },
       {
-        title: "Déchets zéro brûlage",
+        title: "Zéro déchet et économie circulaire",
         detail: [
           "Les dépôts sauvages se multiplient le long de l'Aveyron et le brûlage de déchets verts reste courant dans les hameaux. Nous créerons une brigade verte municipale chargée de verbaliser, sensibiliser et intervenir rapidement.",
           "Une ressourcerie intercommunale, des composteurs collectifs et des collectes mobiles dans les villages permettront d'accompagner la tarification incitative plutôt que de la subir."],
         example: {
           city: "Besançon",
           detail: "Tarification incitative + ressourcerie municipale ont réduit les déchets de 20 %."
-        },
-        validations: 48
+        }
+      },
+      {
+        title: "Alimentation locale et circuits courts",
+        detail: [
+          "L'Aveyron produit une alimentation d'exception mais elle part ailleurs ! Nous créerons un réseau de vente directe producteurs-consommateurs avec marchés hebdomadaires supplémentaires dans les quartiers.",
+          "Aide à l'installation de jeunes agriculteur·rices en bio sur les terres communales. Partenariat avec les producteurs locaux pour approvisionner cantines, EHPAD et restaurants municipaux en circuits courts.",
+          "Création d'une AMAP municipale accessible à prix solidaires dans chaque quartier. Les foyers modestes pourront bénéficier de paniers de légumes locaux à -50% grâce à une subvention directe."
+        ],
+        territories: ["Bastide", "Tous les quartiers", "Hameaux agricoles"],
+        example: {
+          city: "Ungersheim (Haut-Rhin)",
+          detail: "La régie agricole municipale fournit 100% des cantines en local et bio."
+        }
       }
     ],
     focus: "La transition n’est pas un gadget : elle crée des emplois locaux et protège notre santé."
@@ -191,51 +205,60 @@ export const SECTIONS = [
     category: "Grand thème",
     icon: "⚙️",
     description:
-      "Redonner la priorité aux coopératives, aux petites entreprises, aux services publics culturels et sportifs pour faire vivre la Bastide toute l’année et renforcer les quartiers périphériques.",
+      "Soutenir les commerces et artisans de la Bastide, créer des emplois publics de qualité, développer la culture et le sport pour toutes et tous. L'économie doit servir les habitantes et habitants, pas les actionnaires.",
     actions: [
       {
-        title: "Conditionnalité des aides",
+        title: "Soutien massif aux commerces et artisans de la Bastide",
         detail: [
           "La communauté de communes distribue des aides économiques sans toujours exiger de contreparties, notamment sur l'égalité salariale ou la transition énergétique. Nous conditionnerons les subventions municipales à un socle d'engagements vérifiables.",
           "Les entreprises soutenues devront publier leurs indicateurs d'emploi local, d'égalité femmes-hommes et d'impact énergétique ; un comité associant syndicats et commerçants contrôlera les résultats."],
         example: {
           city: "Lyon",
-          detail: "Les aides économiques y sont conditionnées à l’égalité salariale et à des critères climatiques."
-        },
-        validations: 71
+          detail: "Les aides économiques y sont conditionnées à l'égalité salariale et à des critères climatiques."
+        }
       },
       {
-        title: "Régie municipale du bâtiment",
+        title: "Régie municipale du bâtiment : 50 emplois créés",
         detail: [
           "Les écoles et équipements sportifs souffrent de retards d'entretien faute d'équipes municipales suffisantes. Nous créerons une régie municipale dotée d'un atelier chantier d'insertion pour former et embaucher localement.",
           "Deux antennes, au Boï et aux Pesquiés, permettront d'intervenir sous 48 heures sur les logements vacants ou les équipements prioritaires, avec un suivi des chantiers publié en ligne."],
         example: {
           city: "Grenoble",
           detail: "La régie de quartier de Villeneuve entretient le patrimoine public avec des emplois statutaires."
-        },
-        validations: 63
+        }
       },
       {
-        title: "Pass Culture-Sport Villefranchois",
+        title: "Pass Culture-Sport gratuit pour tous les jeunes",
         detail: [
           "Le coût d'adhésion aux clubs sportifs ou aux conservatoires freine les jeunes des Gravasses et des faubourgs. Nous créerons un pass de 120 € par jeune cumulable avec les aides départementales.",
           "Les établissements scolaires des Gravasses, du Tricot et des hameaux pourront distribuer ces pass avec un accompagnement des familles pour s'inscrire dans les associations locales."],
         example: {
           city: "Bologne (Italie)",
           detail: "Un pass municipal finance les dépenses sportives et culturelles des jeunes."
-        },
-        validations: 55
+        }
       },
       {
-        title: "Maison des associations agrandie",
+        title: "Pôle culturel et associatif au Château de Graves",
         detail: [
           "Les associations culturelles et sportives se partagent aujourd'hui des locaux saturés rue Bories. Nous installerons la Maison des associations au Château de Graves, accessible en bus et proche des équipements sportifs.",
           "Des studios médias, ateliers mutualisés et un guichet d'accompagnement aux coopératives permettront aussi aux collectifs ruraux de bénéficier d'espaces partagés lorsqu'ils viennent en ville."],
         example: {
           city: "Nantes",
-          detail: "Trempo mutualise studios, formations et coopérations dans un ancien site industriel." 
-        },
-        validations: 60
+          detail: "Trempo mutualise studios, formations et coopérations dans un ancien site industriel."
+        }
+      },
+      {
+        title: "Emplois jeunes municipaux",
+        detail: [
+          "Le chômage des jeunes atteint 22% dans le Tricot et la Bastide. Nous créerons 30 emplois jeunes municipaux en CDI sur 3 ans : animation sportive et culturelle, médiation numérique, entretien des espaces verts, aide aux devoirs.",
+          "Salaire 1800€ net minimum, formation qualifiante incluse, possibilité de titularisation dans la fonction publique territoriale. Priorité aux jeunes des quartiers prioritaires et aux décrocheurs scolaires.",
+          "Partenariat avec la Mission Locale pour repérer et accompagner les jeunes éloignés de l'emploi. Ces postes créeront des services publics de proximité qui manquent aujourd'hui."
+        ],
+        territories: ["Le Tricot", "Bastide", "Tous les quartiers"],
+        example: {
+          city: "Vaulx-en-Velin",
+          detail: "Le plan emplois jeunes municipal a permis de former et d'embaucher 45 jeunes en 2 ans."
+        }
       }
     ],
     focus: "La Bastide doit redevenir un centre vivant grâce aux initiatives populaires et coopératives."
@@ -246,51 +269,60 @@ export const SECTIONS = [
     category: "Grand thème",
     icon: "🎒",
     description:
-      "Investir dans les enfants et les jeunes pour faire reculer les inégalités scolaires, du centre historique aux hameaux périphériques, et donner envie de rester vivre à Villefranche.",
+      "Nos enfants et nos jeunes méritent le meilleur : des écoles rénovées, des activités gratuites, un vrai accompagnement. Investir dans la jeunesse, c'est investir dans l'avenir de Villefranche.",
     actions: [
       {
-        title: "Plan écoles 100 % rénovées",
+        title: "Plan écoles 100 % rénovées d'ici 2030",
         detail: [
           "Les écoles Jean-Jaurès, Calcomier ou Treize-Pierres manquent d'isolation et les cours restent minérales malgré les alertes des parents d'élèves. Nous engagerons un plan de rénovation énergétique complet assorti d'une ventilation naturelle.",
           "Chaque cour deviendra un îlot de fraîcheur partagé avec les associations après 18 h, y compris pour les villages associés qui pourront utiliser les équipements lors des activités périscolaires."],
         example: {
           city: "Poitiers",
           detail: "Un plan pluriannuel finance la rénovation de 42 écoles et la transformation des cours."
-        },
-        validations: 68
+        }
       },
       {
-        title: "Crèches aux horaires élargis",
+        title: "Crèches publiques gratuites et horaires élargis",
         detail: [
           "Les familles travaillant en horaires décalés doivent aujourd'hui se tourner vers Rodez ou les assistantes maternelles privées. Nous étendrons les crèches municipales avec une amplitude 6 h-21 h pour répondre aux besoins des soignants ou salariés industriels.",
           "Une micro-crèche coopérative sera implantée sur la Rive gauche et un service de garde partagé circulera dans les villages associés pour éviter des trajets quotidiens vers la Bastide."],
         example: {
           city: "Vitry-sur-Seine",
           detail: "Une crèche municipale à horaires élargis soutient les travailleuses et travailleurs postés."
-        },
-        validations: 72
+        }
       },
       {
-        title: "Conseil municipal des jeunes",
+        title: "Conseil municipal des jeunes avec VRAI pouvoir",
         detail: [
           "Les dispositifs jeunesse actuels se limitent à des animations ponctuelles et les collégiennes et collégiens n'influent pas sur les choix municipaux. Nous créerons un conseil municipal des jeunes doté d'un budget annuel de 50 000 €.",
           "Des sièges seront réservés aux collèges Treize-Pierres et aux lycées agricoles, avec l'obligation de publier les projets financés (solidarité, culture, climat) et un suivi par les élus adultes."],
         example: {
           city: "Rennes",
           detail: "Le conseil des jeunes gère un budget participatif pour ses projets solidaires."
-        },
-        validations: 57
+        }
       },
       {
-        title: "Accompagnement scolaire renforcé",
+        title: "Accompagnement scolaire GRATUIT pour toutes et tous",
         detail: [
           "Les résultats scolaires chutent dans les quartiers populaires et les familles peinent à financer du soutien privé. Nous mettrons en place une cellule municipale d'aide aux devoirs en lien avec les enseignants volontaires.",
           "Les associations d'éducation populaire seront conventionnées pour accueillir les collégiens de Treize-Pierres, les lycéens du centre-ville et les jeunes des hameaux qui arrivent par les navettes."],
         example: {
           city: "Saint-Denis",
           detail: "Un service municipal dédié au soutien scolaire y travaille avec les collèges REP+."
-        },
-        validations: 61
+        }
+      },
+      {
+        title: "Activités périscolaires gratuites et de qualité",
+        detail: [
+          "Les activités périscolaires ne doivent PAS être un luxe ! Ateliers gratuits pour tous les enfants : sport, musique, arts plastiques, théâtre, numérique, jardinage, échecs, langues étrangères.",
+          "Encadrement de qualité par des professionnel·les diplômé·es en CDI, pas des vacataires sous-payés. 20 activités différentes proposées chaque trimestre avec possibilité de changer.",
+          "Horaires adaptés aux parents qui travaillent : garde assurée de 7h30 à 18h30. Transport gratuit pour les activités hors école. Séjours et sorties organisés pendant les vacances à prix solidaires."
+        ],
+        territories: ["Toutes les écoles primaires"],
+        example: {
+          city: "Bobigny",
+          detail: "Périscolaire gratuit et de qualité avec 25 activités différentes proposées."
+        }
       }
     ],
     focus: "La jeunesse doit être au cœur du projet villefranchois et non une variable d’ajustement."
@@ -364,53 +396,60 @@ export const STATS = {
     "On partage tout ça avec toutes les listes citoyennes qui veulent s'appuyer sur du solide."
   ],
   highlights: [
-    { label: "Population municipale", value: "11 969 habitantes et habitants", source: "INSEE – Recensement 2021" },
-    { label: "Évolution depuis 2015", value: "–1,8 %", source: "INSEE – Séries historiques 2015-2021" },
-    { label: "Taux de chômage", value: "14,6 % des 15-64 ans", source: "INSEE – Données locales 2020" },
-    { label: "Revenu médian", value: "19 300 € par unité de consommation", source: "INSEE – Revenus fiscaux localisés 2020" },
-    { label: "Part des 65 ans et +", value: "29 %", source: "INSEE – Structure par âge 2021" },
-    { label: "Logements sociaux", value: "18 % du parc", source: "Ministère de la Transition écologique – RPLS 2022" }
+    { label: "Population municipale", value: "11 720 habitantes et habitants", source: "INSEE – Recensement 2024" },
+    { label: "Évolution depuis 2015", value: "–2,1 % (déclin continu)", source: "INSEE – Séries historiques 2015-2024" },
+    { label: "Taux de chômage local", value: "7,0 % (2024)", source: "Pôle Emploi – T2 2024" },
+    { label: "Revenu moyen par habitant", value: "20 820 € (légèrement sup. à la moyenne)", source: "INSEE – Revenus fiscaux 2023" },
+    { label: "Part des 65 ans et +", value: "29 % (vieillissement accéléré)", source: "INSEE – Structure par âge 2024" },
+    { label: "Logements vacants", value: "11 % (désertion du centre)", source: "INSEE – Parc immobilier 2023" },
+    { label: "Quartiers prioritaires", value: "Bastide + Tricot + Lapeyrade (2000 hab.)", source: "Politique de la Ville 2024" },
+    { label: "Désert médical", value: "7000 patients/médecin (2x la normale)", source: "ARS Occitanie 2024" }
   ],
   socio: [
-    "Près d’un tiers des ménages sont des personnes seules, souvent des retraités installés dans la Bastide et à Treize-Pierres.",
-    "Les familles monoparentales représentent 12 % des foyers, principalement dans les quartiers Treize-Pierres et Tricot.",
-    "36 % des logements sont occupés par des locataires, avec un taux de vacance supérieur à 11 % dans le centre ancien.",
-    "2 500 emplois sont concentrés dans le commerce et les services publics ; l’industrie et l’agroalimentaire restent fragiles.",
-    "Le revenu médian villefranchois est inférieur de 12 % à la moyenne nationale, ce qui justifie nos mesures de justice sociale."
+    "Près d'un tiers des ménages sont des personnes seules, majoritairement des retraité·es dans la Bastide. Le vieillissement s'accélère mais les services adaptés manquent.",
+    "Les familles monoparentales représentent 12 % des foyers, concentrées dans les quartiers prioritaires (Tricot, Bastide). Elles cumulent précarité économique et manque de services publics.",
+    "Plus de 11 % des logements du centre historique sont VIDES : désertification commerciale, marchands de sommeil, absence de politique volontariste de rénovation.",
+    "Le Quartier Prioritaire Bastide-Tricot-Lapeyrade compte près de 2000 habitantes et habitants en grande précarité, avec un revenu moyen de 8860€ contre 20 820€ pour la ville.",
+    "Le tissu économique s'appuie sur les commerces et artisans (100 actifs dans le centre), l'hôpital La Chartreuse (800 emplois), et l'agriculture aveyronnaise. Mais la jeunesse part faute de perspectives.",
+    "Le taux de chômage reste élevé dans les quartiers populaires, particulièrement chez les jeunes (22% chez les moins de 25 ans du Tricot).",
+    "Désert médical aggravé : les médecins généralistes ont 7000 patients en moyenne contre 3500 au niveau national. Délais d'attente de plusieurs semaines pour un rendez-vous."
   ],
   neighborhoods: [
-    { name: "Bastide", detail: "Centre ancien commerçant, enjeu majeur de rénovation des logements et des rez-de-chaussée vides." },
+    { name: "Bastide (Centre historique)", detail: "Cœur médiéval de la ville avec 1551 habitant·es. Classé Quartier Prioritaire de la Ville (QPV) pour précarité et vacance des logements (11%). 100 commerces et artisans qui résistent mais ont besoin de soutien massif." },
+    {
+      name: "Le Tricot",
+      detail: "Grand ensemble de 1490 habitant·es, classé QPV. Habitat social majoritaire, population jeune, chômage élevé. Manque criant d'espaces publics de qualité et d'animation culturelle."
+    },
+    {
+      name: "Lapeyrade",
+      detail: "Secteur intégré au QPV en raison des revenus très faibles. Nécessite renforcement urgent des services publics et du lien social."
+    },
     {
       name: "Rive gauche (Le Breil, Combenègre)",
-      detail: "Quartiers pavillonnaires populaires soumis aux inondations de l’Aveyron et au manque de services publics."
+      detail: "Quartiers pavillonnaires populaires vulnérables aux inondations de l'Aveyron. Manque de transports en commun et d'équipements publics. Potentiel pour jardins partagés et initiatives écologiques."
     },
     {
       name: "Rive droite",
-      detail: "Faubourgs ouvriers autour de la gare, forte présence d’ateliers et besoin de mobilités publiques fiables."
+      detail: "Faubourgs ouvriers autour de la gare SNCF. Présence d'ateliers et petite industrie. Desserte bus insuffisante, surtout en soirée. Besoin de services de proximité."
     },
-    {
-      name: "Le Tricot",
-      detail: "Grand ensemble prioritaire avec beaucoup de jeunesse et un déficit d’espaces publics de qualité."
-    },
-    { name: "Pénevayre", detail: "Quartier mixte avec zones commerciales et habitat social nécessitant une offre culturelle de proximité." },
-    { name: "Le Boï (Le Calvaire)", detail: "Secteur escarpé qui souffre de logements précaires et d’un accès compliqué aux services." },
+    { name: "Pénevayre", detail: "Quartier mixte combinant zones commerciales, habitat social et pavillonnaire. Manque d'identité et d'animation culturelle. Opportunité pour créer un vrai centre de vie." },
     {
       name: "Les Pesquiés (Peyremorte)",
-      detail: "Habitat pavillonnaire dense aux portes de la Bastide, sensible aux problèmes de circulation et de stationnement."
+      detail: "Habitat pavillonnaire dense aux portes de la Bastide. Problèmes de circulation et stationnement. Population vieillissante nécessitant services de proximité adaptés."
     },
     {
       name: "Les Gravasses (La Madeleine)",
-      detail: "Entrée de ville marquée par les établissements scolaires et des friches économiques à requalifier."
+      detail: "Entrée de ville avec lycées Raymond Savignac et Beauregard. Friches économiques à requalifier. Zone stratégique pour emploi jeunes et pôle multimodal."
+    },
+    { name: "Graves", detail: "Quartier sportif majeur avec potentiel énorme : Château de Graves idéal pour pôle culturel et associatif. Équipements sportifs à rénover. Bien desservi par les bus." },
+    { name: "Veuzac", detail: "Faubourg industriel et artisanal avec tradition ouvrière. Mal connecté aux transports. Priorité : navettes régulières et centre de santé itinérant." },
+    {
+      name: "Mas de Rivals, Mas de Vernhet",
+      detail: "Villages perchés du Ségala, isolement géographique. Routes dangereuses, absence de transports collectifs, fracture numérique. Besoin urgent de services publics mobiles."
     },
     {
-      name: "Mas de Rivals (Mas de Vernhet)",
-      detail: "Villages perchés du Ségala où il faut sécuriser routes, éclairage et accès au numérique."
-    },
-    {
-      name: "Laurière – Mas de Bonnet – Beauregard – Les Imberts",
-      detail: "Arc rural avec hameaux agricoles dispersés nécessitant des services publics mobiles et des navettes."
-    },
-    { name: "Graves", detail: "Quartier sportif et associatif majeur, idéal pour installer des services municipaux mutualisés." },
-    { name: "Veuzac", detail: "Faubourg industriel et artisanal, à connecter davantage aux transports et aux politiques de santé." }
+      name: "Laurière, Mas de Bonnet, Beauregard, Les Imberts",
+      detail: "Arc rural avec hameaux agricoles dispersés. Population vieillissante, jeunes qui partent. Nécessite navettes quotidiennes, médecin itinérant, animation locale."
+    }
   ]
 };
