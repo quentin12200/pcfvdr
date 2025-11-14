@@ -3,7 +3,8 @@ export const INTRO = {
   paragraphs: [
     "Ce programme reprend l’essentiel des propositions communistes nationales et les adapte aux réalités de Villefranche-de-Rouergue : une ville-centre de 12 000 habitants qui doit redevenir locomotive du Bassin, de l’Alzou au Ségala.",
     "Il est mis à disposition de toutes les listes de progrès souhaitant gouverner avec les habitantes et habitants, les associations, les syndicats et les agents publics.",
-    "Nous proposons une mandature construite autour de grands blocs thématiques — démocratie, services publics, transition écologique, justice sociale — pour répondre aux urgences locales tout en assumant des choix clairs : priorité aux besoins essentiels, à la dignité et à la puissance publique."
+    "Nous proposons une mandature construite autour de grands blocs thématiques — démocratie, services publics, transition écologique, justice sociale — pour répondre aux urgences locales tout en assumant des choix clairs : priorité aux besoins essentiels, à la dignité et à la puissance publique.",
+    "Document signé par Patrick Cabandé, responsable des communistes villefranchois."
   ]
 };
 
