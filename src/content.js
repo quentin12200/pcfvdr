@@ -135,6 +135,44 @@ export const SECTIONS = [
       "Sécuriser la vie quotidienne : santé, logement, alimentation, accueil social. La puissance publique doit redevenir l'outil principal des Villefranchois, notamment dans les quartiers populaires et les villages associés.",
     actions: [
       {
+        title: "Crèches et centres de loisirs GRATUITS en régie municipale",
+        detail: [
+          "À Villefranche, les familles paient CHER pour la garde d'enfants et les centres de loisirs, avec des tarifs basés sur le quotient familial qui restent lourds pour les classes populaires du Tricot et de la Bastide. Une famille avec 2 enfants peut payer 200 à 400€ par mois pour la crèche, auxquels s'ajoutent les centres de loisirs le mercredi et pendant les vacances (5 à 15€ par jour selon le quotient).",
+          "Le manque de places en crèche municipale oblige les parents à se tourner vers le privé (micro-crèches à 60-80€/jour !) ou à renoncer à travailler. Les centres de loisirs ferment certains jours de vacances, laissant les familles seules. Cette situation pénalise directement les femmes, qui doivent souvent arrêter leur carrière.",
+          "Nous créons une RÉGIE MUNICIPALE PETITE ENFANCE ET LOISIRS 100% GRATUITE : crèches municipales, centres de loisirs, accueils périscolaires accessibles à TOUS les enfants villefranchois de 0 à 16 ans, sans condition de ressources, sans aucun frais pour les familles. Universalité totale : l'accès aux services publics locaux ne doit jamais dépendre du porte-monnaie.",
+          "Extension massive des capacités d'accueil : création de 2 nouvelles crèches municipales (une au Tricot, une à Graves) pour accueillir 100 enfants supplémentaires, doublement des places en centres de loisirs (de 180 à 360 places), ouverture TOUS les jours de vacances scolaires de 7h30 à 18h30. Personnel municipal en CDI, rémunéré dignement (1 900€ minimum), avec formation continue garantie.",
+          "Budget municipal : 1,2 million d'euros par an. Financement : suppression des aides aux entreprises qui délocalisent (300 000€), récupération de la taxe foncière sur les logements vacants (200 000€), régie publique de l'eau qui dégage des marges (400 000€), hausse de la taxe sur les résidences secondaires (300 000€)."
+        ],
+        example: {
+          city: "Montpellier, Vierzon, Paris",
+          detail: [
+            "Montpellier (34) : tarif à 0,50€ par jour pour les familles monoparentales et bénéficiaires du RSA. Résultat : taux de fréquentation en hausse de 25%, les familles précaires peuvent enfin travailler.",
+            "Vierzon (18, maire PCF) : régie municipale pour la petite enfance avec tarification ultra-sociale. Crèche municipale de 55 places en gestion publique directe, personnel en CDI.",
+            "Paris 19e (arrondissement communiste) : centres de loisirs avec tarifs progressifs démarrant à 0,10€ pour les familles les plus précaires. Accueil garanti tous les jours de vacances.",
+            "La gratuité TOTALE est une proposition communiste qui va plus loin : aucune famille ne paie, point. C'est l'égalité réelle."
+          ]
+        }
+      },
+      {
+        title: "Eau en régie publique avec tarification sociale",
+        detail: [
+          "SCANDALE À VILLEFRANCHE ! En janvier 2025, les factures d'eau ont explosé : hausse jusqu'à +300% pour certains foyers. L'abonnement semestriel est passé de 17,41€ à 36,40€, soit +109% ! Cette explosion des prix touche de plein fouet les familles du Tricot, de la Bastide et des villages. Indecosa CGT 12 dénonce l'absence totale de consultation publique et le retard dans la transmission du rapport annuel obligatoire sur le prix et la qualité de l'eau.",
+          "L'eau est gérée par une délégation de service public (DSP) à un opérateur privé qui tire des profits sur un bien essentiel. Résultat : tarifs opaques, augmentations brutales, aucun contrôle démocratique. Les Villefranchois paient l'eau PLUS CHER que dans les villes en régie publique (Grenoble, Paris) tout en subissant des hausses arbitraires.",
+          "Nous REPRENONS L'EAU EN RÉGIE PUBLIQUE MUNICIPALE : gestion directe par la ville, transparence totale, tarification sociale. Tarif de base plafonné à 2,50€/m³ (contre 4-5€ actuellement), soit une baisse de 40 à 50%. Pour les 20 premiers m³ (besoins vitaux) : tarif solidaire à 0,50€/m³ pour TOUS les foyers, gratuité totale pour les bénéficiaires du RSA et les personnes âgées à faible retraite.",
+          "Tarification progressive anti-gaspillage : au-delà de 150 m³/an (usage domestique normal dépassé), le tarif monte à 5€/m³ pour responsabiliser les gros consommateurs (piscines privées, arrosage intensif). Les recettes de cette surtaxe financent les tarifs sociaux. Contrôle démocratique : un conseil de l'eau composé d'usager·es, d'élu·es et de salarié·es se réunit tous les trimestres pour fixer les tarifs et contrôler la qualité.",
+          "Investissements publics : rénovation du réseau pour réduire les fuites (25% de perte actuellement !), modernisation de la station d'épuration de Fontanges, protection des captages en lien avec les agriculteur·rices du Ségala. Budget : 3 millions d'euros sur 5 ans, financé par emprunt public à taux préférentiel et par les économies réalisées en supprimant les marges de l'opérateur privé."
+        ],
+        example: {
+          city: "Grenoble, Paris, communes en régie",
+          detail: [
+            "Grenoble Alpes Métropole (38) : eau en régie publique depuis toujours. Tarif 2025 : 3,41€/m³, soit 24,89% MOINS CHER que la moyenne des régies en France. Tarification sociale avec 1ers m³ à prix réduit.",
+            "Paris - Eau de Paris (75) : retour en régie publique en 2010 après 25 ans de gestion privée. Tarif 2025 : 4,09€/m³. Économies pour les usagers : -8% par rapport au privé, investissements massifs dans le réseau, qualité de l'eau améliorée.",
+            "Moyenne nationale (données SISPEA 2023) : eau en régie publique à 2,24€/m³ vs privé à 2,38€/m³. Le public coûte MOINS CHER et permet un contrôle démocratique.",
+            "À Villefranche, la régie publique fera baisser la facture de 200 à 400€ par an pour une famille de 4 personnes. L'eau doit redevenir un bien commun, pas une marchandise !"
+          ]
+        }
+      },
+      {
         title: "Maison du Peuple Bastide",
         detail: [
           "Pour faire valoir leurs droits sociaux, les Villefranchois·es doivent aujourd'hui courir entre la CAF rue de la République, la CPAM à Rodez (30 km !), le CCAS place de la Mairie et les permanences associatives éclatées. Parcours du combattant pour les personnes âgées, les familles monoparentales, les précaires.",

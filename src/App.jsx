@@ -404,36 +404,36 @@ const PhareCarousel = () => {
       link: "#themes"
     },
     {
-      icon: "🥐",
-      title: "Petits déjeuners gratuits",
-      subtitle: "DANS TOUTES LES ÉCOLES",
-      impact: "600",
-      impactLabel: "petits déjeuners servis chaque jour",
-      description: "Tous les enfants qui ont faim le matin pourront manger avant la classe. Produits locaux de qualité.",
-      color: "from-amber-500 to-orange-600",
-      badge: "180 000€/an",
+      icon: "👶",
+      title: "Crèches et centres de loisirs",
+      subtitle: "100% GRATUITS",
+      impact: "200 à 400€/mois",
+      impactLabel: "économisés par famille",
+      description: "Régie municipale gratuite : crèches, centres de loisirs, périscolaire. Fin des galères de garde d'enfants !",
+      color: "from-pink-500 to-rose-600",
+      badge: "1,2M€/an - Égalité totale",
+      link: "#themes"
+    },
+    {
+      icon: "💧",
+      title: "Eau en régie publique",
+      subtitle: "STOP À LA HAUSSE DE +300%",
+      impact: "200 à 400€/an",
+      impactLabel: "économisés par foyer",
+      description: "Fini les hausses scandaleuses ! Régie municipale avec tarif social. L'eau est un bien commun, pas une marchandise.",
+      color: "from-cyan-500 to-blue-600",
+      badge: "Tarif divisé par 2",
       link: "#themes"
     },
     {
       icon: "🚌",
-      title: "Transports publics",
-      subtitle: "GRATUITS POUR TOUS",
-      impact: "60€/mois",
-      impactLabel: "économisés par personne",
-      description: "Gratuité immédiate pour les -26 ans, puis extension progressive. Horaires étendus jusqu'à 22h.",
+      title: "Basti'Bus pérennisé",
+      subtitle: "FRÉQUENCE DOUBLÉE",
+      impact: "20 min",
+      impactLabel: "entre chaque bus",
+      description: "Service permanent avec horaires adaptés aux travailleurs (6h30-22h). Service le dimanche pour les loisirs.",
       color: "from-green-600 to-emerald-700",
-      badge: "Gratuité totale",
-      link: "#themes"
-    },
-    {
-      icon: "✏️",
-      title: "Fournitures scolaires",
-      subtitle: "GRATUITES POUR TOUS",
-      impact: "150 à 300€",
-      impactLabel: "économisés par enfant",
-      description: "Rentrée scolaire 100% gratuite : cahiers, stylos, cartable, tout le matériel fourni par la mairie.",
-      color: "from-blue-600 to-blue-700",
-      badge: "250 000€/an",
+      badge: "Déjà gratuit",
       link: "#themes"
     },
     {
@@ -750,28 +750,28 @@ const ComparateurAvantApres = () => {
       color: "purple"
     },
     {
+      icon: "👶",
+      titre: "Crèche + centres de loisirs",
+      avant: "200-400€/mois",
+      apres: "100% GRATUIT",
+      economie: "2 400-4 800€/an/famille",
+      color: "pink"
+    },
+    {
+      icon: "💧",
+      titre: "Prix de l'eau",
+      avant: "Hausse +300% en 2025",
+      apres: "Tarif divisé par 2",
+      economie: "200-400€/an/foyer",
+      color: "cyan"
+    },
+    {
       icon: "🚌",
-      titre: "Transports en commun",
-      avant: "50€/mois",
-      apres: "100% GRATUIT",
-      economie: "600€/an/foyer",
+      titre: "Basti'Bus",
+      avant: "Arrêts à 19h30",
+      apres: "Service jusqu'à 22h",
+      economie: "Fréquence doublée",
       color: "orange"
-    },
-    {
-      icon: "📚",
-      titre: "Fournitures scolaires",
-      avant: "150€/an",
-      apres: "100% GRATUIT",
-      economie: "150€/an/enfant",
-      color: "blue"
-    },
-    {
-      icon: "🥐",
-      titre: "Petit déjeuner",
-      avant: "Non fourni",
-      apres: "100% GRATUIT",
-      economie: "65€/an/enfant",
-      color: "red"
     },
     {
       icon: "🏥",
@@ -797,7 +797,9 @@ const ComparateurAvantApres = () => {
     blue: "from-blue-600 to-blue-700",
     red: "from-red-600 to-red-700",
     green: "from-green-600 to-green-700",
-    teal: "from-teal-600 to-teal-700"
+    teal: "from-teal-600 to-teal-700",
+    pink: "from-pink-500 to-rose-600",
+    cyan: "from-cyan-500 to-blue-600"
   };
 
   return (
