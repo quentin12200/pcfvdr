@@ -490,6 +490,95 @@ export default function App() {
         <StatsPage onBack={() => setView("home")} />
       ) : (
         <main>
+          {/* Section Compétences Municipales */}
+          <section className="bg-slate-50 border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 py-16">
+              <div className="text-center space-y-4 mb-12">
+                <span className="inline-block bg-red-100 text-red-700 rounded-full px-4 py-2 text-sm font-bold uppercase tracking-wide">
+                  🏛️ Comprendre le pouvoir municipal
+                </span>
+                <h2 className="text-4xl font-black text-slate-900">
+                  Qu'est-ce qu'une mairie peut <span className="text-red-600">vraiment</span> faire ?
+                </h2>
+                <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                  Beaucoup pensent que la mairie ne peut rien faire. C'est faux ! Les communes ont des <strong>compétences précises et étendues</strong> sur votre quotidien. Voici ce que la mairie de Villefranche PEUT décider :
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    icon: "🏫",
+                    title: "Éducation & Enfance",
+                    powers: ["Construction et entretien des écoles", "Cantines scolaires (tarifs, qualité, gratuité)", "Activités périscolaires", "Crèches municipales", "Accueil de loisirs"],
+                    color: "purple"
+                  },
+                  {
+                    icon: "🏘️",
+                    title: "Urbanisme & Logement",
+                    powers: ["Plan Local d'Urbanisme (PLU)", "Permis de construire", "Logements sociaux", "Rénovation de centres-villes", "Lutte contre logements vacants"],
+                    color: "blue"
+                  },
+                  {
+                    icon: "🚌",
+                    title: "Transports & Mobilité",
+                    powers: ["Bus et transports locaux", "Pistes cyclables", "Voirie et trottoirs", "Parkings publics", "Gratuité des transports"],
+                    color: "green"
+                  },
+                  {
+                    icon: "🏥",
+                    title: "Services Publics",
+                    powers: ["Centres de santé municipaux", "CCAS (aide sociale)", "Distribution d'eau", "Collecte des déchets", "Espaces verts"],
+                    color: "red"
+                  },
+                  {
+                    icon: "🎭",
+                    title: "Culture & Sport",
+                    powers: ["Équipements sportifs (stades, piscines)", "Bibliothèques et médiathèques", "Festivals et événements", "Conservatoires", "Associations locales"],
+                    color: "amber"
+                  },
+                  {
+                    icon: "💰",
+                    title: "Budget & Démocratie",
+                    powers: ["Budget participatif", "Tarifs des services publics", "Impôts locaux (taux)", "Transparence des comptes", "Consultations citoyennes"],
+                    color: "red"
+                  }
+                ].map((domain) => {
+                  const colors = {
+                    red: "bg-red-50 border-red-200 text-red-700",
+                    blue: "bg-blue-50 border-blue-200 text-blue-700",
+                    green: "bg-green-50 border-green-200 text-green-700",
+                    purple: "bg-purple-50 border-purple-200 text-purple-700",
+                    amber: "bg-amber-50 border-amber-200 text-amber-700"
+                  };
+                  return (
+                    <div key={domain.title} className={`rounded-2xl border-2 ${colors[domain.color]} p-6 hover:shadow-lg transition-shadow`}>
+                      <div className="text-4xl mb-3">{domain.icon}</div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-3">{domain.title}</h3>
+                      <ul className="space-y-2">
+                        {domain.powers.map((power) => (
+                          <li key={power} className="flex gap-2 text-sm text-slate-700">
+                            <span className="text-green-600 font-bold">✓</span>
+                            <span>{power}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-12 bg-gradient-to-r from-red-600 to-red-700 rounded-3xl p-8 text-white text-center">
+                <p className="text-2xl font-bold mb-3">
+                  💪 Une mairie peut TOUT changer dans ton quotidien
+                </p>
+                <p className="text-lg text-red-100 max-w-3xl mx-auto">
+                  Écoles, transports, logement, culture, santé... <strong>Ce n'est pas "juste" une mairie</strong>. C'est le pouvoir le plus proche de toi. Et en 2026, on peut décider ensemble comment l'utiliser pour Villefranche.
+                </p>
+              </div>
+            </div>
+          </section>
+
           <section id="vision" className="bg-gradient-to-br from-red-700 to-red-600 text-white">
           <div className="max-w-6xl mx-auto px-4 py-12 grid gap-10 lg:grid-cols-[3fr_2fr] items-start">
             <div>
