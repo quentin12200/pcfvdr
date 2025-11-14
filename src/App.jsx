@@ -315,6 +315,201 @@ const NAV_LINKS = [
   { label: "Participer", icon: "✊", type: "anchor", href: "#participer" }
 ];
 
+// Carrousel des propositions phares
+const PhareCarousel = () => {
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  const slides = [
+    {
+      icon: "🍽️",
+      title: "Cantines scolaires",
+      subtitle: "100% GRATUITES",
+      impact: "1 200 à 2 000€",
+      impactLabel: "économisés par enfant et par an",
+      description: "Fini de payer la cantine ! Tous les enfants mangent gratuitement avec des produits locaux et bio.",
+      color: "from-purple-600 to-purple-700",
+      badge: "500 000€/an",
+      link: "#themes"
+    },
+    {
+      icon: "🥐",
+      title: "Petits déjeuners gratuits",
+      subtitle: "DANS TOUTES LES ÉCOLES",
+      impact: "600",
+      impactLabel: "petits déjeuners servis chaque jour",
+      description: "Tous les enfants qui ont faim le matin pourront manger avant la classe. Produits locaux de qualité.",
+      color: "from-amber-500 to-orange-600",
+      badge: "180 000€/an",
+      link: "#themes"
+    },
+    {
+      icon: "🚌",
+      title: "Transports publics",
+      subtitle: "GRATUITS POUR TOUS",
+      impact: "60€/mois",
+      impactLabel: "économisés par personne",
+      description: "Gratuité immédiate pour les -26 ans, puis extension progressive. Horaires étendus jusqu'à 22h.",
+      color: "from-green-600 to-emerald-700",
+      badge: "Gratuité totale",
+      link: "#themes"
+    },
+    {
+      icon: "✏️",
+      title: "Fournitures scolaires",
+      subtitle: "GRATUITES POUR TOUS",
+      impact: "150 à 300€",
+      impactLabel: "économisés par enfant",
+      description: "Rentrée scolaire 100% gratuite : cahiers, stylos, cartable, tout le matériel fourni par la mairie.",
+      color: "from-blue-600 to-blue-700",
+      badge: "250 000€/an",
+      link: "#themes"
+    },
+    {
+      icon: "🗳️",
+      title: "Budget participatif",
+      subtitle: "1 MILLION D'EUROS",
+      impact: "5%",
+      impactLabel: "du budget d'investissement",
+      description: "Les habitant·es décident directement de 1 million € par an. Assemblées citoyennes avec droit de veto.",
+      color: "from-red-600 to-red-700",
+      badge: "Pouvoir aux citoyen·nes",
+      link: "#themes"
+    },
+    {
+      icon: "🏥",
+      title: "Centre de santé municipal",
+      subtitle: "MÉDECINS SALARIÉS",
+      impact: "Gratuit",
+      impactLabel: "ou tarifs solidaires",
+      description: "4 médecins, 2 dentistes, psychologue, sage-femme. Fin du désert médical à Villefranche.",
+      color: "from-teal-600 to-cyan-700",
+      badge: "Accès aux soins",
+      link: "#themes"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  React.useEffect(() => {
+    const interval = setInterval(nextSlide, 5000); // Auto-play toutes les 5 secondes
+    return () => clearInterval(interval);
+  }, []);
+
+  const slide = slides[currentSlide];
+
+  return (
+    <div className="relative">
+      {/* Slide principal */}
+      <div className={`relative rounded-3xl bg-gradient-to-br ${slide.color} p-10 md:p-16 text-white shadow-2xl overflow-hidden`}>
+        {/* Pattern background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px'}}></div>
+        </div>
+
+        <div className="relative grid md:grid-cols-2 gap-8 items-center">
+          {/* Contenu gauche */}
+          <div className="space-y-6">
+            <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-bold">
+              {slide.badge}
+            </div>
+
+            <div className="space-y-3">
+              <div className="text-7xl">{slide.icon}</div>
+              <h3 className="text-3xl md:text-4xl font-black leading-tight">
+                {slide.title}
+              </h3>
+              <p className="text-2xl md:text-3xl font-bold text-white/90">
+                {slide.subtitle}
+              </p>
+            </div>
+
+            <p className="text-lg text-white/90 leading-relaxed">
+              {slide.description}
+            </p>
+
+            <a
+              href={slide.link}
+              className="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-xl"
+            >
+              En savoir plus
+              <span>→</span>
+            </a>
+          </div>
+
+          {/* Contenu droite - Impact chiffré */}
+          <div className="bg-white/10 backdrop-blur-md rounded-3xl border-2 border-white/30 p-8 text-center">
+            <p className="text-sm font-bold uppercase tracking-wide text-white/80 mb-3">
+              Impact direct
+            </p>
+            <div className="text-6xl md:text-7xl font-black mb-2 leading-tight">
+              {slide.impact}
+            </div>
+            <p className="text-xl font-semibold text-white/90">
+              {slide.impactLabel}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="flex items-center justify-center gap-4 mt-8">
+        <button
+          onClick={prevSlide}
+          className="bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-full p-3 transition-all hover:scale-110"
+          aria-label="Proposition précédente"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* Dots */}
+        <div className="flex gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`rounded-full transition-all ${
+                index === currentSlide
+                  ? 'bg-red-600 w-8 h-3'
+                  : 'bg-slate-300 w-3 h-3 hover:bg-slate-400'
+              }`}
+              aria-label={`Aller à la proposition ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={nextSlide}
+          className="bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-full p-3 transition-all hover:scale-110"
+          aria-label="Proposition suivante"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Compteur */}
+      <div className="text-center mt-4">
+        <p className="text-sm text-slate-500 font-medium">
+          Proposition {currentSlide + 1} sur {slides.length}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const ThemeSheets = () => {
   const [activeTheme, setActiveTheme] = useState("bloc1");
   const activeSection = SECTIONS.find(s => s.id === activeTheme);
@@ -616,6 +811,25 @@ export default function App() {
         <StatsPage onBack={() => setView("home")} />
       ) : (
         <main>
+          {/* Carrousel Propositions Phares */}
+          <section className="bg-white py-16 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center mb-12">
+                <span className="inline-block bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wide mb-4">
+                  ⭐ Les propositions phares
+                </span>
+                <h2 className="text-4xl font-black text-slate-900 mb-3">
+                  Des mesures concrètes qui changent <span className="text-red-600">ta vie</span>
+                </h2>
+                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                  Économies pour les familles, services publics renforcés, démocratie locale : voici ce qu'on propose pour Villefranche.
+                </p>
+              </div>
+
+              <PhareCarousel />
+            </div>
+          </section>
+
           {/* Section Compétences Municipales */}
           <section className="bg-slate-50 border-b border-slate-200">
             <div className="max-w-7xl mx-auto px-4 py-16">
