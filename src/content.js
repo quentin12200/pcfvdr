@@ -314,19 +314,19 @@ export const SECTIONS = [
         }
       },
       {
-        title: "Basti'Bus pérennisé, gratuit et fréquence doublée",
+        title: "Basti'Bus pérennisé avec fréquence doublée et horaires adaptés",
         detail: [
-          "Le Basti'Bus (3 lignes existantes) s'arrête à 19h30, rendant impossible le retour des lycéen·nes des Gravasses après les activités. Fréquence insuffisante : seulement 4-5 bus/jour sur certaines lignes, horaires inadaptés aux travailleurs (départs trop tardifs le matin, arrêts trop précoces le soir). Tarif de 1,50 € le trajet : 60 €/mois pour un·e lycéen·ne, inabordable pour les familles du Tricot.",
-          "Nous PÉRENNISONS le Basti'Bus en service permanent et DOUBLONS sa fréquence : passage toutes les 20 minutes sur les lignes structurantes (Bastide-Gravasses-Lycées), horaires adaptés aux horaires de travail (premier départ 6h30, dernier bus 22h en semaine), service le dimanche et jours fériés pour l'accès aux loisirs.",
-          "Gratuité immédiate pour les moins de 26 ans, puis extension progressive vers la gratuité totale. Le Basti'Bus devient un vrai service public accessible à tous, tout le temps.",
+          "Le Basti'Bus (3 lignes existantes, déjà gratuit) s'arrête à 19h30, rendant impossible le retour des lycéen·nes des Gravasses après les activités. Fréquence insuffisante : seulement 4-5 bus/jour sur certaines lignes, horaires inadaptés aux travailleurs (départs trop tardifs le matin, arrêts trop précoces le soir). Le service n'est pas assuré le dimanche, privant les familles de l'accès aux loisirs.",
+          "Nous PÉRENNISONS le Basti'Bus en service permanent et DOUBLONS sa fréquence : passage toutes les 20 minutes sur les lignes structurantes (Bastide-Gravasses-Lycées), horaires adaptés aux horaires de travail (premier départ 6h30, dernier bus 22h en semaine), service le dimanche et jours fériés pour l'accès aux loisirs et activités familiales.",
+          "Le Basti'Bus devient un vrai service public fiable et accessible à tous, tout le temps. Extension progressive du réseau pour desservir tous les quartiers (Tricot, Graves, Veuzac) avec des correspondances optimisées.",
           "Création de 15 km de pistes cyclables sécurisées et continues : axe Bastide-Veuzac (D911), axe Tricot-Graves-Lycées, piste le long de l'Aveyron. Modernisation des pôles d'échanges : Tricot (parking relais + vélostations), gare SNCF (consignes vélos sécurisées). Navettes quotidiennes vers les hameaux du Ségala (Laurère, Mas de Rivals) : 2 allers-retours/jour pour rompre l'isolement.",
           "Bataille intercommunale : nous exigerons un contrat de mobilité ambitieux avec correspondances directes Bastide-Veuzac dès 6h30 pour les salarié·es posté·es de l'industrie."
         ],
         example: {
-          city: "Montpellier, Aubagne, Bonneuil-sur-Marne",
+          city: "Grenoble, Dunkerque, Bonneuil-sur-Marne",
           detail: [
-            "Montpellier (34) : avec l'appui des élu·es PCF, la métropole a rendu l'ensemble des transports gratuits en 2023. Résultat : +40% de fréquentation et des économies pour toutes les familles.",
-            "Aubagne (13) : transports gratuits depuis 2009, fréquentation TRIPLÉE !",
+            "Grenoble (38) : doublement de la fréquence des bus en 2020. Résultat : +35% de fréquentation et désengorgement du centre-ville.",
+            "Dunkerque (59) : bus toutes les 10 minutes sur les lignes principales, service 7j/7 jusqu'à minuit. Fréquentation record !",
             "Bonneuil-sur-Marne (94) : meilleure ville cyclable du Val-de-Marne grâce à un plan massif d'aménagements."
           ]
         }
