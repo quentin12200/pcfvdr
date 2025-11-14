@@ -19,8 +19,9 @@ export const SECTIONS = [
     title: "Bloc 1 — Pouvoir citoyen et République locale",
     category: "Grand thème",
     icon: "🗳️",
+    color: "red",
     description:
-      "Refonder la démocratie locale en donnant la parole aux quartiers – de la Bastide à la Rive droite – tout en ouvrant les finances publiques et en imposant l’éthique républicaine aux futurs élus.",
+      "Refonder la démocratie locale en donnant la parole aux quartiers – de la Bastide à la Rive droite – tout en ouvrant les finances publiques et en imposant l'éthique républicaine aux futurs élus.",
     actions: [
       {
         title: "Assemblées citoyennes dotées d'un droit de veto",
@@ -129,8 +130,9 @@ export const SECTIONS = [
     title: "Bloc 2 — Services publics et solidarités",
     category: "Grand thème",
     icon: "🤝",
+    color: "blue",
     description:
-      "Sécuriser la vie quotidienne : santé, logement, alimentation, accueil social. La puissance publique doit redevenir l’outil principal des Villefranchois, notamment dans les quartiers populaires et les villages associés.",
+      "Sécuriser la vie quotidienne : santé, logement, alimentation, accueil social. La puissance publique doit redevenir l'outil principal des Villefranchois, notamment dans les quartiers populaires et les villages associés.",
     actions: [
       {
         title: "Maison du Peuple Bastide",
@@ -276,6 +278,7 @@ export const SECTIONS = [
     title: "Bloc 3 — Transition écologique populaire",
     category: "Grand thème",
     icon: "🌱",
+    color: "green",
     description:
       "Faire de Villefranche une ville respirable, sobre en énergie et nourrie par son territoire agricole. La transition écologique ne sera pas un luxe de bobos : elle créera des emplois locaux, baissera les factures et protègera notre santé.",
     actions: [
@@ -368,6 +371,7 @@ export const SECTIONS = [
     title: "Bloc 4 — Travail, économie locale et culture",
     category: "Grand thème",
     icon: "⚙️",
+    color: "amber",
     description:
       "Soutenir les commerces et artisans de la Bastide, créer des emplois publics de qualité, développer la culture et le sport pour toutes et tous. L'économie doit servir les habitantes et habitants, pas les actionnaires.",
     actions: [
@@ -480,6 +484,7 @@ export const SECTIONS = [
     title: "Bloc 5 — Jeunesse, éducation et quartiers populaires",
     category: "Grand thème",
     icon: "🎒",
+    color: "purple",
     description:
       "Nos enfants et nos jeunes méritent le meilleur : des écoles rénovées, des activités gratuites, un vrai accompagnement. Investir dans la jeunesse, c'est investir dans l'avenir de Villefranche.",
     actions: [

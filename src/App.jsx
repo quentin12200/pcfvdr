@@ -102,48 +102,128 @@ const NAV_LINKS = [
   { label: "Participer", type: "anchor", href: "#participer" }
 ];
 
+const COLOR_STYLES = {
+  red: {
+    bg: "bg-red-50",
+    border: "border-red-200",
+    text: "text-red-600",
+    hoverBg: "hover:bg-red-100",
+    activeBg: "bg-red-600",
+    activeText: "text-white",
+    lightBg: "bg-red-50/70",
+    gradient: "from-red-50 to-white"
+  },
+  blue: {
+    bg: "bg-blue-50",
+    border: "border-blue-200",
+    text: "text-blue-600",
+    hoverBg: "hover:bg-blue-100",
+    activeBg: "bg-blue-600",
+    activeText: "text-white",
+    lightBg: "bg-blue-50/70",
+    gradient: "from-blue-50 to-white"
+  },
+  green: {
+    bg: "bg-green-50",
+    border: "border-green-200",
+    text: "text-green-600",
+    hoverBg: "hover:bg-green-100",
+    activeBg: "bg-green-600",
+    activeText: "text-white",
+    lightBg: "bg-green-50/70",
+    gradient: "from-green-50 to-white"
+  },
+  amber: {
+    bg: "bg-amber-50",
+    border: "border-amber-200",
+    text: "text-amber-600",
+    hoverBg: "hover:bg-amber-100",
+    activeBg: "bg-amber-600",
+    activeText: "text-white",
+    lightBg: "bg-amber-50/70",
+    gradient: "from-amber-50 to-white"
+  },
+  purple: {
+    bg: "bg-purple-50",
+    border: "border-purple-200",
+    text: "text-purple-600",
+    hoverBg: "hover:bg-purple-100",
+    activeBg: "bg-purple-600",
+    activeText: "text-white",
+    lightBg: "bg-purple-50/70",
+    gradient: "from-purple-50 to-white"
+  }
+};
+
 const ThemeSheets = () => {
+  const [activeTheme, setActiveTheme] = useState("bloc1");
+  const activeSection = SECTIONS.find(s => s.id === activeTheme);
+  const colorStyle = COLOR_STYLES[activeSection?.color || "red"];
+
   return (
     <section id="themes" className="bg-slate-50/60 border-y border-red-100/60">
-      <div className="max-w-6xl mx-auto px-4 py-16 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 py-16 space-y-8">
         <div className="text-center space-y-4">
           <p className="text-xs uppercase tracking-[0.4em] text-red-500">Les propositions</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Des solutions concrètes pour Villefranche</h2>
           <p className="text-base text-slate-600 max-w-4xl mx-auto">
-            Chaque mesure part d'un problème réel à Villefranche et propose une solution qui marche déjà ailleurs. Tout est chiffré, vérifié, réalisable. Tu peux valider les propositions qui te parlent : à 100 validations, on publie un guide pratique pour la mettre en œuvre.
+            Chaque mesure part d'un problème réel à Villefranche et propose une solution qui marche déjà ailleurs. Tout est chiffré, vérifié, réalisable.
           </p>
         </div>
-        <div className="space-y-12">
-          {SECTIONS.map((section) => (
-            <article key={section.id} className="rounded-[36px] border border-red-100/70 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.08)] overflow-hidden">
-              <div className="p-6 sm:p-10 space-y-8">
-                <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-                  <div className="flex items-center gap-4">
-                    <div className="h-14 w-14 rounded-2xl bg-red-50 text-3xl flex items-center justify-center border border-red-100" aria-hidden>
-                      {section.icon}
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.4em] text-red-600 font-semibold">{section.category}</p>
-                      <h3 className="mt-2 text-2xl font-bold text-slate-900">{section.title}</h3>
-                      <p className="mt-3 text-base text-slate-600">{section.description}</p>
-                    </div>
-                  </div>
-                  {section.focus && (
-                    <div className="flex-1 rounded-3xl border border-red-100 bg-gradient-to-br from-red-50 to-white p-5 text-sm text-red-900">
-                      <p className="text-[11px] uppercase tracking-[0.4em] text-red-500 font-semibold">Fil rouge budgétaire</p>
-                      <p className="mt-2 text-base font-semibold">{section.focus}</p>
-                    </div>
-                  )}
-                </div>
-                <div className="grid gap-6 lg:grid-cols-2">
-                  {section.actions.map((action) => (
-                    <ActionCard key={action.title} action={action} />
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
+
+        {/* Tabs Navigation */}
+        <div className="flex flex-wrap gap-3 justify-center">
+          {SECTIONS.map((section) => {
+            const isActive = activeTheme === section.id;
+            const sectionColor = COLOR_STYLES[section.color];
+            return (
+              <button
+                key={section.id}
+                onClick={() => setActiveTheme(section.id)}
+                className={`flex items-center gap-3 px-6 py-3.5 rounded-2xl font-semibold text-sm transition-all border-2 ${
+                  isActive
+                    ? `${sectionColor.activeBg} ${sectionColor.activeText} ${sectionColor.border} shadow-lg scale-105`
+                    : `${sectionColor.bg} ${sectionColor.text} ${sectionColor.border} ${sectionColor.hoverBg} hover:scale-102`
+                }`}
+              >
+                <span className="text-xl">{section.icon}</span>
+                <span className="hidden sm:inline">{section.title}</span>
+                <span className="sm:hidden">Bloc {section.id.replace("bloc", "")}</span>
+              </button>
+            );
+          })}
         </div>
+
+        {/* Active Theme Content */}
+        {activeSection && (
+          <article className={`rounded-[36px] border-2 ${colorStyle.border} bg-white shadow-[0_30px_80px_rgba(15,23,42,0.08)] overflow-hidden`}>
+            <div className="p-6 sm:p-10 space-y-8">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
+                <div className="flex items-center gap-4">
+                  <div className={`h-14 w-14 rounded-2xl ${colorStyle.bg} text-3xl flex items-center justify-center border ${colorStyle.border}`} aria-hidden>
+                    {activeSection.icon}
+                  </div>
+                  <div>
+                    <p className={`text-xs uppercase tracking-[0.4em] ${colorStyle.text} font-semibold`}>{activeSection.category}</p>
+                    <h3 className="mt-2 text-2xl font-bold text-slate-900">{activeSection.title}</h3>
+                    <p className="mt-3 text-base text-slate-600">{activeSection.description}</p>
+                  </div>
+                </div>
+                {activeSection.focus && (
+                  <div className={`flex-1 rounded-3xl border ${colorStyle.border} bg-gradient-to-br ${colorStyle.gradient} p-5 text-sm text-slate-900`}>
+                    <p className={`text-[11px] uppercase tracking-[0.4em] ${colorStyle.text} font-semibold`}>Fil rouge budgétaire</p>
+                    <p className="mt-2 text-base font-semibold">{activeSection.focus}</p>
+                  </div>
+                )}
+              </div>
+              <div className="grid gap-6 lg:grid-cols-2">
+                {activeSection.actions.map((action) => (
+                  <ActionCard key={action.title} action={action} />
+                ))}
+              </div>
+            </div>
+          </article>
+        )}
       </div>
     </section>
   );
