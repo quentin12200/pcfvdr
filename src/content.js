@@ -30,25 +30,41 @@ export const SECTIONS = [
         title: "Assemblées citoyennes dotées d’un droit de veto",
         detail:
           "Création d’assemblées par quartier (Bastide, Tricot, Fontanges, Ségala) avec budget propre, droit d’interpellation et référendum local si 5 % des inscrits signent une pétition.",
-        example: "Comme à Saillans (Drôme), où l’assemblée des habitantes et habitants valide les décisions municipales."
+        example: {
+          city: "Saillans (Drôme)",
+          detail: "L’assemblée des habitantes et habitants valide chaque décision municipale depuis 2014."
+        },
+        validations: 74
       },
       {
         title: "Budget participatif porté à 5 %",
         detail:
           "Priorité aux quartiers populaires, publication annuelle des projets financés, accompagnement des associations pour déposer des dossiers.",
-        example: "Grenoble a fait passer son budget participatif à 5 M€ en 2023 en ciblant les quartiers populaires."
+        example: {
+          city: "Grenoble",
+          detail: "5 M€ sont fléchés chaque année vers des projets décidés par les habitantes et habitants."
+        },
+        validations: 58
       },
       {
         title: "Charte éthique et révocation citoyenne",
         detail:
           "Non-cumul strict, transparence des indemnités, possibilité de révocation citoyenne en cas de manquement grave à la charte.",
-        example: "La municipalité de Kingersheim (Haut-Rhin) a instauré une charte éthique signée par tous les élus municipaux."
+        example: {
+          city: "Kingersheim (Haut-Rhin)",
+          detail: "Tous les élus signent une charte éthique publique depuis plus de dix ans."
+        },
+        validations: 62
       },
       {
         title: "Observatoire des services publics",
         detail:
           "Tableaux de bord publics sur les délais administratifs, les marchés, les subventions et les délégations de service public.",
-        example: "À Paris, l’Observatoire municipal des services publics publie des indicateurs trimestriels accessibles en open data."
+        example: {
+          city: "Paris",
+          detail: "Les indicateurs de services publics sont publiés en open data chaque trimestre."
+        },
+        validations: 41
       }
     ],
     focus: "La Ville doit redevenir exemplaire : zéro euro sans contrôle citoyen."
@@ -64,26 +80,42 @@ export const SECTIONS = [
       {
         title: "Maison du Peuple Bastide",
         detail:
-          "Accueil social global, médiation numérique, permanence des syndicats, de la CAF, de la CPAM et du Département avec horaires élargis.",
-        example: "Roubaix a rouvert une Maison du Peuple qui centralise guichets sociaux, numériques et permanences syndicales."
+          "Accueil social global, médiation numérique, permanences CAF, CPAM et Département avec horaires élargis et relais associatifs.",
+        example: {
+          city: "Roubaix",
+          detail: "La Maison du Peuple mutualise guichets sociaux, numériques et accompagnement juridique."
+        },
+        validations: 69
       },
       {
         title: "Centre municipal de santé",
         detail:
           "Médecins, infirmiers, sages-femmes salariés à Fontanges et consultations avancées dans les quartiers et villages.",
-        example: "Aubervilliers démontre qu’un centre municipal de santé permet de salarier des médecins généralistes et spécialistes."
+        example: {
+          city: "Aubervilliers",
+          detail: "Le centre municipal de santé y salarie généralistes et spécialistes depuis 1935."
+        },
+        validations: 77
       },
       {
         title: "Plan logement Bastide/Tricot",
         detail:
           "Permis de louer renforcé, taxation des logements vacants, rénovation de 700 logements via une OPAH-RU massive et création d’un office foncier solidaire.",
-        example: "À Bègles, l’office foncier solidaire municipal sécurise l’accession sociale et bloque la spéculation."
+        example: {
+          city: "Bègles",
+          detail: "L’office foncier solidaire bloque la spéculation et sécurise l’accession sociale."
+        },
+        validations: 83
       },
       {
         title: "Cantines locales et sociales",
         detail:
           "80 % de produits locaux et 60 % bio, menus à 1 € pour les familles modestes, ateliers cuisine populaire dans les écoles et les centres sociaux.",
-        example: "La ville de Mouans-Sartoux atteint déjà 100 % de bio dans ses cantines avec sa ferme communale."
+        example: {
+          city: "Mouans-Sartoux",
+          detail: "La ferme communale permet d’atteindre 100 % de bio et des tarifs accessibles."
+        },
+        validations: 64
       }
     ],
     focus: "Aucun service public essentiel ne doit être laissé au privé." 
@@ -100,25 +132,41 @@ export const SECTIONS = [
         title: "Plan arbres et fraîcheur",
         detail:
           "2 000 arbres plantés, cours d’écoles végétalisées, renaturation des berges de l’Alzou et dispositifs d’ombre sur les places de la Bastide.",
-        example: "Clermont-Ferrand a lancé un plan de 20 000 arbres avec végétalisation des cours d’école."
+        example: {
+          city: "Clermont-Ferrand",
+          detail: "Un plan de 20 000 arbres et de cours végétalisées a été engagé dès 2020."
+        },
+        validations: 59
       },
       {
         title: "Énergie citoyenne",
         detail:
           "Société publique locale pour équiper 50 % des toitures publiques en solaire, coopératives d’habitants pour l’autoconsommation et lutte contre la précarité énergétique.",
-        example: "Loos-en-Gohelle (Pas-de-Calais) pilote depuis 15 ans une régie de transition énergétique citoyenne."
+        example: {
+          city: "Loos-en-Gohelle",
+          detail: "Une régie énergétique citoyenne y accompagne habitants et services publics depuis 15 ans."
+        },
+        validations: 66
       },
       {
         title: "Plan mobilités publiques",
         detail:
           "Bastibus+ gratuit pour les moins de 26 ans, cadencement toutes les 20 minutes, 15 km de pistes cyclables sécurisées et pôle d’échanges multimodal à la gare.",
-        example: "Dunkerque a rendu son réseau gratuit et renforcé les fréquences pour les jeunes et les actifs."
+        example: {
+          city: "Dunkerque",
+          detail: "Le réseau gratuit et renforcé a doublé la fréquentation en quelques années."
+        },
+        validations: 52
       },
       {
         title: "Déchets zéro brûlage",
         detail:
           "Composteurs collectifs, ressourcerie intercommunale, tarification incitative accompagnée et brigade verte pour lutter contre les dépôts sauvages.",
-        example: "Besançon a couplé tarification incitative et ressourcerie municipale pour réduire les déchets de 20 %."
+        example: {
+          city: "Besançon",
+          detail: "Tarification incitative + ressourcerie municipale ont réduit les déchets de 20 %."
+        },
+        validations: 48
       }
     ],
     focus: "La transition n’est pas un gadget : elle crée des emplois locaux et protège notre santé."
@@ -135,25 +183,41 @@ export const SECTIONS = [
         title: "Conditionnalité des aides",
         detail:
           "Aucune subvention sans engagements sociaux : égalité femmes-hommes, emploi local, pas de licenciements boursiers.",
-        example: "Lyon conditionne déjà ses aides économiques à l’égalité salariale et aux critères climatiques."
+        example: {
+          city: "Lyon",
+          detail: "Les aides économiques y sont conditionnées à l’égalité salariale et à des critères climatiques."
+        },
+        validations: 71
       },
       {
         title: "Régie municipale du bâtiment",
         detail:
           "Atelier chantier d’insertion pour entretenir logements vacants, écoles et équipements sportifs avec des emplois statutaires.",
-        example: "La régie de quartier de Villeneuve à Grenoble montre que des emplois statutaires peuvent entretenir le patrimoine public."
+        example: {
+          city: "Grenoble",
+          detail: "La régie de quartier de Villeneuve entretient le patrimoine public avec des emplois statutaires."
+        },
+        validations: 63
       },
       {
         title: "Pass Culture-Sport Villefranchois",
         detail:
           "120 € par jeune pour adhérer à un club, acheter un instrument ou du matériel artistique ; priorité aux quartiers populaires.",
-        example: "À Bologne (Italie), la municipalité offre un pass jeunes cumulant activités sportives et culturelles accessible à tous."
+        example: {
+          city: "Bologne (Italie)",
+          detail: "Un pass municipal finance les dépenses sportives et culturelles des jeunes."
+        },
+        validations: 55
       },
       {
         title: "Maison des associations agrandie",
         detail:
           "Installation au Château de Graves avec ateliers mutualisés, studio médias et accompagnement à la création de coopératives.",
-        example: "À Nantes, la Maison des associations Trempo mutualise studios et accompagnement coopératif dans un ancien site industriel."
+        example: {
+          city: "Nantes",
+          detail: "Trempo mutualise studios, formations et coopérations dans un ancien site industriel." 
+        },
+        validations: 60
       }
     ],
     focus: "La Bastide doit redevenir un centre vivant grâce aux initiatives populaires et coopératives."
@@ -170,25 +234,41 @@ export const SECTIONS = [
         title: "Plan écoles 100 % rénovées",
         detail:
           "Isolation, ventilation, cours transformées en îlots de fraîcheur et ouverture des salles aux associations après 18 h.",
-        example: "Poitiers a engagé un plan pluriannuel pour rénover 42 écoles avec îlots de fraîcheur accessibles aux associations."
+        example: {
+          city: "Poitiers",
+          detail: "Un plan pluriannuel finance la rénovation de 42 écoles et la transformation des cours."
+        },
+        validations: 68
       },
       {
         title: "Crèches aux horaires élargis",
         detail:
           "Extension des crèches municipales, micro-crèche coopérative pour les horaires atypiques et service de garde partagée dans les villages associés.",
-        example: "Vitry-sur-Seine finance une crèche à horaires élargis dédiée aux travailleurs postés."
+        example: {
+          city: "Vitry-sur-Seine",
+          detail: "Une crèche municipale à horaires élargis soutient les travailleuses et travailleurs postés."
+        },
+        validations: 72
       },
       {
         title: "Conseil municipal des jeunes",
         detail:
           "Budget propre pour financer des projets solidaires, culturels et écologiques proposés par les 9-18 ans.",
-        example: "À Rennes, le conseil des jeunes dispose d’un budget participatif pour concrétiser ses projets."
+        example: {
+          city: "Rennes",
+          detail: "Le conseil des jeunes gère un budget participatif pour ses projets solidaires."
+        },
+        validations: 57
       },
       {
         title: "Accompagnement scolaire renforcé",
         detail:
           "Dispositif municipal avec enseignants vacataires, bénévoles et associations pour les collégiens de Treize Pierres et les lycées.",
-        example: "La ville de Saint-Denis a créé un service municipal du soutien scolaire en lien avec les collèges REP+."
+        example: {
+          city: "Saint-Denis",
+          detail: "Un service municipal dédié au soutien scolaire y travaille avec les collèges REP+."
+        },
+        validations: 61
       }
     ],
     focus: "La jeunesse doit être au cœur du projet villefranchois et non une variable d’ajustement."
@@ -199,9 +279,9 @@ export const PARTICIPER = {
   badge: "Ouvert à toutes et tous",
   title: "Faites vivre le programme communiste villefranchois",
   paragraphs: [
-    "Nous voulons que ces propositions soient reprises par les listes citoyennes, associatives ou syndicales prêtes à rompre avec la gestion actuelle.",
+    "Nous voulons que ces propositions soient reprises par les listes citoyennes ou associatives prêtes à rompre avec la gestion actuelle.",
     "Nos ateliers d’éducation populaire s’appuient sur des techniques concrètes : cercles de parole pour entendre chaque quartier, cartographies sensibles pour pointer les urgences, théâtre forum pour tester les décisions et porteurs de parole sur les marchés.",
-    "Vous pouvez relayer le programme, l’adapter à votre quartier et rejoindre l’équipe qui prépare la campagne 2026 afin d’animer le débat municipal sur ces orientations."
+    "Vous pouvez relayer le programme, l’adapter à votre quartier et rejoindre l’équipe qui prépare la campagne 2026 afin d’animer le débat municipal sur ces orientations. Chaque proposition dispose d’un compteur : à 100 validations citoyennes, nous publions un guide pas à pas pour la future municipalité."
   ],
   steps: [
     {

@@ -4,6 +4,60 @@ import logoPcf from "../logo.png";
 import "./index.css";
 
 const JOIN_URL = "https://www.pcf.fr/adherer";
+const VALIDATION_GOAL = 100;
+
+const ActionCard = ({ action }) => {
+  const [count, setCount] = React.useState(action.validations);
+  const percent = Math.min(100, Math.round((count / VALIDATION_GOAL) * 100));
+  const remaining = Math.max(0, VALIDATION_GOAL - count);
+  const isComplete = count >= VALIDATION_GOAL;
+
+  return (
+    <div className="rounded-3xl bg-gradient-to-br from-white to-red-50 border border-red-100 p-6 flex flex-col gap-4 shadow-sm">
+      <div>
+        <p className="text-xs uppercase tracking-[0.3em] text-red-500 font-semibold">Mesure communiste</p>
+        <h4 className="mt-2 text-xl font-semibold text-slate-900">{action.title}</h4>
+        <p className="mt-2 text-sm text-slate-700">{action.detail}</p>
+      </div>
+      {action.example && (
+        <div className="rounded-2xl border border-red-100 bg-white/80 p-4">
+          <p className="text-xs uppercase tracking-widest text-red-500 font-semibold">Déjà réalisé</p>
+          <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
+          <p className="mt-1 text-sm text-slate-600">{action.example.detail}</p>
+        </div>
+      )}
+      <div>
+        <div className="flex items-center justify-between text-[11px] uppercase tracking-widest text-slate-500 font-semibold">
+          <span>Validations citoyennes</span>
+          <span>
+            {count} / {VALIDATION_GOAL}
+          </span>
+        </div>
+        <div className="mt-2 h-2 rounded-full bg-slate-100 overflow-hidden">
+          <div
+            className={`h-full rounded-full ${isComplete ? "bg-emerald-500" : "bg-red-600"}`}
+            style={{ width: `${percent}%` }}
+          />
+        </div>
+        <p className="mt-2 text-xs text-slate-600">
+          {isComplete
+            ? "Guide pas à pas : prêt à remettre à la future municipalité."
+            : `Encore ${remaining} validations avant la publication du guide détaillé.`}
+        </p>
+      </div>
+      <button
+        type="button"
+        onClick={() => setCount((prev) => Math.min(VALIDATION_GOAL, prev + 1))}
+        disabled={isComplete}
+        className={`inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition ${
+          isComplete ? "bg-slate-200 text-slate-500 cursor-not-allowed" : "bg-red-600 text-white hover:bg-red-700"
+        }`}
+      >
+        {isComplete ? "Guide publié" : "Je valide cette mesure"}
+      </button>
+    </div>
+  );
+};
 
 const NAV_LINKS = [
   { label: "Vision", href: "#vision" },
@@ -132,8 +186,8 @@ export default function App() {
             <h2 className="mt-2 text-3xl font-extrabold">Bloc communiste pour Villefranche</h2>
             <p className="mt-3 text-base text-slate-600 max-w-3xl mx-auto">
               Chaque bloc reprend l’esprit des propositions communistes nationales et les traduit pour les quartiers de la Bastide,
-              du Tricot, de Fontanges et des villages associés. Notre ambition : être force de proposition pour toutes les listes
-              citoyennes et ouvrir la porte à de nouveaux candidats populaires.
+              du Tricot, de Fontanges et des villages associés. Validez les mesures qui vous parlent : à 100 soutiens, nous publions
+              un guide opérationnel pour qu’une future municipalité mette en œuvre la proposition sans attendre.
             </p>
           </div>
 
@@ -157,17 +211,9 @@ export default function App() {
                       <p className="mt-2 text-base text-slate-600">{section.description}</p>
                     </div>
                   </div>
-                  <div className="mt-8 grid gap-5 md:grid-cols-2">
+                  <div className="mt-8 grid gap-6 md:grid-cols-2">
                     {section.actions.map((action) => (
-                      <div key={action.title} className="rounded-2xl border border-slate-100 p-5 bg-red-50/50">
-                        <h4 className="text-lg font-semibold text-red-700">{action.title}</h4>
-                        <p className="mt-2 text-sm text-slate-700">{action.detail}</p>
-                        {action.example && (
-                          <p className="mt-3 text-xs text-red-700">
-                            <span className="font-semibold">Exemple :</span> {action.example}
-                          </p>
-                        )}
-                      </div>
+                      <ActionCard key={action.title} action={action} />
                     ))}
                   </div>
                   {section.focus && (
