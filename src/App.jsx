@@ -32,6 +32,10 @@ const ActionCard = ({ action }) => {
       >
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-red-500 font-semibold">Mesure communiste</p>
+          <p className="mt-1 text-xs text-slate-500 leading-relaxed">
+            Chaque mesure communiste combine un diagnostic villefranchois précis, un financement public maîtrisé et un contrôle
+            citoyen porté par les militantes et militants du PCF pour garantir sa mise en œuvre dès 2026.
+          </p>
           <h4 className="mt-2 text-xl font-semibold text-slate-900">{action.title}</h4>
           <p className="mt-2 text-sm text-slate-600">{isOpen ? "Fiche détaillée ouverte" : "Cliquer pour dérouler la fiche"}</p>
         </div>
