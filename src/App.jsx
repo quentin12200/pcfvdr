@@ -255,7 +255,7 @@ const COLOR_STYLES = {
 };
 
 const ActionCard = ({ action, color = "red" }) => {
-  const [activeTab, setActiveTab] = useState("probleme");
+  const [isExpanded, setIsExpanded] = React.useState(false);
   const detailParagraphs = Array.isArray(action.detail) ? action.detail : [action.detail];
   const [diagnostic, ...measures] = detailParagraphs;
   const colorStyle = COLOR_STYLES[color];
@@ -267,109 +267,115 @@ const ActionCard = ({ action, color = "red" }) => {
         : [action.example.detail]
       : [];
 
-  const tabs = [
-    { id: "probleme", label: "Le problème", icon: "⚠️", badge: "Diagnostic" },
-    { id: "solution", label: "Notre solution", icon: "✅", badge: `${measures.length} actions` },
-    ...(action.example ? [{ id: "exemple", label: "Ça marche où ?", icon: "🌍", badge: "Exemples" }] : [])
-  ];
+  // Extraire les économies du titre ou du diagnostic
+  const extractEconomies = () => {
+    const text = action.title + " " + diagnostic;
+    const match = text.match(/(\d[\d\s]*€)/);
+    return match ? match[0] : null;
+  };
+
+  const economies = extractEconomies();
 
   return (
-    <article className={`rounded-[28px] border-2 ${colorStyle.border} bg-gradient-to-br from-white to-slate-50/30 shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_30px_80px_rgba(15,23,42,0.18)] transition-all overflow-hidden flex flex-col group`}>
-      {/* Header avec badge */}
-      <header className={`${colorStyle.bg} ${colorStyle.border} border-b-2 p-5`}>
-        <div className="flex items-start justify-between gap-3 mb-2">
-          <h4 className="text-xl font-bold text-slate-900 leading-tight flex-1">{action.title}</h4>
-          <span className={`${colorStyle.activeBg} text-white text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wide whitespace-nowrap`}>
-            Nouvelle
-          </span>
-        </div>
-        {action.territories && (
-          <div className="flex flex-wrap gap-1.5 mt-3">
-            {action.territories.map((territory) => (
-              <span key={territory} className={`${colorStyle.lightBg} ${colorStyle.text} text-xs px-2 py-0.5 rounded-full font-medium`}>
-                📍 {territory}
-              </span>
-            ))}
+    <article className={`group relative rounded-3xl border-2 ${colorStyle.border} bg-gradient-to-br from-white via-white to-${color}-50/20 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden`}>
+      {/* Header avec titre en GROS */}
+      <div className={`relative bg-gradient-to-r ${colorStyle.activeBg} p-6`}>
+        <div className="flex items-start gap-4">
+          {/* Icône thématique */}
+          <div className="text-6xl opacity-20 absolute -right-4 -top-4">
+            {action.title.includes("Cantine") || action.title.includes("cantines") ? "🍽️" :
+             action.title.includes("Crèche") || action.title.includes("crèches") ? "👶" :
+             action.title.includes("Eau") || action.title.includes("eau") ? "💧" :
+             action.title.includes("Bus") || action.title.includes("transport") ? "🚌" :
+             action.title.includes("Santé") || action.title.includes("santé") ? "🏥" :
+             action.title.includes("Logement") || action.title.includes("logement") ? "🏠" :
+             action.title.includes("Budget") ? "🗳️" : "⭐"}
           </div>
-        )}
-      </header>
 
-      {/* Tabs - avec couleurs thématiques */}
-      <div className={`flex gap-1 px-4 pt-3 bg-slate-50/50`}>
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold transition-all rounded-t-xl flex-1 justify-center ${
-              activeTab === tab.id
-                ? `${colorStyle.activeBg} text-white shadow-md`
-                : `${colorStyle.lightBg} ${colorStyle.text} hover:${colorStyle.bg}`
-            }`}
-          >
-            <span className="text-sm">{tab.icon}</span>
-            <span className="hidden sm:inline">{tab.label}</span>
-          </button>
-        ))}
+          <div className="flex-1 relative z-10">
+            <h4 className="text-2xl font-black text-white leading-tight mb-2">
+              {action.title}
+            </h4>
+
+            {/* Badge économies si trouvé */}
+            {economies && (
+              <div className="inline-flex items-center gap-2 bg-yellow-400 text-slate-900 px-4 py-2 rounded-full font-black text-lg shadow-lg">
+                <span>💰</span>
+                <span>{economies} économisés</span>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
-      {/* Tab Content */}
-      <div className="p-5 bg-white">
-        {activeTab === "probleme" && diagnostic && (
-          <div className="space-y-4">
-            <div className={`rounded-2xl border-2 ${colorStyle.border} ${colorStyle.gradient} bg-gradient-to-br p-5`}>
-              <div className="flex items-center gap-2 mb-3">
-                <span className={`${colorStyle.activeBg} text-white text-xs px-2 py-1 rounded font-bold uppercase`}>⚠️ Constat</span>
-              </div>
-              <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line font-medium">{diagnostic}</p>
-            </div>
+      {/* Contenu */}
+      <div className="p-6 space-y-4">
+        {/* Problème - toujours visible */}
+        <div className="bg-gradient-to-br from-red-50 to-orange-50 border-2 border-red-200 rounded-2xl p-5">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-black uppercase">
+              ⚠️ Le Problème
+            </span>
           </div>
-        )}
+          <p className="text-slate-800 leading-relaxed font-medium">
+            {diagnostic}
+          </p>
+        </div>
 
-        {activeTab === "solution" && measures.length > 0 && (
+        {/* Solution */}
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl p-5">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-black uppercase">
+              ✅ Notre Solution
+            </span>
+          </div>
           <div className="space-y-3">
-            {measures.map((paragraph, index) => (
-              <div key={index} className={`rounded-2xl border ${colorStyle.border} bg-white p-5 shadow-sm hover:shadow-md transition-shadow`}>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className={`${colorStyle.activeBg} text-white text-xs px-2 py-1 rounded-full font-bold`}>
-                    {index + 1}
-                  </span>
-                  <span className={`${colorStyle.text} text-xs font-bold uppercase tracking-wide`}>Action concrète</span>
-                </div>
-                <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">{paragraph}</p>
+            {measures.slice(0, isExpanded ? measures.length : 1).map((paragraph, index) => (
+              <div key={index} className="flex gap-3">
+                <span className="bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                  {index + 1}
+                </span>
+                <p className="text-slate-800 leading-relaxed flex-1 font-medium">
+                  {paragraph}
+                </p>
               </div>
             ))}
           </div>
-        )}
 
-        {activeTab === "exemple" && action.example && (
-          <div className="space-y-4">
-            <div className={`rounded-2xl border ${colorStyle.border} ${colorStyle.bg} p-5`}>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">🌍</span>
-                <p className={`text-base font-bold ${colorStyle.text}`}>{action.example.city}</p>
-              </div>
-              <div className="space-y-3">
-                {exampleParagraphs.map((paragraph, index) => (
-                  <div key={index} className="flex gap-3">
-                    <span className={`${colorStyle.activeBg} text-white text-xs px-2 py-1 rounded-full font-bold h-fit`}>
-                      {index + 1}
-                    </span>
-                    <p className="text-sm text-slate-700 leading-relaxed flex-1">
-                      {paragraph}
-                    </p>
-                  </div>
-                ))}
-              </div>
+          {measures.length > 1 && !isExpanded && (
+            <button
+              onClick={() => setIsExpanded(true)}
+              className="mt-3 text-green-700 hover:text-green-900 font-bold text-sm flex items-center gap-2 group/btn"
+            >
+              <span>Voir les {measures.length - 1} autres actions</span>
+              <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
+        </div>
+
+        {/* Exemple - si existe */}
+        {action.example && (
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-black uppercase">
+                🌍 Ça marche où ?
+              </span>
+              <span className="text-blue-900 font-bold text-sm">
+                {action.example.city}
+              </span>
             </div>
-          </div>
-        )}
-
-        {action.validations && (
-          <div className={`mt-4 rounded-2xl border-2 ${colorStyle.border} ${colorStyle.lightBg} p-4`}>
-            <p className={`text-xs uppercase tracking-[0.3em] ${colorStyle.text} font-bold`}>✓ Déjà {action.validations} validations</p>
-            <p className="mt-1 text-sm text-slate-700 font-medium">
-              À 100 validations, on publie un guide détaillé pour appliquer cette mesure à Villefranche.
-            </p>
+            <div className="space-y-2">
+              {exampleParagraphs.map((paragraph, index) => (
+                <div key={index} className="flex gap-3">
+                  <span className="text-blue-600 font-bold flex-shrink-0">•</span>
+                  <p className="text-slate-700 leading-relaxed flex-1 text-sm">
+                    {paragraph}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
