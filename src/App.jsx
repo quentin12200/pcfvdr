@@ -47,23 +47,45 @@ ${Array.isArray(action.example.detail) ? action.example.detail[0].substring(0, 1
 
 // Composant de boutons de partage
 const ShareButtons = ({ action, sectionTitle, color = "red" }) => {
-  const [copied, setCopied] = React.useState(false);
+  const [shareMessage, setShareMessage] = React.useState('');
   const colorStyle = COLOR_STYLES[color];
   const { twitterText, longText } = generateShareText(action, sectionTitle);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(longText);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const showMessage = (msg) => {
+    setShareMessage(msg);
+    setTimeout(() => setShareMessage(''), 4000);
   };
 
-  const shareToTwitter = () => {
+  const handleCopy = () => {
+    navigator.clipboard.writeText(longText);
+    showMessage('✅ Texte copié ! Collez-le dans votre post Instagram.');
+  };
+
+  const shareToTwitter = async () => {
+    // Copier automatiquement le texte dans le presse-papiers
+    try {
+      await navigator.clipboard.writeText(twitterText);
+      showMessage('✅ Texte copié ! Collez-le dans votre tweet.');
+    } catch (err) {
+      console.log('Clipboard failed:', err);
+    }
+
+    // Ouvrir Twitter avec le texte pré-rempli
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(twitterText)}`;
     window.open(url, '_blank', 'width=600,height=400');
   };
 
-  const shareToFacebook = () => {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(longText)}`;
+  const shareToFacebook = async () => {
+    // Copier automatiquement le texte complet dans le presse-papiers
+    try {
+      await navigator.clipboard.writeText(longText);
+      showMessage('✅ Texte copié ! Collez-le dans votre post Facebook.');
+    } catch (err) {
+      console.log('Clipboard failed:', err);
+    }
+
+    // Ouvrir Facebook (l'utilisateur devra coller le texte car Facebook ne supporte pas le pré-remplissage)
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
     window.open(url, '_blank', 'width=600,height=400');
   };
 
@@ -98,32 +120,25 @@ const ShareButtons = ({ action, sectionTitle, color = "red" }) => {
         {/* Instagram / Copier */}
         <button
           onClick={handleCopy}
-          className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all ${
-            copied
-              ? 'bg-green-100 text-green-700 border-2 border-green-300'
-              : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
-          }`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700"
           title="Copier le texte pour Instagram"
         >
-          {copied ? (
-            <>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Copié !
-            </>
-          ) : (
-            <>
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-              Instagram (copier)
-            </>
-          )}
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          Instagram (copier)
         </button>
       </div>
+
+      {/* Message de confirmation de partage */}
+      {shareMessage && (
+        <div className="mt-3 p-3 bg-green-50 border-2 border-green-300 rounded-xl text-green-800 text-sm font-bold animate-pulse">
+          {shareMessage}
+        </div>
+      )}
+
       <p className="text-xs text-slate-500 mt-2 italic">
-        💡 {copied ? 'Texte copié ! Collez-le dans votre post Instagram.' : 'Le texte inclut la mesure, l\'exemple, les hashtags et emojis.'}
+        💡 Le texte est copié automatiquement dans le presse-papiers. Collez-le dans votre post !
       </p>
     </div>
   );
