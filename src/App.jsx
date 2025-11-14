@@ -585,15 +585,14 @@ const PhareCarousel = () => {
 // Calculateur d'économies personnalisé
 const CalculateurEconomies = () => {
   const [nbEnfants, setNbEnfants] = React.useState(0);
-  const [useTransports, setUseTransports] = React.useState(false);
   const [showResult, setShowResult] = React.useState(false);
 
   const calculateEconomies = () => {
     const cantines = nbEnfants * 1600; // Moyenne entre 1200 et 2000€
     const petitsDej = nbEnfants * 65;
     const fournitures = nbEnfants * 150;
-    const transports = useTransports ? 600 : 0;
-    return cantines + petitsDej + fournitures + transports;
+    const creches = nbEnfants * 3600; // 300€/mois x 12 mois moyenne
+    return cantines + petitsDej + fournitures + creches;
   };
 
   const total = calculateEconomies();
@@ -607,8 +606,8 @@ const CalculateurEconomies = () => {
 
 ${nbEnfants > 0 ? `✅ Cantines gratuites : ${(nbEnfants * 1600).toLocaleString()}€
 ✅ Petits déjeuners gratuits : ${(nbEnfants * 65).toLocaleString()}€
-✅ Fournitures scolaires gratuites : ${(nbEnfants * 150).toLocaleString()}€` : ''}
-${useTransports ? `✅ Transports gratuits : 600€` : ''}
+✅ Fournitures scolaires gratuites : ${(nbEnfants * 150).toLocaleString()}€
+✅ Crèches/centres de loisirs gratuits : ${(nbEnfants * 3600).toLocaleString()}€` : ''}
 
 💪 Un programme concret pour le pouvoir d'achat !
 
@@ -653,35 +652,6 @@ ${useTransports ? `✅ Transports gratuits : 600€` : ''}
               </div>
             </div>
 
-            {/* Transports */}
-            <div>
-              <label className="block text-lg font-bold mb-3">
-                🚌 Utilisez-vous les transports en commun ?
-              </label>
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setUseTransports(true)}
-                  className={`flex-1 px-6 py-3 rounded-xl font-bold text-lg transition-all ${
-                    useTransports
-                      ? 'bg-white text-green-700 scale-105 shadow-xl'
-                      : 'bg-white/20 hover:bg-white/30 border-2 border-white/40'
-                  }`}
-                >
-                  ✅ Oui
-                </button>
-                <button
-                  onClick={() => setUseTransports(false)}
-                  className={`flex-1 px-6 py-3 rounded-xl font-bold text-lg transition-all ${
-                    !useTransports
-                      ? 'bg-white text-green-700 scale-105 shadow-xl'
-                      : 'bg-white/20 hover:bg-white/30 border-2 border-white/40'
-                  }`}
-                >
-                  ❌ Non
-                </button>
-              </div>
-            </div>
-
             {/* Bouton calculer */}
             <button
               onClick={handleCalculate}
@@ -707,9 +677,9 @@ ${useTransports ? `✅ Transports gratuits : 600€` : ''}
                       <p>✅ Cantines gratuites : <strong>{(nbEnfants * 1600).toLocaleString()}€</strong></p>
                       <p>✅ Petits déjeuners gratuits : <strong>{(nbEnfants * 65).toLocaleString()}€</strong></p>
                       <p>✅ Fournitures scolaires gratuites : <strong>{(nbEnfants * 150).toLocaleString()}€</strong></p>
+                      <p>✅ Crèches/centres de loisirs gratuits : <strong>{(nbEnfants * 3600).toLocaleString()}€</strong></p>
                     </>
                   )}
-                  {useTransports && <p>✅ Transports gratuits : <strong>600€</strong></p>}
                 </div>
 
                 <button
