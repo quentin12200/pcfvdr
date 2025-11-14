@@ -8,9 +8,14 @@ const JOIN_URL = "https://www.pcf.fr/adherer";
 const ActionCard = ({ action }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const contentId = React.useId();
+  const detailParagraphs = Array.isArray(action.detail) ? action.detail : [action.detail];
 
   return (
-    <div className={`rounded-3xl border border-red-100 bg-white/80 shadow-sm transition-all ${isOpen ? "ring-2 ring-red-200" : "hover:border-red-200"}`}>
+    <div
+      className={`rounded-3xl border border-red-100 bg-white/80 shadow-sm transition-all ${
+        isOpen ? "ring-2 ring-red-200" : "hover:border-red-200"
+      }`}
+    >
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
@@ -32,19 +37,25 @@ const ActionCard = ({ action }) => {
           ↓
         </span>
       </button>
+      {action.example && (
+        <div className="px-6 pb-4 border-t border-red-50/80 bg-white">
+          <p className="text-xs uppercase tracking-[0.3em] text-red-500 font-semibold">Exemple inspirant</p>
+          <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
+          <p className="mt-1 text-sm text-slate-600">{action.example.detail}</p>
+        </div>
+      )}
       <div
         id={contentId}
         className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
       >
         <div className="px-6 pb-6 flex flex-col gap-5">
-          <p className="text-base text-slate-700 leading-relaxed">{action.detail}</p>
-          {action.example && (
-            <div className="rounded-2xl border border-red-100 bg-white p-4">
-              <p className="text-xs uppercase tracking-widest text-red-500 font-semibold">Déjà réalisé</p>
-              <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
-              <p className="mt-1 text-sm text-slate-600">{action.example.detail}</p>
-            </div>
-          )}
+          <div className="space-y-4">
+            {detailParagraphs.map((paragraph, index) => (
+              <p key={index} className="text-base text-slate-700 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
           {action.territories && action.territories.length > 0 && (
             <div className="rounded-2xl border border-red-100 bg-red-50/60 p-4 text-sm text-red-700">
               <p className="text-xs uppercase tracking-widest font-semibold">Quartiers concernés</p>

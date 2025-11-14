@@ -24,8 +24,9 @@ export const SECTIONS = [
     actions: [
       {
         title: "Assemblées citoyennes dotées d’un droit de veto",
-        detail:
-          "Assemblées permanentes dans la Bastide, au Tricot, sur les Rives gauche et droite et dans les hameaux pour décider des priorités, avec budget propre, droit d’interpellation et référendum local si 5 % des inscrits signent une pétition.",
+        detail: [
+          "Les conseils consultatifs de quartier ont disparu à Villefranche et les riveraines et riverains n’ont plus d’espace pour contester les décisions prises à la Bastide. Nous proposons d’installer des assemblées permanentes par quartier, dotées d’un secrétariat et d’une dotation budgétaire minimale de 50 000 € chacune.",
+          "Ces assemblées pourront déclencher un référendum local si 5 % des électeurs signent une pétition, suspendre une décision municipale par un veto motivé et publieront chaque trimestre leurs comptes rendus pour que chacun puisse suivre les arbitrages."],
         territories: ["Bastide", "Rive droite", "Rive gauche", "Le Tricot", "Veuzac"],
         example: {
           city: "Saillans (Drôme)",
@@ -35,8 +36,9 @@ export const SECTIONS = [
       },
       {
         title: "Budget participatif porté à 5 %",
-        detail:
-          "Augmentation progressive du budget participatif communal à 5 % des dépenses d’investissement, avec jurys tirés au sort, tutoriels et aide au montage de projets dans les maisons de quartier.",
+        detail: [
+          "Les projets citoyens financés depuis 2020 n’excèdent pas quelques dizaines de milliers d’euros alors que les besoins en rénovation des places ou en services publics sont immenses. Nous portons la part du budget participatif à 5 % des investissements, soit près de 1 million d’euros par an.",
+          "Les jurys seront tirés au sort dans chaque quartier, accompagnés par les maisons des hameaux qui aideront au montage des dossiers et par un comité d’experts citoyens chargé de suivre la réalisation concrète des chantiers retenus."],
         territories: ["Les Pesquiés", "Pénevayre", "Les Gravasses", "Mas de Rivals"],
         example: {
           city: "Grenoble",
@@ -46,8 +48,9 @@ export const SECTIONS = [
       },
       {
         title: "Charte éthique et révocation citoyenne",
-        detail:
-          "Signature d’une charte publique par chaque élu·e, publication des indemnités en ligne, contrôle citoyen annuel et procédure de révocation déclenchée par un quart des assemblées de quartier.",
+        detail: [
+          "Les démissions successives au conseil municipal ont alimenté la défiance. Nous rendrons publiques toutes les indemnités, les agendas et les délégations afin que chaque habitant sache qui décide quoi.",
+          "Une procédure de révocation sera déclenchée si un quart des assemblées de quartier le demande, forçant le ou la titulaire du mandat à organiser une consultation locale sous un mois."],
         territories: ["Ville entière"],
         example: {
           city: "Kingersheim (Haut-Rhin)",
@@ -57,8 +60,9 @@ export const SECTIONS = [
       },
       {
         title: "Observatoire des services publics",
-        detail:
-          "Publication trimestrielle des délais administratifs, marchés publics, subventions et délégations, accessible en open data et affichée dans chaque maison de quartier.",
+        detail: [
+          "Délai pour obtenir un rendez-vous à l’état civil, ouverture des guichets, temps d’attente au CCAS : aucune donnée n’est publiée aujourd’hui. Nous créerons un observatoire réunissant agents municipaux, usagers et universitaires.",
+          "Les indicateurs seront affichés dans chaque maison de quartier, diffusés en open data et débattus publiquement pour corriger les dysfonctionnements dans la Bastide comme dans les hameaux."],
         territories: ["Bastide", "Graves", "Rive gauche"],
         example: {
           city: "Paris",
@@ -79,8 +83,9 @@ export const SECTIONS = [
     actions: [
       {
         title: "Maison du Peuple Bastide",
-        detail:
-          "Accueil social global, médiation numérique, permanences CAF, CPAM et Département avec horaires élargis, point justice et relais associatifs pour orienter les habitantes et habitants.",
+        detail: [
+          "Les habitantes de la Bastide se heurtent à des guichets éclatés entre la sous-préfecture, le CCAS et les permanences associatives. Nous regrouperons ces services dans une Maison du Peuple ouverte six jours sur sept avec nocturnes hebdomadaires.",
+          "CAF, CPAM, Département, médiation numérique, permanence juridique et relais associatifs y partageront un guichet unique capable d’accompagner les habitants des Pesquiés ou de la Rive droite sans déplacement supplémentaire."],
         territories: ["Bastide", "Les Pesquiés", "Rive droite"],
         example: {
           city: "Roubaix",
@@ -90,8 +95,9 @@ export const SECTIONS = [
       },
       {
         title: "Centre municipal de santé",
-        detail:
-          "Médecins, infirmiers, sages-femmes salariés installés à Fontanges avec consultations avancées à Graves, Veuzac, Laurière et dans les hameaux du Ségala.",
+        detail: [
+          "La fermeture de cabinets libéraux et la dépendance au centre hospitalier Émile-Borel rendent l’accès aux soins critique. Nous salarierons une équipe pluridisciplinaire installée à Fontanges avec des vacations à Graves, Veuzac et Laurère.",
+          "Le centre municipal offrira des consultations sans dépassements, un service de prévention itinérant dans les hameaux du Ségala et un calendrier de permanence dentaire et sage-femme partagé avec l’hôpital."],
         territories: ["Graves", "Veuzac", "Laurière"],
         example: {
           city: "Aubervilliers",
@@ -101,8 +107,9 @@ export const SECTIONS = [
       },
       {
         title: "Plan logement Bastide/Tricot",
-        detail:
-          "Permis de louer renforcé, taxation des logements vacants, rénovation de 700 logements via une OPAH-RU massive, office foncier solidaire et résorption des dents creuses dans les Rives gauche et droite.",
+        detail: [
+          "Plus de 11 % des logements du centre ancien restent vides et les marchands de sommeil s’installent du Tricot à la Rive droite. Nous renforcerons le permis de louer et créerons une cellule municipale anti-insalubrité.",
+          "Une OPAH-RU sur dix ans permettra de rénover 700 logements, l’office foncier solidaire bloquera la spéculation et les dents creuses seront mobilisées pour créer du logement social dans les deux rives."],
         territories: ["Bastide", "Le Tricot", "Rive gauche", "Rive droite"],
         example: {
           city: "Bègles",
@@ -112,8 +119,9 @@ export const SECTIONS = [
       },
       {
         title: "Cantines locales et sociales",
-        detail:
-          "80 % de produits locaux et 60 % bio, menus à 1 € pour les familles modestes, ateliers cuisine populaire dans les écoles, les centres sociaux et les maisons des hameaux.",
+        detail: [
+          "Les restaurants scolaires servent aujourd’hui moins de 30 % de produits issus de l’Aveyron et les tarifs restent élevés pour les foyers modestes. Nous renégocierons les marchés pour atteindre 80 % de denrées locales et 60 % bio.",
+          "Les menus à 1 € seront accessibles sous condition de quotient familial, complétés par des ateliers cuisine populaire animés dans chaque école, centre social et maison de hameau."],
         territories: ["Toutes les écoles", "Mas de Rivals", "Pénevayre"],
         example: {
           city: "Mouans-Sartoux",
@@ -134,8 +142,9 @@ export const SECTIONS = [
     actions: [
       {
         title: "Plan arbres et fraîcheur",
-        detail:
-          "2 000 arbres plantés, cours d’écoles végétalisées, renaturation des berges de l’Alzou, dispositifs d’ombre sur les places de la Bastide et jardins partagés sur les friches de la Rive gauche.",
+        detail: [
+          "Les épisodes caniculaires se multiplient sur la Bastide et les cours minérales des écoles deviennent invivables. Nous lancerons un inventaire de toutes les surfaces bitumées pour prioriser les lieux où planter 2 000 arbres.",
+          "Les berges de l’Alzou seront renaturées, les places recevront des dispositifs d’ombre et les friches de la Rive gauche accueilleront des jardins partagés ouverts aux habitants."],
         territories: ["Bastide", "Rive gauche", "Graves", "Les Gravasses"],
         example: {
           city: "Clermont-Ferrand",
@@ -145,8 +154,9 @@ export const SECTIONS = [
       },
       {
         title: "Énergie citoyenne",
-        detail:
-          "Société publique locale pour équiper 50 % des toitures publiques en solaire, coopératives d’habitant·es pour l’autoconsommation et lutte contre la précarité énergétique avec achat groupé de rénovations.",
+        detail: [
+          "Les bâtiments municipaux consomment plus d’un million d’euros d’énergie par an. Une société publique locale mutualisera la pose de panneaux solaires sur 50 % des toitures publiques dès le premier mandat.",
+          "Nous aiderons les habitantes et habitants à créer des coopératives d’autoconsommation et proposerons un achat groupé de rénovations pour faire reculer la précarité énergétique dans les hameaux."],
         territories: ["Graves", "Veuzac", "Laurière", "Mas de Bonnet"],
         example: {
           city: "Loos-en-Gohelle",
@@ -156,8 +166,9 @@ export const SECTIONS = [
       },
       {
         title: "Plan mobilités publiques",
-        detail:
-          "Bastibus+ gratuit pour les moins de 26 ans, cadencement toutes les 20 minutes, 15 km de pistes cyclables sécurisées, pôles d’échanges au Tricot et à la gare et navettes pour les hameaux du Ségala.",
+        detail: [
+          "Les bus Bastibus s’arrêtent trop tôt et ne desservent pas correctement les lycéens des Gravasses. Nous renforcerons l’offre pour atteindre un passage toutes les 20 minutes sur les lignes structurantes et la gratuité pour les moins de 26 ans.",
+          "Les pôles d’échanges du Tricot et de la gare seront modernisés, 15 km de pistes cyclables sécurisées seront créés et des navettes relieront quotidiennement les hameaux du Ségala."],
         territories: ["Le Tricot", "Rive droite", "Hameaux du Ségala"],
         example: {
           city: "Dunkerque",
@@ -167,8 +178,9 @@ export const SECTIONS = [
       },
       {
         title: "Déchets zéro brûlage",
-        detail:
-          "Composteurs collectifs, ressourcerie intercommunale, tarification incitative accompagnée, brigade verte pour lutter contre les dépôts sauvages et collectes mobiles dans les hameaux.",
+        detail: [
+          "Les dépôts sauvages se multiplient le long de l’Aveyron et le brûlage de déchets verts reste courant dans les hameaux. Nous créerons une brigade verte municipale chargée de verbaliser, sensibiliser et intervenir rapidement.",
+          "Une ressourcerie intercommunale, des composteurs collectifs et des collectes mobiles dans les villages permettront d’accompagner la tarification incitative plutôt que de la subir."],
         territories: ["Les Pesquiés", "Rive droite", "Veuzac", "Graves"],
         example: {
           city: "Besançon",
@@ -189,8 +201,9 @@ export const SECTIONS = [
     actions: [
       {
         title: "Conditionnalité des aides",
-        detail:
-          "Aucune subvention sans engagements sociaux : égalité femmes-hommes, emploi local, lutte contre la précarité énergétique dans les ateliers et publication d’indicateurs accessibles.",
+        detail: [
+          "La communauté de communes distribue des aides économiques sans toujours exiger de contreparties, notamment sur l’égalité salariale ou la transition énergétique. Nous conditionnerons les subventions municipales à un socle d’engagements vérifiables.",
+          "Les entreprises soutenues devront publier leurs indicateurs d’emploi local, d’égalité femmes-hommes et d’impact énergétique ; un comité associant syndicats et commerçants contrôlera les résultats."],
         territories: ["Bastide", "Pénevayre", "Rive gauche"],
         example: {
           city: "Lyon",
@@ -200,8 +213,9 @@ export const SECTIONS = [
       },
       {
         title: "Régie municipale du bâtiment",
-        detail:
-          "Atelier chantier d’insertion pour entretenir logements vacants, écoles et équipements sportifs, avec antennes au Boï et aux Pesquiés pour intervenir rapidement.",
+        detail: [
+          "Les écoles et équipements sportifs souffrent de retards d’entretien faute d’équipes municipales suffisantes. Nous créerons une régie municipale dotée d’un atelier chantier d’insertion pour former et embaucher localement.",
+          "Deux antennes, au Boï et aux Pesquiés, permettront d’intervenir sous 48 heures sur les logements vacants ou les équipements prioritaires, avec un suivi des chantiers publié en ligne."],
         territories: ["Le Boï", "Les Pesquiés", "Bastide"],
         example: {
           city: "Grenoble",
@@ -211,8 +225,9 @@ export const SECTIONS = [
       },
       {
         title: "Pass Culture-Sport Villefranchois",
-        detail:
-          "120 € par jeune pour adhérer à un club, acheter un instrument ou du matériel artistique ; priorité aux quartiers populaires et aux lycéen·nes des Gravasses.",
+        detail: [
+          "Le coût d’adhésion aux clubs sportifs ou aux conservatoires freine les jeunes des Gravasses et des faubourgs. Nous créerons un pass de 120 € par jeune cumulable avec les aides départementales.",
+          "Les établissements scolaires des Gravasses, du Tricot et des hameaux pourront distribuer ces pass avec un accompagnement des familles pour s’inscrire dans les associations locales."],
         territories: ["Les Gravasses", "Rive droite", "Graves"],
         example: {
           city: "Bologne (Italie)",
@@ -222,8 +237,9 @@ export const SECTIONS = [
       },
       {
         title: "Maison des associations agrandie",
-        detail:
-          "Installation au Château de Graves avec ateliers mutualisés, studio médias, accompagnement à la création de coopératives et espaces partagés pour les collectifs ruraux.",
+        detail: [
+          "Les associations culturelles et sportives se partagent aujourd’hui des locaux saturés rue Bories. Nous installerons la Maison des associations au Château de Graves, accessible en bus et proche des équipements sportifs.",
+          "Des studios médias, ateliers mutualisés et un guichet d’accompagnement aux coopératives permettront aussi aux collectifs ruraux de bénéficier d’espaces partagés lorsqu’ils viennent en ville."],
         territories: ["Graves", "Veuzac", "Mas de Rivals"],
         example: {
           city: "Nantes",
@@ -244,8 +260,9 @@ export const SECTIONS = [
     actions: [
       {
         title: "Plan écoles 100 % rénovées",
-        detail:
-          "Isolation, ventilation, cours transformées en îlots de fraîcheur, ouverture des salles aux associations après 18 h et mutualisation avec les villages associés.",
+        detail: [
+          "Les écoles Jean-Jaurès, Calcomier ou Treize-Pierres manquent d’isolation et les cours restent minérales malgré les alertes des parents d’élèves. Nous engagerons un plan de rénovation énergétique complet assorti d’une ventilation naturelle.",
+          "Chaque cour deviendra un îlot de fraîcheur partagé avec les associations après 18 h, y compris pour les villages associés qui pourront utiliser les équipements lors des activités périscolaires."],
         territories: ["Bastide", "Les Pesquiés", "Mas de Bonnet", "Veuzac"],
         example: {
           city: "Poitiers",
@@ -255,8 +272,9 @@ export const SECTIONS = [
       },
       {
         title: "Crèches aux horaires élargis",
-        detail:
-          "Extension des crèches municipales, micro-crèche coopérative pour les horaires atypiques, service de garde partagé dans les villages associés et navettes pour les familles rurales.",
+        detail: [
+          "Les familles travaillant en horaires décalés doivent aujourd’hui se tourner vers Rodez ou les assistantes maternelles privées. Nous étendrons les crèches municipales avec une amplitude 6 h-21 h pour répondre aux besoins des soignants ou salariés industriels.",
+          "Une micro-crèche coopérative sera implantée sur la Rive gauche et un service de garde partagé circulera dans les villages associés pour éviter des trajets quotidiens vers la Bastide."],
         territories: ["Rive gauche", "Pénevayre", "Laurière"],
         example: {
           city: "Vitry-sur-Seine",
@@ -266,8 +284,9 @@ export const SECTIONS = [
       },
       {
         title: "Conseil municipal des jeunes",
-        detail:
-          "Budget propre pour financer des projets solidaires, culturels et écologiques proposés par les 9-18 ans, avec sièges réservés aux collèges Treize-Pierres et aux lycées agricoles.",
+        detail: [
+          "Les dispositifs jeunesse actuels se limitent à des animations ponctuelles et les collégiennes et collégiens n’influent pas sur les choix municipaux. Nous créerons un conseil municipal des jeunes doté d’un budget annuel de 50 000 €.",
+          "Des sièges seront réservés aux collèges Treize-Pierres et aux lycées agricoles, avec l’obligation de publier les projets financés (solidarité, culture, climat) et un suivi par les élus adultes."],
         territories: ["Treize-Pierres", "Les Gravasses", "Graves"],
         example: {
           city: "Rennes",
@@ -277,8 +296,9 @@ export const SECTIONS = [
       },
       {
         title: "Accompagnement scolaire renforcé",
-        detail:
-          "Dispositif municipal avec enseignants vacataires, bénévoles et associations pour les collégiens de Treize-Pierres, les lycées du centre-ville et les jeunes des hameaux qui viennent en ville.",
+        detail: [
+          "Les résultats scolaires chutent dans les quartiers populaires et les familles peinent à financer du soutien privé. Nous mettrons en place une cellule municipale d’aide aux devoirs en lien avec les enseignants volontaires.",
+          "Les associations d’éducation populaire seront conventionnées pour accueillir les collégiens de Treize-Pierres, les lycéens du centre-ville et les jeunes des hameaux qui arrivent par les navettes."],
         territories: ["Treize-Pierres", "Bastide", "Veuzac"],
         example: {
           city: "Saint-Denis",
