@@ -168,11 +168,17 @@ export const SECTIONS = [
         title: "Plan mobilités publiques",
         detail: [
           "Les bus Bastibus s’arrêtent trop tôt et ne desservent pas correctement les lycéens des Gravasses. Nous renforcerons l’offre pour atteindre un passage toutes les 20 minutes sur les lignes structurantes et la gratuité pour les moins de 26 ans.",
-          "Les pôles d’échanges du Tricot et de la gare seront modernisés, 15 km de pistes cyclables sécurisées seront créés et des navettes relieront quotidiennement les hameaux du Ségala."],
+          "Les pôles d’échanges du Tricot et de la gare seront modernisés, 15 km de pistes cyclables sécurisées seront créés et des navettes relieront quotidiennement les hameaux du Ségala.",
+          "Nous voulons un contrat de mobilité intercommunal qui impose l’accès gratuit aux bus Bastibus pendant les travaux, qui finance des vélostations aux Gravasses et qui installe des correspondances directes Bastide–Veuzac tôt le matin pour les salariées et salariés postés."
+        ],
         territories: ["Le Tricot", "Rive droite", "Hameaux du Ségala"],
         example: {
-          city: "Dunkerque",
-          detail: "Le réseau gratuit et renforcé a doublé la fréquentation en quelques années."
+          city: "Montpellier (34), Aubagne (13) et Bonneuil-sur-Marne (94)",
+          detail: [
+            "Montpellier (34) : avec l’appui des élu·es PCF, la métropole de Montpellier a rendu l’ensemble des transports gratuits en 2023. Une mesure écologique, sociale et qui permet de renforcer le pouvoir d’achat de l’ensemble des habitant·es de la métropole tout en favorisant l’utilisation des transports publics.",
+            "En 2009, c’était la mairie communiste d’Aubagne (13) qui avait rendu les transports gratuits, permettant de tripler l’utilisation des transports en commun !",
+            "Bonneuil sur Marne (94) : en 2021, sur le baromètre des villes cyclables réalisé par la fédération des usagers de bicyclette, Bonneuil est la ville du Val-de-Marne la mieux classée du département : la ville obtient par ailleurs sa meilleure note sur le critère « effort de la ville », signe que la commune s'engage à continuer de progresser !"
+          ]
         },
         validations: 52
       },

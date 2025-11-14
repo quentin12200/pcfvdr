@@ -10,6 +10,13 @@ const ActionCard = ({ action }) => {
   const contentId = React.useId();
   const detailParagraphs = Array.isArray(action.detail) ? action.detail : [action.detail];
 
+  const exampleParagraphs =
+    action.example && action.example.detail
+      ? Array.isArray(action.example.detail)
+        ? action.example.detail
+        : [action.example.detail]
+      : [];
+
   return (
     <div
       className={`rounded-3xl border border-red-100 bg-white/80 shadow-sm transition-all ${
@@ -38,10 +45,14 @@ const ActionCard = ({ action }) => {
         </span>
       </button>
       {action.example && (
-        <div className="px-6 pb-4 border-t border-red-50/80 bg-white">
+        <div className="px-6 pb-4 border-t border-red-50/80 bg-white space-y-1">
           <p className="text-xs uppercase tracking-[0.3em] text-red-500 font-semibold">Exemple inspirant</p>
-          <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
-          <p className="mt-1 text-sm text-slate-600">{action.example.detail}</p>
+          <p className="text-sm font-semibold text-slate-900">{action.example.city}</p>
+          {exampleParagraphs.map((paragraph, index) => (
+            <p key={index} className="text-sm text-slate-600">
+              {paragraph}
+            </p>
+          ))}
         </div>
       )}
       <div
