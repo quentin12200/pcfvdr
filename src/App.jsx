@@ -1,5 +1,5 @@
 import React from "react";
-import { INTRO, SECTIONS, PARTICIPER, STATS } from "./content";
+import { INTRO, SECTIONS, PARTICIPER, STATS, POUR_ALLER_PLUS_LOIN } from "./content";
 import logoPcf from "../logo.png";
 import bandeau from "../bandeau.png";
 import "./index.css";
@@ -21,14 +21,13 @@ const ActionCard = ({ action }) => {
       <header className="space-y-2">
         <h4 className="text-2xl font-semibold text-slate-900">{action.title}</h4>
         <p className="text-xs text-slate-500 leading-relaxed">
-          Chaque fiche s’accompagne d’un extrait du programme 2026 et d’un rappel du contrôle citoyen porté par les militantes et
-          militants communistes.
+          Le problème à Villefranche + ce qu'on propose de concret + des exemples de villes où ça marche déjà.
         </p>
       </header>
 
       {diagnostic && (
         <div className="rounded-2xl border border-red-100 bg-gradient-to-br from-red-50 via-white to-white p-5">
-          <p className="text-[11px] uppercase tracking-[0.4em] text-red-600 font-semibold">Diagnostic villefranchois</p>
+          <p className="text-[11px] uppercase tracking-[0.4em] text-red-600 font-semibold">Le problème</p>
           <p className="mt-2 text-sm text-slate-700 leading-relaxed">{diagnostic}</p>
         </div>
       )}
@@ -38,7 +37,7 @@ const ActionCard = ({ action }) => {
           <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
             {measures.map((paragraph, index) => (
               <li key={index} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
-                <p className="text-[10px] uppercase tracking-[0.4em] text-red-500 font-semibold">Extrait du programme</p>
+                <p className="text-[10px] uppercase tracking-[0.4em] text-red-500 font-semibold">La solution</p>
                 <p className="mt-2">{paragraph}</p>
               </li>
             ))}
@@ -46,22 +45,28 @@ const ActionCard = ({ action }) => {
         </div>
       )}
 
-      {action.territories && action.territories.length > 0 && (
-        <div className="rounded-2xl border border-red-100 bg-white/70 p-4 text-sm text-slate-700">
-          <p className="text-[11px] uppercase tracking-[0.35em] text-red-500 font-semibold">Quartiers concernés</p>
-          <p className="mt-2 font-semibold text-slate-900">{action.territories.join(" • ")}</p>
-        </div>
-      )}
+      {(action.example || action.validations) && (
+        <div className="grid gap-4 sm:grid-cols-2">
+          {action.example && (
+            <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-semibold">Ça marche où ?</p>
+              <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
+              {exampleParagraphs.map((paragraph, index) => (
+                <p key={index} className="mt-2 text-sm text-slate-600">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          )}
 
-      {action.example && (
-        <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
-          <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-semibold">Exemple inspirant</p>
-          <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
-          {exampleParagraphs.map((paragraph, index) => (
-            <p key={index} className="mt-2 text-sm text-slate-600">
-              {paragraph}
-            </p>
-          ))}
+          {action.validations && (
+            <div className="rounded-2xl border border-red-200 bg-red-50/70 p-4">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-red-600 font-semibold">Déjà {action.validations} personnes valident</p>
+              <p className="mt-1 text-sm text-red-700">
+                À 100 validations, on publie un guide détaillé pour appliquer cette mesure à Villefranche.
+              </p>
+            </div>
+          )}
         </div>
       )}
     </article>
@@ -80,12 +85,10 @@ const ThemeSheets = () => {
     <section id="themes" className="bg-slate-50/60 border-y border-red-100/60">
       <div className="max-w-6xl mx-auto px-4 py-16 space-y-12">
         <div className="text-center space-y-4">
-          <p className="text-xs uppercase tracking-[0.4em] text-red-500">Grands thèmes</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Extraits du programme PDF prêts à être appliqués</h2>
+          <p className="text-xs uppercase tracking-[0.4em] text-red-500">Les propositions</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Des solutions concrètes pour Villefranche</h2>
           <p className="text-base text-slate-600 max-w-4xl mx-auto">
-            Chaque bloc rassemble diagnostic villefranchois, extrait authentifié du programme et modalités de contrôle citoyen. Vous
-            pouvez ainsi afficher tel quel le contenu du PDF distribué sur les marchés et suivre comment ces engagements seront mis en
-            œuvre dès 2026.
+            Chaque mesure part d'un problème réel à Villefranche et propose une solution qui marche déjà ailleurs. Tout est chiffré, vérifié, réalisable. Tu peux valider les propositions qui te parlent : à 100 validations, on publie un guide pratique pour la mettre en œuvre.
           </p>
         </div>
         <div className="space-y-12">
@@ -249,17 +252,16 @@ export default function App() {
                 rel="noreferrer"
                 className="rounded-full bg-white/10 border border-white/40 text-white px-4 py-2 text-sm font-semibold hover:bg-white/20"
               >
-                Rejoindre l’équipe
+                Rejoindre
               </a>
             </nav>
           </div>
           <div className="grid gap-6 md:grid-cols-[1.2fr_1fr] items-center rounded-3xl border border-white/20 bg-white/10 p-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-red-100">Campagne 2026</p>
-              <h1 className="mt-3 text-3xl font-extrabold text-white">Ensemble, réinventons Villefranche</h1>
+              <p className="text-xs uppercase tracking-[0.3em] text-red-100">Municipales 2026</p>
+              <h1 className="mt-3 text-3xl font-extrabold text-white">Un vrai programme pour Villefranche</h1>
               <p className="mt-3 text-sm text-red-100">
-                Créons ensemble le Villefranche des jours heureux : chaque atelier populaire nourrit notre programme ouvert
-                et l’assemblée citoyenne.
+                Des propositions concrètes, testées ailleurs, chiffrées. Parce que tu mérites mieux que des promesses.
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden border border-white/20 bg-white/20">
@@ -312,6 +314,24 @@ export default function App() {
 
         <ThemeSheets />
 
+        <section className="bg-white border-y border-slate-100">
+          <div className="max-w-6xl mx-auto px-4 py-12">
+            <div className="text-center space-y-4 mb-10">
+              <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Pour les curieux</p>
+              <h2 className="text-3xl font-extrabold text-slate-900">{POUR_ALLER_PLUS_LOIN.title}</h2>
+              <p className="text-base text-slate-600 max-w-3xl mx-auto">{POUR_ALLER_PLUS_LOIN.intro}</p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {POUR_ALLER_PLUS_LOIN.sections.map((section) => (
+                <div key={section.title} className="rounded-2xl border border-slate-100 bg-slate-50/50 p-6">
+                  <h3 className="text-lg font-semibold text-slate-900">{section.title}</h3>
+                  <p className="mt-3 text-sm text-slate-700 leading-relaxed">{section.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="participer" className="bg-red-50 border-y border-red-100">
           <div className="max-w-6xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-[3fr_2fr] items-center">
             <div>
@@ -343,7 +363,7 @@ export default function App() {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-red-600 text-white px-5 py-3 text-sm font-semibold hover:bg-red-700"
                 >
-                  Participer aux ateliers populaires
+                  Je veux participer aux rencontres
                 </a>
                 <a
                   href={JOIN_URL}
@@ -351,7 +371,7 @@ export default function App() {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-red-200 text-red-700 px-5 py-3 text-sm font-semibold hover:border-red-400 hover:text-red-800"
                 >
-                  Rejoindre l’équipe villefranchoise
+                  Je rejoins l'équipe
                 </a>
               </div>
             </div>
