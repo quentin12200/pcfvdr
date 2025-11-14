@@ -231,8 +231,8 @@ export default function App() {
               <p className="text-xs uppercase tracking-[0.3em] text-red-100">Campagne 2026</p>
               <h1 className="mt-3 text-3xl font-extrabold text-white">Ensemble, réinventons Villefranche</h1>
               <p className="mt-3 text-sm text-red-100">
-                Le bandeau de campagne devient la scène du débat : nos ateliers populaires alimentent le programme ouvert et
-                l’assemblée citoyenne.
+                Créons ensemble le Villefranche des jours heureux : chaque atelier populaire nourrit notre programme ouvert
+                et l’assemblée citoyenne.
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden border border-white/20 bg-white/20">
