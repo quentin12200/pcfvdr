@@ -177,11 +177,29 @@ export const PARTICIPER = {
   title: "Faites vivre le programme communiste villefranchois",
   paragraphs: [
     "Nous voulons que ces propositions soient reprises par les listes citoyennes, associatives ou syndicales prêtes à rompre avec la gestion actuelle.",
-    "Vous pouvez simplement relayer le programme, l’adapter à votre quartier ou rejoindre l’équipe qui prépare la campagne 2026."
+    "Nos ateliers d’éducation populaire s’appuient sur des techniques concrètes : cercles de parole pour entendre chaque quartier, cartographies sensibles pour pointer les urgences, théâtre forum pour tester les décisions et porteurs de parole sur les marchés.",
+    "Vous pouvez relayer le programme, l’adapter à votre quartier et rejoindre l’équipe qui prépare la campagne 2026 afin d’animer le débat municipal sur ces orientations."
   ],
   steps: [
-    { title: "Rencontrer le collectif", detail: "Permanences chaque samedi matin sous les arcades de la Bastide ou sur rendez-vous." },
-    { title: "Participer aux ateliers", detail: "Groupes de travail thématiques ouverts (logement, écologie, culture, finances publiques)." },
-    { title: "Devenir candidate ou candidat", detail: "Accompagnement juridique et politique pour constituer des listes citoyennes à partir de nos propositions." }
+    {
+      title: "Cercle d’expression populaire",
+      detail:
+        "Chaque rencontre débute par un tour de parole égalitaire : on écoute, on note les besoins, on fixe les priorités quartier par quartier."
+    },
+    {
+      title: "Cartographie et diagnostics partagés",
+      detail:
+        "Balades urbaines, cartes sensibles, enquêtes de rue pour documenter logements vacants, espaces publics délaissés et idées d’investissements."
+    },
+    {
+      title: "Mise en débat publique",
+      detail:
+        "Théâtre forum, porteurs de parole sur le marché, réunions tournantes pour confronter les propositions et former des porte-voix populaires."
+    },
+    {
+      title: "Constitution d’équipes candidates",
+      detail:
+        "Accompagnement juridique et politique pour créer des listes citoyennes reprenant fidèlement le programme communiste villefranchois."
+    }
   ]
 };

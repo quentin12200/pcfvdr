@@ -3,6 +3,8 @@ import { INTRO, SECTIONS, PARTICIPER } from "./content";
 import logoPcf from "../logo.png";
 import "./index.css";
 
+const JOIN_URL = "https://www.pcf.fr/adherer";
+
 const NAV_LINKS = [
   { label: "Vision", href: "#vision" },
   { label: "Grands thèmes", href: "#themes" },
@@ -34,7 +36,9 @@ export default function App() {
               </a>
             ))}
             <a
-              href="#participer"
+              href={JOIN_URL}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-red-600 text-white px-4 py-2 text-sm font-semibold hover:bg-red-700"
             >
               Rejoindre l’équipe
@@ -150,6 +154,24 @@ export default function App() {
                   </li>
                 ))}
               </ul>
+              <div className="pt-2 flex flex-col gap-3">
+                <a
+                  href={JOIN_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-full bg-red-600 text-white px-5 py-3 text-sm font-semibold hover:bg-red-700"
+                >
+                  Participer aux ateliers populaires
+                </a>
+                <a
+                  href={JOIN_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-full border border-red-200 text-red-700 px-5 py-3 text-sm font-semibold hover:border-red-400 hover:text-red-800"
+                >
+                  Rejoindre l’équipe villefranchoise
+                </a>
+              </div>
             </div>
           </div>
         </section>
