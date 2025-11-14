@@ -525,6 +525,441 @@ const PhareCarousel = () => {
   );
 };
 
+// Calculateur d'économies personnalisé
+const CalculateurEconomies = () => {
+  const [nbEnfants, setNbEnfants] = React.useState(0);
+  const [useTransports, setUseTransports] = React.useState(false);
+  const [showResult, setShowResult] = React.useState(false);
+
+  const calculateEconomies = () => {
+    const cantines = nbEnfants * 1600; // Moyenne entre 1200 et 2000€
+    const petitsDej = nbEnfants * 65;
+    const fournitures = nbEnfants * 150;
+    const transports = useTransports ? 600 : 0;
+    return cantines + petitsDej + fournitures + transports;
+  };
+
+  const total = calculateEconomies();
+
+  const handleCalculate = () => {
+    setShowResult(true);
+  };
+
+  const shareResult = () => {
+    const text = `💰 Avec le programme PCF à Villefranche, j'économiserais ${total.toLocaleString()}€ par an !
+
+${nbEnfants > 0 ? `✅ Cantines gratuites : ${(nbEnfants * 1600).toLocaleString()}€
+✅ Petits déjeuners gratuits : ${(nbEnfants * 65).toLocaleString()}€
+✅ Fournitures scolaires gratuites : ${(nbEnfants * 150).toLocaleString()}€` : ''}
+${useTransports ? `✅ Transports gratuits : 600€` : ''}
+
+💪 Un programme concret pour le pouvoir d'achat !
+
+#Villefranche2026 #PCF #PouvoirDAchat
+👉 Calculez vos économies : [LIEN]`;
+
+    navigator.clipboard.writeText(text);
+    alert('✅ Texte copié ! Partagez vos économies sur les réseaux sociaux.');
+  };
+
+  return (
+    <section className="bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white py-16">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-black mb-3">💰 Calculez VOS économies</h2>
+          <p className="text-xl text-green-100">
+            Combien économiseriez-VOUS avec notre programme ?
+          </p>
+        </div>
+
+        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/20">
+          <div className="space-y-6">
+            {/* Nombre d'enfants */}
+            <div>
+              <label className="block text-lg font-bold mb-3">
+                👶 Combien d'enfants scolarisés avez-vous ?
+              </label>
+              <div className="flex gap-3 flex-wrap">
+                {[0, 1, 2, 3, 4, 5].map(n => (
+                  <button
+                    key={n}
+                    onClick={() => setNbEnfants(n)}
+                    className={`px-6 py-3 rounded-xl font-bold text-lg transition-all ${
+                      nbEnfants === n
+                        ? 'bg-white text-green-700 scale-110 shadow-xl'
+                        : 'bg-white/20 hover:bg-white/30 border-2 border-white/40'
+                    }`}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Transports */}
+            <div>
+              <label className="block text-lg font-bold mb-3">
+                🚌 Utilisez-vous les transports en commun ?
+              </label>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setUseTransports(true)}
+                  className={`flex-1 px-6 py-3 rounded-xl font-bold text-lg transition-all ${
+                    useTransports
+                      ? 'bg-white text-green-700 scale-105 shadow-xl'
+                      : 'bg-white/20 hover:bg-white/30 border-2 border-white/40'
+                  }`}
+                >
+                  ✅ Oui
+                </button>
+                <button
+                  onClick={() => setUseTransports(false)}
+                  className={`flex-1 px-6 py-3 rounded-xl font-bold text-lg transition-all ${
+                    !useTransports
+                      ? 'bg-white text-green-700 scale-105 shadow-xl'
+                      : 'bg-white/20 hover:bg-white/30 border-2 border-white/40'
+                  }`}
+                >
+                  ❌ Non
+                </button>
+              </div>
+            </div>
+
+            {/* Bouton calculer */}
+            <button
+              onClick={handleCalculate}
+              className="w-full bg-yellow-400 hover:bg-yellow-300 text-green-900 font-black text-xl py-4 rounded-xl transition-all hover:scale-105 shadow-2xl"
+            >
+              🧮 CALCULER MES ÉCONOMIES
+            </button>
+
+            {/* Résultat */}
+            {showResult && total > 0 && (
+              <div className="bg-yellow-400 text-green-900 rounded-2xl p-6 mt-6 animate-pulse">
+                <p className="text-center text-lg font-bold mb-2">
+                  💰 VOUS ÉCONOMISERIEZ :
+                </p>
+                <p className="text-center text-6xl font-black mb-4">
+                  {total.toLocaleString()}€
+                </p>
+                <p className="text-center text-lg font-bold mb-4">PAR AN !</p>
+
+                <div className="bg-green-900/20 rounded-xl p-4 mb-4 text-sm space-y-1">
+                  {nbEnfants > 0 && (
+                    <>
+                      <p>✅ Cantines gratuites : <strong>{(nbEnfants * 1600).toLocaleString()}€</strong></p>
+                      <p>✅ Petits déjeuners gratuits : <strong>{(nbEnfants * 65).toLocaleString()}€</strong></p>
+                      <p>✅ Fournitures scolaires gratuites : <strong>{(nbEnfants * 150).toLocaleString()}€</strong></p>
+                    </>
+                  )}
+                  {useTransports && <p>✅ Transports gratuits : <strong>600€</strong></p>}
+                </div>
+
+                <button
+                  onClick={shareResult}
+                  className="w-full bg-green-900 hover:bg-green-800 text-white font-bold py-3 rounded-xl transition-all"
+                >
+                  📢 PARTAGER MES ÉCONOMIES
+                </button>
+              </div>
+            )}
+
+            {showResult && total === 0 && (
+              <div className="bg-white/20 rounded-2xl p-6 mt-6 text-center">
+                <p className="text-lg font-bold">
+                  Notre programme bénéficie à tous les habitants de Villefranche !
+                </p>
+                <p className="mt-2">
+                  Découvrez toutes nos mesures ci-dessous 👇
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Comparateur Avant/Après
+const ComparateurAvantApres = () => {
+  const comparaisons = [
+    {
+      icon: "🍽️",
+      titre: "Cantine scolaire",
+      avant: "5€ par repas",
+      apres: "100% GRATUIT",
+      economie: "1 200-2 000€/an/enfant",
+      color: "purple"
+    },
+    {
+      icon: "🚌",
+      titre: "Transports en commun",
+      avant: "50€/mois",
+      apres: "100% GRATUIT",
+      economie: "600€/an/foyer",
+      color: "orange"
+    },
+    {
+      icon: "📚",
+      titre: "Fournitures scolaires",
+      avant: "150€/an",
+      apres: "100% GRATUIT",
+      economie: "150€/an/enfant",
+      color: "blue"
+    },
+    {
+      icon: "🥐",
+      titre: "Petit déjeuner",
+      avant: "Non fourni",
+      apres: "100% GRATUIT",
+      economie: "65€/an/enfant",
+      color: "red"
+    },
+    {
+      icon: "🏥",
+      titre: "Consultation médicale",
+      avant: "25€ minimum",
+      apres: "20€ centre municipal",
+      economie: "Économies + accès facilité",
+      color: "green"
+    },
+    {
+      icon: "🗳️",
+      titre: "Budget participatif",
+      avant: "0€",
+      apres: "300 000€/an",
+      economie: "500+ citoyens décident",
+      color: "teal"
+    }
+  ];
+
+  const colorClasses = {
+    purple: "from-purple-600 to-purple-700",
+    orange: "from-orange-600 to-orange-700",
+    blue: "from-blue-600 to-blue-700",
+    red: "from-red-600 to-red-700",
+    green: "from-green-600 to-green-700",
+    teal: "from-teal-600 to-teal-700"
+  };
+
+  return (
+    <section className="bg-slate-900 text-white py-16">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-black mb-3">⚡ Avant / Après</h2>
+          <p className="text-xl text-slate-300">
+            Ce qui change CONCRÈTEMENT avec notre programme
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {comparaisons.map((item, index) => (
+            <div
+              key={index}
+              className="bg-slate-800 rounded-2xl overflow-hidden border-2 border-slate-700 hover:border-white/40 transition-all hover:scale-105"
+            >
+              <div className={`bg-gradient-to-r ${colorClasses[item.color]} p-4 text-center`}>
+                <span className="text-5xl">{item.icon}</span>
+                <h3 className="text-xl font-bold mt-2">{item.titre}</h3>
+              </div>
+
+              <div className="p-6 space-y-4">
+                {/* Avant */}
+                <div className="bg-red-900/30 border-2 border-red-500/50 rounded-xl p-3">
+                  <p className="text-xs uppercase tracking-wider text-red-300 font-bold mb-1">
+                    ❌ Aujourd'hui
+                  </p>
+                  <p className="text-lg font-bold text-red-200">{item.avant}</p>
+                </div>
+
+                {/* Flèche */}
+                <div className="text-center">
+                  <svg className="w-8 h-8 mx-auto text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </div>
+
+                {/* Après */}
+                <div className="bg-green-900/30 border-2 border-green-500/50 rounded-xl p-3">
+                  <p className="text-xs uppercase tracking-wider text-green-300 font-bold mb-1">
+                    ✅ Avec le PCF
+                  </p>
+                  <p className="text-lg font-bold text-green-200">{item.apres}</p>
+                </div>
+
+                {/* Économie */}
+                <div className="bg-yellow-400 text-slate-900 rounded-xl p-3 text-center">
+                  <p className="text-sm font-black">💰 {item.economie}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-2xl font-bold text-yellow-400">
+            💪 Un programme qui redonne du pouvoir d'achat aux Villefranchois !
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Carte interactive de Villefranche
+const CarteInteractive = () => {
+  const [selectedProjet, setSelectedProjet] = React.useState(null);
+
+  const projets = [
+    {
+      id: 1,
+      nom: "Centre de santé municipale",
+      icon: "🏥",
+      description: "Consultations à 20€, médecins généralistes et spécialistes",
+      zone: "Centre-ville",
+      top: "45%",
+      left: "50%",
+      color: "green"
+    },
+    {
+      id: 2,
+      nom: "Jardins partagés",
+      icon: "🌱",
+      description: "15 parcelles cultivables pour les habitants",
+      zone: "Quartier Nord",
+      top: "25%",
+      left: "40%",
+      color: "teal"
+    },
+    {
+      id: 3,
+      nom: "Transports gratuits",
+      icon: "🚌",
+      description: "Bus urbains 100% gratuits sur toutes les lignes",
+      zone: "Toute la ville",
+      top: "60%",
+      left: "35%",
+      color: "orange"
+    },
+    {
+      id: 4,
+      nom: "Écoles cantines gratuites",
+      icon: "🍽️",
+      description: "Repas gratuits dans toutes les écoles",
+      zone: "Toutes les écoles",
+      top: "40%",
+      left: "70%",
+      color: "purple"
+    },
+    {
+      id: 5,
+      nom: "Maison des associations",
+      icon: "🏛️",
+      description: "Locaux municipaux gratuits pour la vie associative",
+      zone: "Centre-ville",
+      top: "55%",
+      left: "55%",
+      color: "blue"
+    },
+    {
+      id: 6,
+      nom: "Budget participatif",
+      icon: "🗳️",
+      description: "300 000€/an décidés par les citoyens",
+      zone: "Projets de quartier",
+      top: "70%",
+      left: "60%",
+      color: "red"
+    }
+  ];
+
+  const colorClasses = {
+    purple: "bg-purple-600 border-purple-400",
+    orange: "bg-orange-600 border-orange-400",
+    blue: "bg-blue-600 border-blue-400",
+    red: "bg-red-600 border-red-400",
+    green: "bg-green-600 border-green-400",
+    teal: "bg-teal-600 border-teal-400"
+  };
+
+  return (
+    <section className="bg-gradient-to-br from-slate-100 to-slate-200 py-16">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-black text-slate-900 mb-3">📍 Carte des projets</h2>
+          <p className="text-xl text-slate-600">
+            Nos mesures localisées à Villefranche
+          </p>
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-2xl p-8">
+          {/* Carte stylisée */}
+          <div className="relative bg-gradient-to-br from-blue-100 to-green-100 rounded-2xl overflow-hidden border-4 border-slate-300" style={{ height: '500px' }}>
+            {/* Fond de carte stylisé */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400 to-green-400"></div>
+            </div>
+
+            {/* Nom de la ville */}
+            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-6 py-2 rounded-full font-black text-lg shadow-xl z-10">
+              🏛️ VILLEFRANCHE
+            </div>
+
+            {/* Projets sur la carte */}
+            {projets.map(projet => (
+              <div
+                key={projet.id}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
+                style={{ top: projet.top, left: projet.left }}
+                onClick={() => setSelectedProjet(projet.id === selectedProjet ? null : projet.id)}
+              >
+                <div className={`${colorClasses[projet.color]} border-4 rounded-full w-16 h-16 flex items-center justify-center text-3xl shadow-xl transition-all group-hover:scale-125 ${
+                  selectedProjet === projet.id ? 'scale-150 ring-4 ring-white' : ''
+                }`}>
+                  {projet.icon}
+                </div>
+
+                {/* Info-bulle */}
+                {selectedProjet === projet.id && (
+                  <div className="absolute top-20 left-1/2 transform -translate-x-1/2 bg-white rounded-xl shadow-2xl p-4 w-64 z-20 border-4 border-slate-900 animate-pulse">
+                    <h4 className="font-black text-slate-900 mb-2">{projet.nom}</h4>
+                    <p className="text-sm text-slate-600 mb-2">{projet.description}</p>
+                    <p className="text-xs font-bold text-slate-500">📍 {projet.zone}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Légende */}
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+            {projets.map(projet => (
+              <div
+                key={projet.id}
+                className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-slate-400 cursor-pointer transition-all"
+                onClick={() => setSelectedProjet(projet.id === selectedProjet ? null : projet.id)}
+              >
+                <div className={`${colorClasses[projet.color]} border-2 rounded-full w-12 h-12 flex items-center justify-center text-2xl flex-shrink-0`}>
+                  {projet.icon}
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-slate-900">{projet.nom}</p>
+                  <p className="text-xs text-slate-500">{projet.zone}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center mt-6 text-sm text-slate-500 italic">
+            💡 Cliquez sur les icônes pour en savoir plus
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ThemeSheets = () => {
   const [activeTheme, setActiveTheme] = useState("bloc1");
   const activeSection = SECTIONS.find(s => s.id === activeTheme);
@@ -844,6 +1279,15 @@ export default function App() {
               <PhareCarousel />
             </div>
           </section>
+
+          {/* Calculateur d'économies */}
+          <CalculateurEconomies />
+
+          {/* Comparateur Avant/Après */}
+          <ComparateurAvantApres />
+
+          {/* Carte interactive */}
+          <CarteInteractive />
 
           {/* Section Compétences Municipales */}
           <section className="bg-slate-50 border-b border-slate-200">
