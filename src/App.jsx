@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { INTRO, KPI, SECTIONS, EXAMPLES } from "./content";
+import logoPcf from "../logo.png";
 import "./index.css";
 
 const classNames = (...s) => s.filter(Boolean).join(" ");
@@ -94,7 +95,11 @@ export default function App() {
       <header className="sticky top-0 z-40 backdrop-blur bg-white/80 dark:bg-zinc-900/70 border-b border-black/5 dark:border-white/10 print:hidden">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-red-600 text-white font-black">PCF</span>
+            <img
+              src={logoPcf}
+              alt="PCF Villefranche-de-Rouergue"
+              className="h-10 w-10 rounded-xl border border-black/10 dark:border-white/20 object-contain bg-white"
+            />
             <div>
               <h1 className="text-lg font-extrabold leading-5">Villefranche 2026–2032</h1>
               <p className="text-xs opacity-70">Programme municipal – contribution des communistes, mise à disposition des futures listes</p>
