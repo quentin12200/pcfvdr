@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  header, nav, footer, .no-print { display: none !important; }
+  a[href]:after { content: ""; }
+  section { break-inside: avoid; }
+  body { color: #000; }
+}
