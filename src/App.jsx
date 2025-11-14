@@ -53,29 +53,15 @@ const ActionCard = ({ action }) => {
         </div>
       )}
 
-      {(action.example || action.validations) && (
-        <div className="grid gap-4 sm:grid-cols-2">
-          {action.example && (
-            <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-semibold">Exemple inspirant</p>
-              <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
-              {exampleParagraphs.map((paragraph, index) => (
-                <p key={index} className="mt-2 text-sm text-slate-600">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          )}
-
-          {action.validations && (
-            <div className="rounded-2xl border border-red-200 bg-red-50/70 p-4">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-red-600 font-semibold">Contrôle citoyen</p>
-              <p className="mt-1 text-2xl font-bold text-red-700">{action.validations} validations</p>
-              <p className="mt-1 text-xs text-red-600">
-                Chaque validation garantit un suivi public du financement et de la mise en œuvre.
-              </p>
-            </div>
-          )}
+      {action.example && (
+        <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-semibold">Exemple inspirant</p>
+          <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
+          {exampleParagraphs.map((paragraph, index) => (
+            <p key={index} className="mt-2 text-sm text-slate-600">
+              {paragraph}
+            </p>
+          ))}
         </div>
       )}
     </article>
