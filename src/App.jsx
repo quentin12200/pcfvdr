@@ -45,10 +45,12 @@ const ActionCard = ({ action }) => {
               <p className="mt-1 text-sm text-slate-600">{action.example.detail}</p>
             </div>
           )}
-          <div className="rounded-2xl border border-dashed border-red-200 bg-red-50/60 p-4 text-sm text-slate-700 leading-relaxed">
-            Cette fiche est prête pour les ateliers populaires. Ajoutez vos idées lors des réunions de quartier pour la mettre
-            en œuvre dès 2026.
-          </div>
+          {action.territories && action.territories.length > 0 && (
+            <div className="rounded-2xl border border-red-100 bg-red-50/60 p-4 text-sm text-red-700">
+              <p className="text-xs uppercase tracking-widest font-semibold">Quartiers concernés</p>
+              <p className="mt-1 text-sm font-semibold text-slate-900">{action.territories.join(" • ")}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -62,67 +64,41 @@ const NAV_LINKS = [
   { label: "Participer", type: "anchor", href: "#participer" }
 ];
 
-const ThemesTabs = () => {
-  const [activeId, setActiveId] = React.useState(SECTIONS[0]?.id ?? null);
-  const activeSection = React.useMemo(
-    () => SECTIONS.find((section) => section.id === activeId),
-    [activeId]
-  );
-
+const ThemeSheets = () => {
   return (
-    <section id="themes" className="max-w-6xl mx-auto px-4 py-12">
-      <div className="mb-8 text-center">
+    <section id="themes" className="max-w-6xl mx-auto px-4 py-12 space-y-10">
+      <div className="text-center">
         <p className="text-xs uppercase tracking-[0.3em] text-red-500">Grands thèmes</p>
-        <h2 className="mt-2 text-3xl font-extrabold">Bloc communiste pour Villefranche</h2>
+        <h2 className="mt-2 text-3xl font-extrabold">Fiches thématiques complètes</h2>
         <p className="mt-3 text-base text-slate-600 max-w-3xl mx-auto">
-          Choisissez un onglet pour découvrir nos priorités. Chaque fiche est rédigée pour être exploitable par une
-          future municipalité.
+          Chaque bloc reprend les propositions du programme PDF et décline des mesures complètes, prêtes à être travaillées avec
+          les habitantes et habitants des quartiers villefranchois.
         </p>
       </div>
-      <div className="flex gap-3 overflow-x-auto pb-2">
-        {SECTIONS.map((section) => (
-          <button
-            key={section.id}
-            type="button"
-            onClick={() => setActiveId(section.id)}
-            className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
-              activeId === section.id
-                ? "bg-red-600 text-white border-red-600"
-                : "border-red-200 text-red-700 hover:border-red-400"
-            }`}
-          >
-            {section.title}
-          </button>
-        ))}
-      </div>
-      {activeSection && (
-        <div className="mt-8 rounded-3xl border border-red-100 bg-white shadow-sm">
-          <div className="p-6 sm:p-10">
+      {SECTIONS.map((section) => (
+        <article key={section.id} className="rounded-3xl border border-red-100 bg-white shadow-sm">
+          <div className="p-6 sm:p-10 space-y-6">
             <div className="flex flex-wrap items-start gap-4">
               <div className="text-4xl" aria-hidden>
-                {activeSection.icon}
+                {section.icon}
               </div>
               <div className="flex-1 min-w-[250px]">
-                <p className="text-xs uppercase tracking-widest text-red-600 font-semibold">
-                  {activeSection.category}
-                </p>
-                <h3 className="mt-2 text-2xl font-bold text-slate-900">{activeSection.title}</h3>
-                <p className="mt-2 text-base text-slate-600">{activeSection.description}</p>
+                <p className="text-xs uppercase tracking-widest text-red-600 font-semibold">{section.category}</p>
+                <h3 className="mt-2 text-2xl font-bold text-slate-900">{section.title}</h3>
+                <p className="mt-2 text-base text-slate-600">{section.description}</p>
               </div>
             </div>
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {activeSection.actions.map((action) => (
+            {section.focus && (
+              <div className="rounded-2xl bg-red-50 text-red-900 p-5 font-semibold">{section.focus}</div>
+            )}
+            <div className="grid gap-6 md:grid-cols-2">
+              {section.actions.map((action) => (
                 <ActionCard key={action.title} action={action} />
               ))}
             </div>
-            {activeSection.focus && (
-              <div className="mt-8 rounded-2xl bg-red-50 text-red-900 p-5 font-semibold">
-                {activeSection.focus}
-              </div>
-            )}
           </div>
-        </div>
-      )}
+        </article>
+      ))}
     </section>
   );
 };
@@ -310,7 +286,7 @@ export default function App() {
         </section>
 
 
-        <ThemesTabs />
+        <ThemeSheets />
 
         <section id="participer" className="bg-red-50 border-y border-red-100">
           <div className="max-w-6xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-[3fr_2fr] items-center">
