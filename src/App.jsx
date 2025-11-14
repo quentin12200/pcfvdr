@@ -1,5 +1,5 @@
 import React from "react";
-import { INTRO, SECTIONS, PARTICIPER } from "./content";
+import { INTRO, SECTIONS, PARTICIPER, STATS } from "./content";
 import logoPcf from "../logo.png";
 import "./index.css";
 
@@ -7,6 +7,7 @@ const JOIN_URL = "https://www.pcf.fr/adherer";
 
 const NAV_LINKS = [
   { label: "Vision", href: "#vision" },
+  { label: "Les chiffres", href: "#chiffres" },
   { label: "Grands thèmes", href: "#themes" },
   { label: "Participer", href: "#participer" }
 ];
@@ -80,6 +81,51 @@ export default function App() {
           </div>
         </section>
 
+        <section id="chiffres" className="bg-white border-b border-red-100">
+          <div className="max-w-6xl mx-auto px-4 py-12 grid gap-10 lg:grid-cols-[3fr_2fr] items-start">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-red-500">Les chiffres de Villefranche</p>
+              <h2 className="mt-3 text-3xl font-extrabold text-slate-900">{STATS.title}</h2>
+              <div className="mt-4 space-y-4 text-base text-slate-700">
+                {STATS.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {STATS.highlights.map((stat) => (
+                  <div key={stat.label} className="rounded-2xl border border-red-100 bg-red-50/50 p-5">
+                    <p className="text-sm uppercase tracking-widest text-red-500 font-semibold">{stat.label}</p>
+                    <p className="mt-2 text-2xl font-bold text-slate-900">{stat.value}</p>
+                    <p className="mt-2 text-xs text-slate-500">{stat.source}</p>
+                  </div>
+                ))}
+              </div>
+              <ul className="mt-8 space-y-3 text-sm text-slate-700">
+                {STATS.socio.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-red-600" aria-hidden></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-3xl border border-red-100 bg-red-50/60 p-6 space-y-4">
+              <h3 className="text-lg font-semibold text-slate-900">Quartiers et hameaux surveillés</h3>
+              <p className="text-sm text-slate-700">
+                Nous nous appuyons sur les IRIS de l’INSEE et les périmètres communaux pour partager nos diagnostics.
+              </p>
+              <ul className="space-y-4">
+                {STATS.neighborhoods.map((neighborhood) => (
+                  <li key={neighborhood.name} className="rounded-2xl bg-white/70 border border-red-100 p-4">
+                    <p className="text-base font-semibold text-red-700">{neighborhood.name}</p>
+                    <p className="mt-1 text-sm text-slate-700">{neighborhood.detail}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section className="max-w-6xl mx-auto px-4 py-12" id="themes">
           <div className="mb-8 text-center">
             <p className="text-xs uppercase tracking-[0.3em] text-red-500">Grands thèmes</p>
@@ -116,6 +162,11 @@ export default function App() {
                       <div key={action.title} className="rounded-2xl border border-slate-100 p-5 bg-red-50/50">
                         <h4 className="text-lg font-semibold text-red-700">{action.title}</h4>
                         <p className="mt-2 text-sm text-slate-700">{action.detail}</p>
+                        {action.example && (
+                          <p className="mt-3 text-xs text-red-700">
+                            <span className="font-semibold">Exemple :</span> {action.example}
+                          </p>
+                        )}
                       </div>
                     ))}
                   </div>
