@@ -5,102 +5,6 @@ import bandeau from "../bandeau.png";
 import "./index.css";
 
 const JOIN_URL = "https://www.pcf.fr/adherer";
-const ActionCard = ({ action }) => {
-  const [activeTab, setActiveTab] = useState("probleme");
-  const detailParagraphs = Array.isArray(action.detail) ? action.detail : [action.detail];
-  const [diagnostic, ...measures] = detailParagraphs;
-
-  const exampleParagraphs =
-    action.example && action.example.detail
-      ? Array.isArray(action.example.detail)
-        ? action.example.detail
-        : [action.example.detail]
-      : [];
-
-  const tabs = [
-    { id: "probleme", label: "Le problème", icon: "⚠️" },
-    { id: "solution", label: "Notre solution", icon: "✅" },
-    ...(action.example ? [{ id: "exemple", label: "Ça marche où ?", icon: "🌍" }] : [])
-  ];
-
-  return (
-    <article className="rounded-[28px] border border-red-100/80 bg-white/90 shadow-[0_20px_60px_rgba(15,23,42,0.08)] overflow-hidden flex flex-col">
-      <header className="p-6 pb-0 space-y-2">
-        <h4 className="text-2xl font-semibold text-slate-900">{action.title}</h4>
-      </header>
-
-      {/* Tabs */}
-      <div className="flex gap-2 px-6 pt-4 border-b border-slate-100">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-all rounded-t-xl -mb-px ${
-              activeTab === tab.id
-                ? "bg-white text-red-600 border-b-2 border-red-600"
-                : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
-            }`}
-          >
-            <span className="text-base">{tab.icon}</span>
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Tab Content */}
-      <div className="p-6">
-        {activeTab === "probleme" && diagnostic && (
-          <div className="space-y-4">
-            <div className="rounded-2xl border border-red-100 bg-gradient-to-br from-red-50 via-white to-white p-5">
-              <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">{diagnostic}</p>
-            </div>
-          </div>
-        )}
-
-        {activeTab === "solution" && measures.length > 0 && (
-          <div className="space-y-3">
-            {measures.map((paragraph, index) => (
-              <div key={index} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-5">
-                <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">{paragraph}</p>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {activeTab === "exemple" && action.example && (
-          <div className="space-y-4">
-            <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-5">
-              <p className="text-sm font-semibold text-slate-900 mb-3">{action.example.city}</p>
-              <div className="space-y-3">
-                {exampleParagraphs.map((paragraph, index) => (
-                  <p key={index} className="text-sm text-slate-600 leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {action.validations && (
-          <div className="mt-4 rounded-2xl border border-red-200 bg-red-50/70 p-4">
-            <p className="text-[11px] uppercase tracking-[0.35em] text-red-600 font-semibold">Déjà {action.validations} personnes valident</p>
-            <p className="mt-1 text-sm text-red-700">
-              À 100 validations, on publie un guide détaillé pour appliquer cette mesure à Villefranche.
-            </p>
-          </div>
-        )}
-      </div>
-    </article>
-  );
-};
-
-const NAV_LINKS = [
-  { label: "Vision", type: "anchor", href: "#vision" },
-  { label: "Grands thèmes", type: "anchor", href: "#themes" },
-  { label: "Les chiffres", type: "view", view: "stats" },
-  { label: "Participer", type: "anchor", href: "#participer" }
-];
 
 const COLOR_STYLES = {
   red: {
@@ -155,6 +59,136 @@ const COLOR_STYLES = {
   }
 };
 
+const ActionCard = ({ action, color = "red" }) => {
+  const [activeTab, setActiveTab] = useState("probleme");
+  const detailParagraphs = Array.isArray(action.detail) ? action.detail : [action.detail];
+  const [diagnostic, ...measures] = detailParagraphs;
+  const colorStyle = COLOR_STYLES[color];
+
+  const exampleParagraphs =
+    action.example && action.example.detail
+      ? Array.isArray(action.example.detail)
+        ? action.example.detail
+        : [action.example.detail]
+      : [];
+
+  const tabs = [
+    { id: "probleme", label: "Le problème", icon: "⚠️", badge: "Diagnostic" },
+    { id: "solution", label: "Notre solution", icon: "✅", badge: `${measures.length} actions` },
+    ...(action.example ? [{ id: "exemple", label: "Ça marche où ?", icon: "🌍", badge: "Exemples" }] : [])
+  ];
+
+  return (
+    <article className={`rounded-[28px] border-2 ${colorStyle.border} bg-gradient-to-br from-white to-slate-50/30 shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_30px_80px_rgba(15,23,42,0.18)] transition-all overflow-hidden flex flex-col group`}>
+      {/* Header avec badge */}
+      <header className={`${colorStyle.bg} ${colorStyle.border} border-b-2 p-5`}>
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <h4 className="text-xl font-bold text-slate-900 leading-tight flex-1">{action.title}</h4>
+          <span className={`${colorStyle.activeBg} text-white text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wide whitespace-nowrap`}>
+            Nouvelle
+          </span>
+        </div>
+        {action.territories && (
+          <div className="flex flex-wrap gap-1.5 mt-3">
+            {action.territories.map((territory) => (
+              <span key={territory} className={`${colorStyle.lightBg} ${colorStyle.text} text-xs px-2 py-0.5 rounded-full font-medium`}>
+                📍 {territory}
+              </span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {/* Tabs - avec couleurs thématiques */}
+      <div className={`flex gap-1 px-4 pt-3 bg-slate-50/50`}>
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold transition-all rounded-t-xl flex-1 justify-center ${
+              activeTab === tab.id
+                ? `${colorStyle.activeBg} text-white shadow-md`
+                : `${colorStyle.lightBg} ${colorStyle.text} hover:${colorStyle.bg}`
+            }`}
+          >
+            <span className="text-sm">{tab.icon}</span>
+            <span className="hidden sm:inline">{tab.label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Tab Content */}
+      <div className="p-5 bg-white">
+        {activeTab === "probleme" && diagnostic && (
+          <div className="space-y-4">
+            <div className={`rounded-2xl border-2 ${colorStyle.border} ${colorStyle.gradient} bg-gradient-to-br p-5`}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`${colorStyle.activeBg} text-white text-xs px-2 py-1 rounded font-bold uppercase`}>⚠️ Constat</span>
+              </div>
+              <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line font-medium">{diagnostic}</p>
+            </div>
+          </div>
+        )}
+
+        {activeTab === "solution" && measures.length > 0 && (
+          <div className="space-y-3">
+            {measures.map((paragraph, index) => (
+              <div key={index} className={`rounded-2xl border ${colorStyle.border} bg-white p-5 shadow-sm hover:shadow-md transition-shadow`}>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={`${colorStyle.activeBg} text-white text-xs px-2 py-1 rounded-full font-bold`}>
+                    {index + 1}
+                  </span>
+                  <span className={`${colorStyle.text} text-xs font-bold uppercase tracking-wide`}>Action concrète</span>
+                </div>
+                <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">{paragraph}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {activeTab === "exemple" && action.example && (
+          <div className="space-y-4">
+            <div className={`rounded-2xl border ${colorStyle.border} ${colorStyle.bg} p-5`}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xl">🌍</span>
+                <p className={`text-base font-bold ${colorStyle.text}`}>{action.example.city}</p>
+              </div>
+              <div className="space-y-3">
+                {exampleParagraphs.map((paragraph, index) => (
+                  <div key={index} className="flex gap-3">
+                    <span className={`${colorStyle.activeBg} text-white text-xs px-2 py-1 rounded-full font-bold h-fit`}>
+                      {index + 1}
+                    </span>
+                    <p className="text-sm text-slate-700 leading-relaxed flex-1">
+                      {paragraph}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {action.validations && (
+          <div className={`mt-4 rounded-2xl border-2 ${colorStyle.border} ${colorStyle.lightBg} p-4`}>
+            <p className={`text-xs uppercase tracking-[0.3em] ${colorStyle.text} font-bold`}>✓ Déjà {action.validations} validations</p>
+            <p className="mt-1 text-sm text-slate-700 font-medium">
+              À 100 validations, on publie un guide détaillé pour appliquer cette mesure à Villefranche.
+            </p>
+          </div>
+        )}
+      </div>
+    </article>
+  );
+};
+
+const NAV_LINKS = [
+  { label: "Vision", type: "anchor", href: "#vision" },
+  { label: "Grands thèmes", type: "anchor", href: "#themes" },
+  { label: "Les chiffres", type: "view", view: "stats" },
+  { label: "Participer", type: "anchor", href: "#participer" }
+];
+
 const ThemeSheets = () => {
   const [activeTheme, setActiveTheme] = useState("bloc1");
   const activeSection = SECTIONS.find(s => s.id === activeTheme);
@@ -198,29 +232,35 @@ const ThemeSheets = () => {
         {activeSection && (
           <article className={`rounded-[36px] border-2 ${colorStyle.border} bg-white shadow-[0_30px_80px_rgba(15,23,42,0.08)] overflow-hidden`}>
             <div className="p-6 sm:p-10 space-y-8">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-                <div className="flex items-center gap-4">
-                  <div className={`h-14 w-14 rounded-2xl ${colorStyle.bg} text-3xl flex items-center justify-center border ${colorStyle.border}`} aria-hidden>
-                    {activeSection.icon}
-                  </div>
-                  <div>
-                    <p className={`text-xs uppercase tracking-[0.4em] ${colorStyle.text} font-semibold`}>{activeSection.category}</p>
-                    <h3 className="mt-2 text-2xl font-bold text-slate-900">{activeSection.title}</h3>
-                    <p className="mt-3 text-base text-slate-600">{activeSection.description}</p>
-                  </div>
+              {/* Header */}
+              <div className="flex items-center gap-4">
+                <div className={`h-16 w-16 rounded-2xl ${colorStyle.activeBg} text-4xl flex items-center justify-center shadow-lg`} aria-hidden>
+                  {activeSection.icon}
                 </div>
-                {activeSection.focus && (
-                  <div className={`flex-1 rounded-3xl border ${colorStyle.border} bg-gradient-to-br ${colorStyle.gradient} p-5 text-sm text-slate-900`}>
-                    <p className={`text-[11px] uppercase tracking-[0.4em] ${colorStyle.text} font-semibold`}>Fil rouge budgétaire</p>
-                    <p className="mt-2 text-base font-semibold">{activeSection.focus}</p>
-                  </div>
-                )}
+                <div>
+                  <p className={`text-xs uppercase tracking-[0.4em] ${colorStyle.text} font-semibold`}>{activeSection.category}</p>
+                  <h3 className="mt-2 text-2xl font-bold text-slate-900">{activeSection.title}</h3>
+                  <p className="mt-3 text-base text-slate-600">{activeSection.description}</p>
+                </div>
               </div>
+
+              {/* Actions Grid */}
               <div className="grid gap-6 lg:grid-cols-2">
                 {activeSection.actions.map((action) => (
-                  <ActionCard key={action.title} action={action} />
+                  <ActionCard key={action.title} action={action} color={activeSection.color} />
                 ))}
               </div>
+
+              {/* Fil rouge budgétaire - repositionné en bas */}
+              {activeSection.focus && (
+                <div className={`rounded-3xl border-2 ${colorStyle.border} ${colorStyle.activeBg} bg-gradient-to-br p-6 text-white shadow-xl`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl">💰</span>
+                    <p className="text-sm uppercase tracking-[0.3em] font-bold">Fil rouge budgétaire</p>
+                  </div>
+                  <p className="text-lg font-semibold leading-relaxed">{activeSection.focus}</p>
+                </div>
+              )}
             </div>
           </article>
         )}

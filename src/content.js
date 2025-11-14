@@ -594,9 +594,72 @@ export const SECTIONS = [
             "Horaires adaptés : garde de 7h30 à 18h30, séjours durant les vacances à tarifs solidaires. Résultat : 92% de satisfaction, mixité sociale renforcée, réussite scolaire améliorée."
           ]
         }
+      },
+      {
+        title: "Cantines scolaires GRATUITES pour tous les enfants",
+        detail: [
+          "À Villefranche, les familles paient entre 3,50 € et 5,80 € par repas de cantine selon le quotient familial. Pour une famille modeste du Tricot avec 2 enfants mangeant 4 jours/semaine : 320 €/mois, soit 20 % d'un SMIC. Résultat : 35 % des enfants des quartiers prioritaires ne mangent PAS à la cantine, rentrent chez eux le midi ou sautent le repas.",
+          "Les cantines scolaires villefranchoises servent 1 200 repas/jour dans les 7 écoles primaires publiques (Jean-Jaurès, Calcomier, Treize-Pierres, Graves, Veuzac, Fontanges, Laurère). Cuisine centralisée à l'école Jean-Jaurès, qualité nutritionnelle insuffisante (moins de 20 % de bio, produits industriels transformés), personnel de service en sous-effectif.",
+          "Nous instaurerons la GRATUITÉ TOTALE des cantines scolaires pour TOUS les enfants villefranchois, sans condition de ressources. Fin du paiement : les familles économiseront entre 1 200 € et 2 000 €/an par enfant. Cette mesure permettra à 400 enfants supplémentaires de manger à la cantine, garantissant un repas équilibré quotidien pour tous.",
+          "Amélioration qualitative massive : passage à 100 % de produits locaux et bio d'ici 2030 (50 % dès 2026), fin des produits ultra-transformés, approvisionnement direct auprès des producteur·rices aveyronnais·es (légumes, viandes, produits laitiers). Menu végétarien de qualité proposé quotidiennement en option. Formation des personnels de cantine aux enjeux nutritionnels et au zéro-gaspillage.",
+          "Recrutement de 8 agent·es de restauration supplémentaires en CDI : amélioration des conditions de travail, fin de la course contre la montre, temps pour éduquer au goût et accompagner les enfants. Salaires revalorisés à 1 800 € net minimum. Rénovation des cuisines et réfectoires : équipements modernes, espaces conviviaux, mobilier adapté.",
+          "Budget : 500 000 €/an pour la gratuité totale (coût repas actuel 6 €, participation moyenne familles 3,50 €, reste 2,50 € x 1 600 enfants x 140 jours). Financement : suppression des exonérations fiscales aux grandes surfaces périphériques + taxe foncière progressive sur les résidences secondaires et logements vacants."
+        ],
+        territories: ["Toutes les écoles primaires"],
+        example: {
+          city: "Saint-Denis (Seine-Saint-Denis, 113 000 habitant·es)",
+          detail: [
+            "Cantines scolaires gratuites depuis 2019 pour TOUS les enfants scolarisés dans le public, sans condition de ressources. 12 000 repas gratuits servis quotidiennement.",
+            "Tarification sociale maintenue : repas à 0,40 € pour les familles les plus modestes (symbolique), gratuité totale pour les autres. Taux de fréquentation passé de 65 % à 89 %.",
+            "Qualité renforcée : 50 % de produits bio et locaux, viande Label Rouge, approvisionnement auprès de producteurs d'Île-de-France, menu végétarien quotidien.",
+            "Résultats : lutte contre la précarité alimentaire, tous les enfants mangent un repas équilibré par jour, égalité sociale renforcée, amélioration des résultats scolaires (+8 % de réussite au CP)."
+          ]
+        }
+      },
+      {
+        title: "Petits déjeuners gratuits dans TOUTES les écoles",
+        detail: [
+          "15 % des enfants villefranchois arrivent à l'école le ventre vide : pas de petit déjeuner à la maison par manque de temps (parents en horaires décalés) ou par précarité alimentaire. Dans le Tricot et la Bastide, ce chiffre grimpe à 25 %. Conséquences : difficultés de concentration en classe, fatigue dès 10h, baisse des performances scolaires, troubles du comportement.",
+          "Les enseignant·es des écoles Jean-Jaurès et Calcomier alertent depuis 2021 sur les enfants qui s'endorment en classe le matin, ceux qui ont mal au ventre à cause de la faim, ceux qui attendent 12h30 pour manger leur premier repas de la journée. Aucun dispositif municipal n'existe aujourd'hui pour répondre à cette urgence alimentaire et sociale.",
+          "Nous instaurerons des petits déjeuners gratuits DANS TOUTES LES ÉCOLES primaires publiques villefranchoises, servis chaque matin de 7h45 à 8h15 avant le début de la classe. Accueil gratuit et ouvert à TOUS les enfants, sans inscription préalable, sans stigmatisation : ceux qui le souhaitent viennent, les autres entrent directement en classe à 8h30.",
+          "Menu équilibré et varié : pain ou céréales complètes, beurre, confiture, miel local, fruits frais de saison (pommes et poires d'Aveyron), produit laitier (yaourt, fromage blanc), jus de fruits 100 % pur jus, chocolat chaud ou lait. Approvisionnement local : boulangerie villefranchoise (pain frais quotidien), producteur·rices laitier·ères du Ségala, miels de l'Aveyron.",
+          "Encadrement par 12 agent·es municipaux·ales (ATSEM, animateur·rices) en CDI : accueil bienveillant, accompagnement à table, éducation au goût et à l'équilibre alimentaire. Moments conviviaux avant la classe : les enfants prennent le temps de manger, discutent, commencent la journée dans de bonnes conditions.",
+          "Objectif : 600 petits déjeuners servis quotidiennement dans les 7 écoles primaires. Tous les enfants qui ont faim le matin pourront manger. Amélioration de la concentration en classe, baisse de la fatigue matinale, meilleurs résultats scolaires. Budget : 180 000 €/an (coût unitaire 1 €/petit déjeuner x 600 enfants x 140 jours + 12 emplois)."
+        ],
+        territories: ["Toutes les écoles primaires"],
+        example: {
+          city: "Grigny (Essonne, 29 000 habitant·es)",
+          detail: [
+            "Petits déjeuners gratuits instaurés en 2021 dans TOUTES les écoles maternelles et élémentaires par le maire PCF Philippe Rio, élu « meilleur maire du monde » en 2021 pour son action contre la pauvreté.",
+            "3 500 petits déjeuners gratuits servis chaque jour dans les 15 écoles : banane, biscotte ou céréales, produit laitier. Service de 8h à 8h30, accueil universel sans condition.",
+            "Résultats mesurés : baisse de 40 % de la fatigue matinale constatée par les enseignant·es, amélioration de la concentration en classe, réduction des troubles du comportement liés à la faim.",
+            "Extension progressive : après 3 ans d'expérimentation en maternelle, dispositif étendu aux élémentaires suite au succès constaté. Coût : 350 000 €/an entièrement financé sur budget municipal."
+          ]
+        }
+      },
+      {
+        title: "Fournitures scolaires GRATUITES : rentrée gratuite pour tous",
+        detail: [
+          "La rentrée scolaire coûte en moyenne 150 € par enfant en primaire (cahiers, stylos, trousse, cartable, agenda, matériel de géométrie, feutres, peinture) et 300 € au collège (en ajoutant calculatrice, classeurs, agenda, équerre, compas). Pour une famille villefranchoise du Tricot avec 2 enfants en primaire et 1 au collège : 600 € à débourser en août-septembre, soit 40 % d'un SMIC.",
+          "Les familles modestes achètent du matériel bas de gamme qui casse rapidement, nécessitant des rachats en cours d'année. Les enfants se comparent : ceux qui n'ont pas le « bon » cartable ou les « bonnes » marques subissent moqueries et stigmatisation. Les enseignant·es des écoles Jean-Jaurès et Treize-Pierres témoignent : certains enfants arrivent sans matériel complet, empruntent aux camarades, se sentent exclus.",
+          "Nous instaurerons la GRATUITÉ TOTALE des fournitures scolaires pour TOUS les enfants scolarisés dans les écoles publiques villefranchoises (maternelle, primaire) et nous soutiendrons l'extension au collège. Fin des listes interminables et du casse-tête financier de la rentrée. Tous les enfants auront exactement le même matériel de qualité, fourni par la municipalité.",
+          "Achat groupé municipal de fournitures de qualité respectueuses de l'environnement : cahiers en papier recyclé, stylos rechargeables, crayons en bois certifié, cartables et trousses durables garantis 5 ans, matériel de géométrie en métal (pas de plastique jetable). Commande centralisée auprès de fournisseurs éthiques et éco-responsables : prix négociés, qualité garantie, réduction des déchets.",
+          "Distribution en juin pour la rentrée suivante : les familles reçoivent TOUT le matériel nécessaire pendant les vacances d'été, sans démarche administrative, sans stress. Réassort possible en cours d'année en cas de perte ou d'usure. Économie pour les familles : 150 € à 300 € par enfant, soit 450 € à 900 € pour une famille de 3 enfants.",
+          "Égalité totale : tous les enfants ont le même matériel, fin de la stigmatisation liée aux différences sociales. Les enseignant·es peuvent travailler avec du matériel homogène et de qualité. Budget municipal : 250 000 €/an pour 1 600 enfants (coût unitaire 150 € en achat groupé). Financement : réaffectation des subventions aujourd'hui versées aux écoles privées hors contrat."
+        ],
+        territories: ["Toutes les écoles publiques"],
+        example: {
+          city: "Vaulx-en-Velin (Rhône, 51 000 habitant·es)",
+          detail: [
+            "Fournitures scolaires gratuites depuis 2015 pour tous les élèves de maternelle et primaire scolarisés dans le public : 5 500 enfants bénéficiaires chaque année.",
+            "Distribution d'un kit complet en juin : cahiers, stylos, crayons, trousse, cartable tous les 3 ans, matériel de géométrie, matériel d'arts plastiques. Qualité et durabilité privilégiées.",
+            "Achat groupé mutualisé avec 4 communes voisines : prix négociés -40 % par rapport au commerce, cahiers en papier recyclé, stylos rechargeables, cartables garantis 5 ans.",
+            "Résultats : 150 € économisés par famille et par enfant, égalité totale entre les élèves (même matériel pour tous), satisfaction des parents à 94 %, baisse des tensions sociales à la rentrée."
+          ]
+        }
       }
     ],
-    focus: "La jeunesse doit être au cœur du projet villefranchois et non une variable d’ajustement."
+    focus: "La jeunesse doit être au cœur du projet villefranchois et non une variable d'ajustement."
   }
 ];
 
