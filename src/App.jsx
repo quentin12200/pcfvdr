@@ -183,10 +183,10 @@ const ActionCard = ({ action, color = "red" }) => {
 };
 
 const NAV_LINKS = [
-  { label: "Vision", type: "anchor", href: "#vision" },
-  { label: "Grands thèmes", type: "anchor", href: "#themes" },
-  { label: "Les chiffres", type: "view", view: "stats" },
-  { label: "Participer", type: "anchor", href: "#participer" }
+  { label: "Vision", icon: "👁️", type: "anchor", href: "#vision" },
+  { label: "Propositions", icon: "📋", type: "anchor", href: "#themes" },
+  { label: "Chiffres", icon: "📊", type: "view", view: "stats" },
+  { label: "Participer", icon: "✊", type: "anchor", href: "#participer" }
 ];
 
 const ThemeSheets = () => {
@@ -344,12 +344,13 @@ export default function App() {
           key={link.label}
           type="button"
           onClick={() => setView(link.view)}
-          className={`rounded-full px-4 py-1 text-sm font-semibold transition border ${
+          className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-bold transition-all ${
             isActive
-              ? "bg-white text-red-600 border-white"
-              : "border-white/30 text-white/90 hover:border-white/70"
+              ? "bg-white text-red-600 shadow-lg"
+              : "bg-white/10 text-white border border-white/30 hover:bg-white/20 hover:border-white/50"
           }`}
         >
+          <span>{link.icon}</span>
           {link.label}
         </button>
       );
@@ -360,8 +361,9 @@ export default function App() {
         key={link.href}
         href={link.href}
         onClick={() => setView("home")}
-        className="rounded-full px-4 py-1 text-sm font-semibold text-white/90 hover:text-white"
+        className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/30 px-4 py-2 text-sm font-bold text-white hover:bg-white/20 hover:border-white/50 transition-all"
       >
+        <span>{link.icon}</span>
         {link.label}
       </a>
     );
@@ -369,50 +371,120 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      <header className="bg-gradient-to-br from-red-700 to-red-600 text-white shadow-lg">
-        <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
-          <div className="flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-3">
-              <img
-                src={logoPcf}
-                alt="Logo PCF Villefranche-de-Rouergue"
-                className="h-12 w-12 rounded-xl border border-white/30 bg-white/10 object-contain p-1"
-              />
+      {/* Sticky Header */}
+      <header className="sticky top-0 z-50 bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white shadow-2xl border-b-4 border-red-800">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <div className="flex items-center justify-between gap-4">
+            {/* Logo et titre */}
+            <div className="flex items-center gap-4">
+              <div className="relative">
+                <div className="absolute inset-0 bg-white/20 rounded-2xl blur-sm"></div>
+                <img
+                  src={logoPcf}
+                  alt="Logo PCF Villefranche-de-Rouergue"
+                  className="relative h-14 w-14 rounded-2xl border-2 border-white/40 bg-white/10 object-contain p-1.5 shadow-xl"
+                />
+              </div>
               <div>
-                <p className="text-sm uppercase tracking-widest text-red-100 font-semibold">Communistes villefranchois</p>
-                <p className="font-bold text-lg text-white">Propositions municipales ouvertes</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-red-100 font-bold">PCF Villefranche</p>
+                <p className="font-extrabold text-xl text-white leading-tight">Programme 2026</p>
               </div>
             </div>
-            <nav className="flex items-center gap-3 ml-auto flex-wrap">
+
+            {/* Navigation desktop */}
+            <nav className="hidden lg:flex items-center gap-2">
               {NAV_LINKS.map((link) => renderNavLink(link))}
               <a
                 href={JOIN_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full bg-white/10 border border-white/40 text-white px-4 py-2 text-sm font-semibold hover:bg-white/20"
+                className="ml-2 rounded-xl bg-white text-red-600 px-5 py-2.5 text-sm font-bold hover:bg-red-50 transition-all shadow-lg hover:shadow-xl hover:scale-105"
               >
-                Rejoindre
+                ✊ Rejoindre
               </a>
             </nav>
-          </div>
-          <div className="grid gap-6 md:grid-cols-[1.2fr_1fr] items-center rounded-3xl border border-white/20 bg-white/10 p-6">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-red-100">Municipales 2026</p>
-              <h1 className="mt-3 text-3xl font-extrabold text-white">Un vrai programme pour Villefranche</h1>
-              <p className="mt-3 text-sm text-red-100">
-                Des propositions concrètes, testées ailleurs, chiffrées. Parce que tu mérites mieux que des promesses.
-              </p>
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-white/20 bg-white/20">
-              <img
-                src={bandeau}
-                alt="Bandeau de la liste communiste villefranchoise"
-                className="w-full h-full object-cover"
-              />
-            </div>
+
+            {/* Bouton menu mobile */}
+            <button className="lg:hidden rounded-xl bg-white/10 border border-white/40 px-4 py-2 text-white">
+              ☰ Menu
+            </button>
           </div>
         </div>
       </header>
+
+      {/* Hero Banner */}
+      <section className="relative bg-gradient-to-br from-red-700 via-red-600 to-red-800 text-white overflow-hidden">
+        {/* Pattern background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px'}}></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 py-16">
+          <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] items-center">
+            {/* Contenu gauche */}
+            <div className="space-y-6">
+              <div className="inline-block">
+                <span className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 text-sm font-bold uppercase tracking-wide">
+                  🗳️ Municipales 2026
+                </span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl font-black text-white leading-tight">
+                Un <span className="text-red-200">vrai</span> programme<br/>
+                pour Villefranche
+              </h1>
+
+              <p className="text-xl text-red-100 leading-relaxed font-medium">
+                Des propositions concrètes, testées ailleurs, chiffrées. Parce que tu mérites mieux que des promesses en l'air.
+              </p>
+
+              {/* Stats clés */}
+              <div className="grid grid-cols-3 gap-4 pt-4">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-center">
+                  <div className="text-3xl font-black text-white">26</div>
+                  <div className="text-xs text-red-100 font-semibold uppercase mt-1">Actions</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-center">
+                  <div className="text-3xl font-black text-white">5</div>
+                  <div className="text-xs text-red-100 font-semibold uppercase mt-1">Thèmes</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-center">
+                  <div className="text-3xl font-black text-white">100%</div>
+                  <div className="text-xs text-red-100 font-semibold uppercase mt-1">Chiffré</div>
+                </div>
+              </div>
+
+              {/* CTA buttons */}
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a
+                  href="#themes"
+                  className="inline-flex items-center gap-2 bg-white text-red-600 px-6 py-3.5 rounded-xl font-bold text-base shadow-2xl hover:shadow-xl hover:scale-105 transition-all"
+                >
+                  📋 Voir le programme
+                </a>
+                <a
+                  href="#participer"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border-2 border-white text-white px-6 py-3.5 rounded-xl font-bold text-base hover:bg-white/20 transition-all"
+                >
+                  ✊ Participer
+                </a>
+              </div>
+            </div>
+
+            {/* Image bandeau */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 to-transparent rounded-3xl blur-2xl"></div>
+              <div className="relative rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl transform hover:scale-105 transition-transform">
+                <img
+                  src={bandeau}
+                  alt="Bandeau de la liste communiste villefranchoise"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {view === "stats" ? (
         <StatsPage onBack={() => setView("home")} />
