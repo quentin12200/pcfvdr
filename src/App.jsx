@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { INTRO, SECTIONS, PARTICIPER, STATS, POUR_ALLER_PLUS_LOIN } from "./content";
 import logoPcf from "../logo.png";
 import bandeau from "../bandeau.png";
@@ -6,6 +6,7 @@ import "./index.css";
 
 const JOIN_URL = "https://www.pcf.fr/adherer";
 const ActionCard = ({ action }) => {
+  const [activeTab, setActiveTab] = useState("probleme");
   const detailParagraphs = Array.isArray(action.detail) ? action.detail : [action.detail];
   const [diagnostic, ...measures] = detailParagraphs;
 
@@ -16,59 +17,80 @@ const ActionCard = ({ action }) => {
         : [action.example.detail]
       : [];
 
+  const tabs = [
+    { id: "probleme", label: "Le problème", icon: "⚠️" },
+    { id: "solution", label: "Notre solution", icon: "✅" },
+    ...(action.example ? [{ id: "exemple", label: "Ça marche où ?", icon: "🌍" }] : [])
+  ];
+
   return (
-    <article className="rounded-[28px] border border-red-100/80 bg-white/90 shadow-[0_20px_60px_rgba(15,23,42,0.08)] p-6 flex flex-col gap-6">
-      <header className="space-y-2">
+    <article className="rounded-[28px] border border-red-100/80 bg-white/90 shadow-[0_20px_60px_rgba(15,23,42,0.08)] overflow-hidden flex flex-col">
+      <header className="p-6 pb-0 space-y-2">
         <h4 className="text-2xl font-semibold text-slate-900">{action.title}</h4>
-        <p className="text-xs text-slate-500 leading-relaxed">
-          Le problème à Villefranche + ce qu'on propose de concret + des exemples de villes où ça marche déjà.
-        </p>
       </header>
 
-      {diagnostic && (
-        <div className="rounded-2xl border border-red-100 bg-gradient-to-br from-red-50 via-white to-white p-5">
-          <p className="text-[11px] uppercase tracking-[0.4em] text-red-600 font-semibold">Le problème</p>
-          <p className="mt-2 text-sm text-slate-700 leading-relaxed">{diagnostic}</p>
-        </div>
-      )}
+      {/* Tabs */}
+      <div className="flex gap-2 px-6 pt-4 border-b border-slate-100">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-all rounded-t-xl -mb-px ${
+              activeTab === tab.id
+                ? "bg-white text-red-600 border-b-2 border-red-600"
+                : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
+            }`}
+          >
+            <span className="text-base">{tab.icon}</span>
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-      {measures.length > 0 && (
-        <div className="space-y-3">
-          <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
+      {/* Tab Content */}
+      <div className="p-6">
+        {activeTab === "probleme" && diagnostic && (
+          <div className="space-y-4">
+            <div className="rounded-2xl border border-red-100 bg-gradient-to-br from-red-50 via-white to-white p-5">
+              <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">{diagnostic}</p>
+            </div>
+          </div>
+        )}
+
+        {activeTab === "solution" && measures.length > 0 && (
+          <div className="space-y-3">
             {measures.map((paragraph, index) => (
-              <li key={index} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
-                <p className="text-[10px] uppercase tracking-[0.4em] text-red-500 font-semibold">La solution</p>
-                <p className="mt-2">{paragraph}</p>
-              </li>
+              <div key={index} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-5">
+                <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">{paragraph}</p>
+              </div>
             ))}
-          </ul>
-        </div>
-      )}
+          </div>
+        )}
 
-      {(action.example || action.validations) && (
-        <div className="grid gap-4 sm:grid-cols-2">
-          {action.example && (
-            <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-semibold">Ça marche où ?</p>
-              <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
-              {exampleParagraphs.map((paragraph, index) => (
-                <p key={index} className="mt-2 text-sm text-slate-600">
-                  {paragraph}
-                </p>
-              ))}
+        {activeTab === "exemple" && action.example && (
+          <div className="space-y-4">
+            <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-5">
+              <p className="text-sm font-semibold text-slate-900 mb-3">{action.example.city}</p>
+              <div className="space-y-3">
+                {exampleParagraphs.map((paragraph, index) => (
+                  <p key={index} className="text-sm text-slate-600 leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
-          )}
+          </div>
+        )}
 
-          {action.validations && (
-            <div className="rounded-2xl border border-red-200 bg-red-50/70 p-4">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-red-600 font-semibold">Déjà {action.validations} personnes valident</p>
-              <p className="mt-1 text-sm text-red-700">
-                À 100 validations, on publie un guide détaillé pour appliquer cette mesure à Villefranche.
-              </p>
-            </div>
-          )}
-        </div>
-      )}
+        {action.validations && (
+          <div className="mt-4 rounded-2xl border border-red-200 bg-red-50/70 p-4">
+            <p className="text-[11px] uppercase tracking-[0.35em] text-red-600 font-semibold">Déjà {action.validations} personnes valident</p>
+            <p className="mt-1 text-sm text-red-700">
+              À 100 validations, on publie un guide détaillé pour appliquer cette mesure à Villefranche.
+            </p>
+          </div>
+        )}
+      </div>
     </article>
   );
 };
