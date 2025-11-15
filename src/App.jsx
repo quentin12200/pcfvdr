@@ -24,6 +24,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { INTRO, SECTIONS, PARTICIPER, STATS, POUR_ALLER_PLUS_LOIN } from "./content";
 import logoPcf from "../logo.png";
 import bandeau from "../bandeau.png";
+import image1 from "../1200x680.jpg";
+import image2 from "../aveyron-2823061_1280.jpg";
+import image3 from "../calvaire_avec_credit__gallery.jpg";
+import image4 from "../collegiale-villefranche-bastide-j.morel.jpg";
+import image5 from "../parasol-marche-villefranche.jpg";
+import image6 from "../villefranche1.jpg";
 import "./index.css";
 
 const JOIN_URL = "https://www.pcf.fr/adherer";
@@ -86,6 +92,115 @@ const AnimatedCounter = ({ target, suffix = "", prefix = "", duration = 2000 }) 
     <span ref={ref}>
       {prefix}{count.toLocaleString()}{suffix}
     </span>
+  );
+};
+
+// ============================================================================
+// CARROUSEL D'IMAGES
+// ============================================================================
+
+const ImageCarousel = () => {
+  const images = [
+    { src: bandeau, alt: "Bandeau de la liste communiste villefranchoise" },
+    { src: image4, alt: "Collégiale de Villefranche" },
+    { src: image5, alt: "Marché de Villefranche" },
+    { src: image6, alt: "Vue de Villefranche" },
+    { src: image2, alt: "Paysage de l'Aveyron" },
+    { src: image3, alt: "Patrimoine de Villefranche" },
+    { src: image1, alt: "Villefranche-de-Rouergue" },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Navigation
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
+  // Auto-play
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      goToNext();
+    }, 5000); // Change d'image toutes les 5 secondes
+
+    return () => clearInterval(interval);
+  }, [currentIndex, isAutoPlaying]);
+
+  return (
+    <div
+      className="relative group"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
+      {/* Conteneur des images */}
+      <div className="relative rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl">
+        <div className="relative w-full aspect-[16/9]">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-700 ${
+                index === currentIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Boutons de navigation */}
+        <button
+          onClick={goToPrevious}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-red-600 rounded-full p-3 shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110"
+          aria-label="Image précédente"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={goToNext}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-red-600 rounded-full p-3 shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110"
+          aria-label="Image suivante"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* Indicateurs */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`transition-all ${
+                index === currentIndex
+                  ? 'w-8 bg-white'
+                  : 'w-2 bg-white/50 hover:bg-white/75'
+              } h-2 rounded-full`}
+              aria-label={`Aller à l'image ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -1772,15 +1887,11 @@ export default function App() {
               </div>
             </div>
 
-            {/* Image bandeau */}
+            {/* Carrousel d'images */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 to-transparent rounded-3xl blur-2xl"></div>
-              <div className="relative rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl transform hover:scale-105 transition-transform">
-                <img
-                  src={bandeau}
-                  alt="Bandeau de la liste communiste villefranchoise"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative">
+                <ImageCarousel />
               </div>
             </div>
           </div>
