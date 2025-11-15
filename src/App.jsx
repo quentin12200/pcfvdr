@@ -210,7 +210,8 @@ const COLOR_STYLES = {
     activeBg: "bg-red-600",
     activeText: "text-white",
     lightBg: "bg-red-50/70",
-    gradient: "from-red-50 to-white"
+    gradient: "from-red-50 to-white",
+    headerGradient: "from-red-600 to-red-700"
   },
   blue: {
     bg: "bg-blue-50",
@@ -220,7 +221,8 @@ const COLOR_STYLES = {
     activeBg: "bg-blue-600",
     activeText: "text-white",
     lightBg: "bg-blue-50/70",
-    gradient: "from-blue-50 to-white"
+    gradient: "from-blue-50 to-white",
+    headerGradient: "from-blue-600 to-blue-700"
   },
   green: {
     bg: "bg-green-50",
@@ -230,7 +232,8 @@ const COLOR_STYLES = {
     activeBg: "bg-green-600",
     activeText: "text-white",
     lightBg: "bg-green-50/70",
-    gradient: "from-green-50 to-white"
+    gradient: "from-green-50 to-white",
+    headerGradient: "from-green-600 to-green-700"
   },
   amber: {
     bg: "bg-amber-50",
@@ -240,7 +243,8 @@ const COLOR_STYLES = {
     activeBg: "bg-amber-600",
     activeText: "text-white",
     lightBg: "bg-amber-50/70",
-    gradient: "from-amber-50 to-white"
+    gradient: "from-amber-50 to-white",
+    headerGradient: "from-amber-600 to-amber-700"
   },
   purple: {
     bg: "bg-purple-50",
@@ -250,7 +254,8 @@ const COLOR_STYLES = {
     activeBg: "bg-purple-600",
     activeText: "text-white",
     lightBg: "bg-purple-50/70",
-    gradient: "from-purple-50 to-white"
+    gradient: "from-purple-50 to-white",
+    headerGradient: "from-purple-600 to-purple-700"
   }
 };
 
@@ -279,7 +284,7 @@ const ActionCard = ({ action, color = "red" }) => {
   return (
     <article className={`group relative rounded-3xl border-2 ${colorStyle.border} bg-gradient-to-br from-white via-white to-${color}-50/20 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden`}>
       {/* Header avec titre en GROS */}
-      <div className={`relative bg-gradient-to-r ${colorStyle.activeBg} p-6`}>
+      <div className={`relative bg-gradient-to-r ${colorStyle.headerGradient} p-6`}>
         <div className="flex items-start gap-4">
           {/* Icône thématique */}
           <div className="text-6xl opacity-20 absolute -right-4 -top-4">
@@ -888,7 +893,7 @@ const FloatingButton = () => {
 };
 
 // Barre de recherche pour les mesures
-const SearchBar = () => {
+const SearchBar = ({ sections }) => {
   const [searchTerm, setSearchTerm] = React.useState('');
   const [results, setResults] = React.useState([]);
   const [isSearching, setIsSearching] = React.useState(false);
@@ -903,7 +908,7 @@ const SearchBar = () => {
 
     setIsSearching(true);
     const searchResults = [];
-    SECTIONS.forEach(section => {
+    sections.forEach(section => {
       section.actions.forEach(action => {
         const searchString = `${action.title} ${JSON.stringify(action.detail)} ${action.example?.city || ''}`.toLowerCase();
         if (searchString.includes(term.toLowerCase())) {
@@ -1108,10 +1113,17 @@ const AvisSection = () => {
 };
 
 // Panel administrateur (discret)
-const AdminPanel = () => {
+const AdminPanel = ({ sections }) => {
   const [isAdmin, setIsAdmin] = React.useState(false);
   const [password, setPassword] = React.useState('');
   const [avisEnAttente, setAvisEnAttente] = React.useState([]);
+  const [activeTab, setActiveTab] = React.useState('avis'); // 'avis' ou 'mesures'
+  const [editingMesure, setEditingMesure] = React.useState(null);
+  const [editForm, setEditForm] = React.useState({
+    title: '',
+    detail: [],
+    example: null
+  });
 
   const loadAvis = () => {
     const allAvis = JSON.parse(localStorage.getItem('avis_pcf_villefranche') || '[]');
@@ -1143,6 +1155,109 @@ const AdminPanel = () => {
     loadAvis();
   };
 
+  // Gestion des mesures
+  const startEditingMesure = (sectionId, actionIndex, action) => {
+    setEditingMesure({ sectionId, actionIndex });
+    setEditForm({
+      title: action.title,
+      detail: Array.isArray(action.detail) ? [...action.detail] : [action.detail],
+      example: action.example ? {
+        city: action.example.city,
+        detail: Array.isArray(action.example.detail) ? [...action.example.detail] : [action.example.detail]
+      } : null
+    });
+  };
+
+  const cancelEditingMesure = () => {
+    setEditingMesure(null);
+    setEditForm({ title: '', detail: [], example: null });
+  };
+
+  const saveMesure = () => {
+    if (!editingMesure) return;
+
+    // Charger les mesures éditées existantes
+    const editedMesures = JSON.parse(localStorage.getItem('mesures_editees_pcf') || '{}');
+
+    // Créer une clé unique pour cette mesure
+    const key = `${editingMesure.sectionId}_${editingMesure.actionIndex}`;
+
+    // Sauvegarder la mesure éditée
+    editedMesures[key] = {
+      title: editForm.title,
+      detail: editForm.detail,
+      example: editForm.example
+    };
+
+    localStorage.setItem('mesures_editees_pcf', JSON.stringify(editedMesures));
+
+    alert('✅ Mesure sauvegardée ! Rechargez la page pour voir les changements.');
+    cancelEditingMesure();
+  };
+
+  const restaurerMesure = (sectionId, actionIndex) => {
+    const editedMesures = JSON.parse(localStorage.getItem('mesures_editees_pcf') || '{}');
+    const key = `${sectionId}_${actionIndex}`;
+    delete editedMesures[key];
+    localStorage.setItem('mesures_editees_pcf', JSON.stringify(editedMesures));
+    alert('✅ Mesure restaurée à la version originale ! Rechargez la page.');
+  };
+
+  const updateDetailParagraph = (index, value) => {
+    const newDetail = [...editForm.detail];
+    newDetail[index] = value;
+    setEditForm({ ...editForm, detail: newDetail });
+  };
+
+  const addDetailParagraph = () => {
+    setEditForm({ ...editForm, detail: [...editForm.detail, ''] });
+  };
+
+  const removeDetailParagraph = (index) => {
+    const newDetail = editForm.detail.filter((_, i) => i !== index);
+    setEditForm({ ...editForm, detail: newDetail });
+  };
+
+  const updateExampleParagraph = (index, value) => {
+    if (!editForm.example) return;
+    const newDetail = Array.isArray(editForm.example.detail) ? [...editForm.example.detail] : [editForm.example.detail];
+    newDetail[index] = value;
+    setEditForm({
+      ...editForm,
+      example: { ...editForm.example, detail: newDetail }
+    });
+  };
+
+  const addExampleParagraph = () => {
+    if (!editForm.example) {
+      setEditForm({
+        ...editForm,
+        example: { city: '', detail: [''] }
+      });
+    } else {
+      const newDetail = Array.isArray(editForm.example.detail) ? [...editForm.example.detail, ''] : [editForm.example.detail, ''];
+      setEditForm({
+        ...editForm,
+        example: { ...editForm.example, detail: newDetail }
+      });
+    }
+  };
+
+  const removeExampleParagraph = (index) => {
+    if (!editForm.example) return;
+    const newDetail = Array.isArray(editForm.example.detail)
+      ? editForm.example.detail.filter((_, i) => i !== index)
+      : [];
+    if (newDetail.length === 0) {
+      setEditForm({ ...editForm, example: null });
+    } else {
+      setEditForm({
+        ...editForm,
+        example: { ...editForm.example, detail: newDetail }
+      });
+    }
+  };
+
   if (!isAdmin) {
     return (
       <div className="bg-slate-900 text-white py-8">
@@ -1162,6 +1277,9 @@ const AdminPanel = () => {
             >
               Connexion
             </button>
+            <p className="text-xs text-slate-400 mt-3 text-center">
+              Réservé aux membres de la section PCF
+            </p>
           </form>
         </div>
       </div>
@@ -1170,49 +1288,294 @@ const AdminPanel = () => {
 
   return (
     <div className="bg-slate-900 text-white py-8">
-      <div className="max-w-6xl mx-auto px-4">
-        <h3 className="text-2xl font-black mb-6">👮 Gestion des avis ({avisEnAttente.length} en attente)</h3>
-
-        {avisEnAttente.length === 0 && (
-          <p className="text-slate-400">Aucun avis en attente de validation.</p>
-        )}
-
-        <div className="grid md:grid-cols-2 gap-4">
-          {avisEnAttente.map(a => (
-            <div key={a.id} className="bg-slate-800 rounded-xl p-4 border border-slate-700">
-              <div className="flex justify-between items-start mb-3">
-                <div>
-                  <h4 className="font-bold">{a.nom}</h4>
-                  <p className="text-xs text-slate-400">
-                    {new Date(a.date).toLocaleString('fr-FR')}
-                  </p>
-                </div>
-              </div>
-              <p className="text-sm text-slate-300 mb-4 italic">"{a.commentaire}"</p>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => validerAvis(a.id)}
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg"
-                >
-                  ✅ Valider
-                </button>
-                <button
-                  onClick={() => supprimerAvis(a.id)}
-                  className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded-lg"
-                >
-                  ❌ Supprimer
-                </button>
-              </div>
-            </div>
-          ))}
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-2xl font-black">👮 Administration</h3>
+          <button
+            onClick={() => setIsAdmin(false)}
+            className="bg-slate-700 hover:bg-slate-600 text-white font-bold px-6 py-2 rounded-lg"
+          >
+            🚪 Déconnexion
+          </button>
         </div>
 
-        <button
-          onClick={() => setIsAdmin(false)}
-          className="mt-6 bg-slate-700 hover:bg-slate-600 text-white font-bold px-6 py-2 rounded-lg"
-        >
-          🚪 Déconnexion
-        </button>
+        {/* Tabs */}
+        <div className="flex gap-3 mb-6">
+          <button
+            onClick={() => setActiveTab('avis')}
+            className={`px-6 py-3 rounded-xl font-bold transition-all ${
+              activeTab === 'avis'
+                ? 'bg-red-600 text-white'
+                : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+            }`}
+          >
+            💬 Avis ({avisEnAttente.length})
+          </button>
+          <button
+            onClick={() => setActiveTab('mesures')}
+            className={`px-6 py-3 rounded-xl font-bold transition-all ${
+              activeTab === 'mesures'
+                ? 'bg-red-600 text-white'
+                : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+            }`}
+          >
+            📝 Mesures
+          </button>
+        </div>
+
+        {/* Contenu Avis */}
+        {activeTab === 'avis' && (
+          <>
+            {avisEnAttente.length === 0 && (
+              <p className="text-slate-400">Aucun avis en attente de validation.</p>
+            )}
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {avisEnAttente.map(a => (
+                <div key={a.id} className="bg-slate-800 rounded-xl p-4 border border-slate-700">
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <h4 className="font-bold">{a.nom}</h4>
+                      <p className="text-xs text-slate-400">
+                        {new Date(a.date).toLocaleString('fr-FR')}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-slate-300 mb-4 italic">"{a.commentaire}"</p>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => validerAvis(a.id)}
+                      className="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg"
+                    >
+                      ✅ Valider
+                    </button>
+                    <button
+                      onClick={() => supprimerAvis(a.id)}
+                      className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded-lg"
+                    >
+                      ❌ Supprimer
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Contenu Mesures */}
+        {activeTab === 'mesures' && (
+          <div className="space-y-6">
+            {editingMesure ? (
+              // Formulaire d'édition
+              <div className="bg-slate-800 rounded-2xl p-6 border-2 border-yellow-500">
+                <div className="flex items-center justify-between mb-6">
+                  <h4 className="text-xl font-black text-yellow-400">✏️ Édition de mesure</h4>
+                  <button
+                    onClick={cancelEditingMesure}
+                    className="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg font-bold text-sm"
+                  >
+                    ❌ Annuler
+                  </button>
+                </div>
+
+                <div className="space-y-6">
+                  {/* Titre */}
+                  <div>
+                    <label className="block text-sm font-bold text-slate-300 mb-2">
+                      📌 Titre de la mesure
+                    </label>
+                    <input
+                      type="text"
+                      value={editForm.title}
+                      onChange={(e) => setEditForm({ ...editForm, title: e.target.value })}
+                      className="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-xl text-white focus:outline-none focus:border-yellow-500"
+                    />
+                  </div>
+
+                  {/* Paragraphes de détail */}
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <label className="block text-sm font-bold text-slate-300">
+                        📄 Paragraphes de détail
+                      </label>
+                      <button
+                        onClick={addDetailParagraph}
+                        className="bg-green-600 hover:bg-green-700 px-3 py-1 rounded-lg text-xs font-bold"
+                      >
+                        + Ajouter paragraphe
+                      </button>
+                    </div>
+                    <div className="space-y-3">
+                      {editForm.detail.map((para, index) => (
+                        <div key={index} className="relative">
+                          <div className="flex items-start gap-2">
+                            <span className="bg-slate-600 text-white px-2 py-1 rounded text-xs font-bold mt-2">
+                              {index + 1}
+                            </span>
+                            <textarea
+                              value={para}
+                              onChange={(e) => updateDetailParagraph(index, e.target.value)}
+                              rows={4}
+                              className="flex-1 px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-xl text-white focus:outline-none focus:border-blue-500 text-sm"
+                              placeholder={index === 0 ? "Le problème..." : "Notre solution..."}
+                            />
+                            {editForm.detail.length > 1 && (
+                              <button
+                                onClick={() => removeDetailParagraph(index)}
+                                className="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-xs font-bold mt-2"
+                              >
+                                🗑️
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Exemple */}
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <label className="block text-sm font-bold text-slate-300">
+                        🌍 Exemple (ville + détails)
+                      </label>
+                      <button
+                        onClick={addExampleParagraph}
+                        className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded-lg text-xs font-bold"
+                      >
+                        + Ajouter paragraphe exemple
+                      </button>
+                    </div>
+
+                    {editForm.example && (
+                      <div className="space-y-3 bg-slate-900/50 p-4 rounded-xl">
+                        <div>
+                          <label className="block text-xs text-slate-400 mb-1">Ville(s)</label>
+                          <input
+                            type="text"
+                            value={editForm.example.city}
+                            onChange={(e) => setEditForm({
+                              ...editForm,
+                              example: { ...editForm.example, city: e.target.value }
+                            })}
+                            placeholder="Ex: Grenoble, Paris, Montpellier"
+                            className="w-full px-4 py-2 bg-slate-700 border-2 border-slate-600 rounded-xl text-white focus:outline-none focus:border-blue-500 text-sm"
+                          />
+                        </div>
+
+                        {(Array.isArray(editForm.example.detail) ? editForm.example.detail : [editForm.example.detail]).map((para, index) => (
+                          <div key={index} className="flex items-start gap-2">
+                            <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold mt-2">
+                              {index + 1}
+                            </span>
+                            <textarea
+                              value={para}
+                              onChange={(e) => updateExampleParagraph(index, e.target.value)}
+                              rows={3}
+                              className="flex-1 px-4 py-2 bg-slate-700 border-2 border-slate-600 rounded-xl text-white focus:outline-none focus:border-blue-500 text-sm"
+                              placeholder="Détail de l'exemple..."
+                            />
+                            <button
+                              onClick={() => removeExampleParagraph(index)}
+                              className="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-xs font-bold mt-2"
+                            >
+                              🗑️
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {!editForm.example && (
+                      <p className="text-sm text-slate-500 italic">Aucun exemple pour cette mesure</p>
+                    )}
+                  </div>
+
+                  {/* Boutons action */}
+                  <div className="flex gap-3 pt-4">
+                    <button
+                      onClick={saveMesure}
+                      className="flex-1 bg-green-600 hover:bg-green-700 text-white font-black py-4 rounded-xl text-lg"
+                    >
+                      💾 SAUVEGARDER LES MODIFICATIONS
+                    </button>
+                    <button
+                      onClick={cancelEditingMesure}
+                      className="bg-slate-700 hover:bg-slate-600 text-white font-bold px-6 py-4 rounded-xl"
+                    >
+                      Annuler
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // Liste des mesures
+              <div className="space-y-4">
+                <p className="text-slate-400 mb-4">
+                  Cliquez sur une mesure pour l'éditer. Les modifications sont sauvegardées localement.
+                </p>
+
+                {sections.map((section) => (
+                  <div key={section.id} className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-3xl">{section.icon}</span>
+                      <h4 className="text-xl font-black">{section.title}</h4>
+                    </div>
+
+                    <div className="space-y-3">
+                      {section.actions.map((action, actionIndex) => {
+                        const editedMesures = JSON.parse(localStorage.getItem('mesures_editees_pcf') || '{}');
+                        const key = `${section.id}_${actionIndex}`;
+                        const isEdited = !!editedMesures[key];
+
+                        return (
+                          <div
+                            key={actionIndex}
+                            className={`bg-slate-900/50 rounded-xl p-4 border-2 ${
+                              isEdited ? 'border-yellow-500' : 'border-slate-700'
+                            }`}
+                          >
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="flex-1">
+                                <h5 className="font-bold text-white mb-1">
+                                  {action.title}
+                                  {isEdited && (
+                                    <span className="ml-2 bg-yellow-500 text-slate-900 px-2 py-0.5 rounded text-xs font-black">
+                                      MODIFIÉE
+                                    </span>
+                                  )}
+                                </h5>
+                                <p className="text-xs text-slate-400">
+                                  {Array.isArray(action.detail) ? action.detail[0].substring(0, 100) : action.detail.substring(0, 100)}...
+                                </p>
+                              </div>
+                              <div className="flex gap-2">
+                                <button
+                                  onClick={() => startEditingMesure(section.id, actionIndex, action)}
+                                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg text-sm whitespace-nowrap"
+                                >
+                                  ✏️ Éditer
+                                </button>
+                                {isEdited && (
+                                  <button
+                                    onClick={() => restaurerMesure(section.id, actionIndex)}
+                                    className="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2 rounded-lg text-sm whitespace-nowrap"
+                                  >
+                                    ↺ Restaurer
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -1298,9 +1661,9 @@ const Footer = () => {
   );
 };
 
-const ThemeSheets = () => {
+const ThemeSheets = ({ sections }) => {
   const [activeTheme, setActiveTheme] = useState("bloc1");
-  const activeSection = SECTIONS.find(s => s.id === activeTheme);
+  const activeSection = sections.find(s => s.id === activeTheme);
   const colorStyle = COLOR_STYLES[activeSection?.color || "red"];
 
   return (
@@ -1316,7 +1679,7 @@ const ThemeSheets = () => {
 
         {/* Tabs Navigation */}
         <div className="flex flex-wrap gap-3 justify-center">
-          {SECTIONS.map((section) => {
+          {sections.map((section) => {
             const isActive = activeTheme === section.id;
             const sectionColor = COLOR_STYLES[section.color];
             return (
@@ -1460,6 +1823,46 @@ const StatsPage = ({ onBack }) => {
 
 export default function App() {
   const [view, setView] = React.useState("home");
+  const [mergedSections, setMergedSections] = React.useState(SECTIONS);
+
+  // Charger et fusionner les mesures éditées au démarrage
+  React.useEffect(() => {
+    const editedMesures = JSON.parse(localStorage.getItem('mesures_editees_pcf') || '{}');
+
+    // Si aucune mesure éditée, utiliser SECTIONS par défaut
+    if (Object.keys(editedMesures).length === 0) {
+      setMergedSections(SECTIONS);
+      return;
+    }
+
+    // Fusionner les mesures éditées avec SECTIONS
+    const merged = SECTIONS.map(section => {
+      const mergedActions = section.actions.map((action, actionIndex) => {
+        const key = `${section.id}_${actionIndex}`;
+        const edited = editedMesures[key];
+
+        // Si cette mesure a été éditée, utiliser la version éditée
+        if (edited) {
+          return {
+            ...action,
+            title: edited.title,
+            detail: edited.detail,
+            example: edited.example
+          };
+        }
+
+        // Sinon, utiliser la version originale
+        return action;
+      });
+
+      return {
+        ...section,
+        actions: mergedActions
+      };
+    });
+
+    setMergedSections(merged);
+  }, []);
 
   const renderNavLink = (link) => {
     if (link.type === "view") {
@@ -1762,9 +2165,9 @@ export default function App() {
         </section>
 
         {/* Barre de recherche pour les mesures */}
-        <SearchBar />
+        <SearchBar sections={mergedSections} />
 
-        <ThemeSheets />
+        <ThemeSheets sections={mergedSections} />
 
         <section className="bg-white border-y border-slate-100">
           <div className="max-w-6xl mx-auto px-4 py-12">
@@ -1825,7 +2228,7 @@ export default function App() {
 
       {/* Panel admin (discret, accessible via #admin) */}
       <div id="admin">
-        <AdminPanel />
+        <AdminPanel sections={mergedSections} />
       </div>
 
       {/* Footer avec mentions légales */}
