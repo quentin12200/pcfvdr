@@ -768,6 +768,16 @@ export const STATS = {
     "Ces données viennent de l'INSEE (Recensement 2021, Revenus fiscaux 2020) et des portails gouvernementaux data.gouv.fr et GEO. Elles guident nos priorités.",
     "On partage tout ça avec toutes les listes citoyennes qui veulent s'appuyer sur du solide."
   ],
+  contexteNational: {
+    title: "Pourquoi un maire communiste militant ?",
+    paragraphs: [
+      "L'État verse environ 135 milliards d'euros aux collectivités territoriales chaque année. C'est BEAUCOUP TROP PEU. Depuis 2017, les dotations aux communes stagnent ou baissent en euros constants, alors que les besoins explosent : vieillissement, transition écologique, services publics à renforcer.",
+      "À Villefranche, comme partout, on nous dit qu'il n'y a pas d'argent. Mais l'État distribue des dizaines de milliards d'aides aux entreprises sans contrepartie, pendant que nos écoles, nos routes, nos services publics manquent de moyens. Cette politique nationale ÉTOUFFE les communes.",
+      "Un maire communiste, c'est un maire qui ne baisse pas les bras. C'est un maire MILITANT qui porte la voix des Villefranchois·es au niveau national, qui se bat avec la population pour exiger le retour de l'argent public dans les services publics locaux.",
+      "Avec les habitant·es mobilisé·es, un maire communiste peut aider à FAIRE CHANGER LES LOIS : rétablir l'ISF pour financer les communes, bloquer les cadeaux fiscaux aux multinationales, imposer un vrai plan de financement des collectivités territoriales.",
+      "Le combat se mène à deux niveaux : à Villefranche pour transformer le quotidien IMMÉDIATEMENT avec les leviers municipaux, ET au niveau national pour exiger les moyens qui nous sont dus. Un maire communiste, c'est ce double combat."
+    ]
+  },
   highlights: [
     { label: "Population municipale", value: "11 720 habitantes et habitants", source: "INSEE – Recensement 2024" },
     { label: "Évolution depuis 2015", value: "–2,1 % (déclin continu)", source: "INSEE – Séries historiques 2015-2024" },

@@ -1408,12 +1408,49 @@ const StatsPage = ({ onBack }) => {
         </div>
       </section>
 
+      {/* Contexte national */}
+      {STATS.contexteNational && (
+        <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="text-center mb-8">
+              <span className="inline-block bg-red-600 text-white rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wide mb-4">
+                ⚠️ Contexte national
+              </span>
+              <h2 className="text-3xl font-black mb-4">{STATS.contexteNational.title}</h2>
+            </div>
+
+            <div className="space-y-6 text-lg leading-relaxed">
+              {STATS.contexteNational.paragraphs.map((paragraph, index) => (
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm border-l-4 border-red-500 rounded-xl p-6"
+                >
+                  <p>{paragraph}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 bg-red-600 rounded-2xl p-8 text-center">
+              <p className="text-2xl font-black mb-3">
+                💪 Le combat local ET national
+              </p>
+              <p className="text-lg text-red-100">
+                Un maire communiste à Villefranche, c'est l'outil pour transformer la ville MAINTENANT et pour faire pression sur l'État avec les habitant·es mobilisé·es.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="max-w-6xl mx-auto px-4 py-12 grid gap-10 lg:grid-cols-[3fr_2fr] items-start">
         <div>
-          <div className="space-y-4 text-base text-slate-700">
-            {STATS.paragraphs.slice(1).map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+          <div className="mb-8">
+            <h2 className="text-2xl font-black text-slate-900 mb-4">📊 Villefranche en chiffres</h2>
+            <div className="space-y-4 text-base text-slate-700">
+              {STATS.paragraphs.slice(1).map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {STATS.highlights.map((stat) => {
