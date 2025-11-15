@@ -44,6 +44,8 @@ export const INTRO = {
   title: "Et si on changeait vraiment les choses à Villefranche ?",
   paragraphs: [
     "Tu vis à Villefranche ? Tu travailles ici ? Alors tu sais que les choses peuvent mieux fonctionner. Les services publics qui marchent, des logements abordables, des transports qui passent quand il faut, une vraie démocratie où ta voix compte : c'est possible.",
+    "Depuis 2020, Villefranche est gérée par une majorité radicale de gauche. C'est une avancée, mais ce n'est PAS ASSEZ. Les tarifs de l'eau explosent sans consultation (+300% pour certains foyers). La CPAM ferme et on démolit le bâtiment pour faire un parking. Le maire recule face aux pétitions racistes sur l'aire des gens du voyage. Les services publics continuent de disparaître. Le radicalisme de gauche reste dans le cadre capitaliste.",
+    "Le PCF propose le MUNICIPALISME RÉVOLUTIONNAIRE : propriété publique des services essentiels (eau, logement, crèches), démocratie directe à tous les niveaux (assemblées de quartier, budgets participatifs réels), gratuité des services de base (cantine, transports, périscolaire), refus de la dette illégitime imposée par l'austérité nationale. Nous allons au bout de la logique : le pouvoir aux Villefranchois·es, pas aux actionnaires.",
     "Ce programme, c'est du concret. Pas de promesses en l'air. Chaque mesure a déjà été testée dans d'autres villes et on te dit comment on la finance. Tu peux tout lire, tout vérifier, tout critiquer. C'est fait pour ça.",
     "L'objectif ? Que tu puisses dire : \"Ouais, ça c'est un vrai projet pour Villefranche. Je veux que ça se fasse.\" Et si ça te branche, on t'accompagne pour porter ces idées aux élections de 2026."
   ],
@@ -229,11 +231,13 @@ export const SECTIONS = [
         }
       },
       {
-        title: "Maison du Peuple Bastide",
+        title: "Maison du Peuple Bastide : réouvrir la CPAM et regrouper les services publics",
         detail: [
-          "Pour faire valoir leurs droits sociaux, les Villefranchois·es doivent aujourd'hui courir entre la CAF rue de la République, la CPAM à Rodez (56 km par route !), le CCAS place de la Mairie et les permanences associatives éclatées. Parcours du combattant pour les personnes âgées, les familles monoparentales, les précaires.",
-          "Création d'une Maison du Peuple au cœur de la Bastide (ancien bâtiment des Finances publiques, rue Marcellin-Fabre) : 600 m² réunissant CAF, CPAM, services du Département, médiation numérique, permanence juridique gratuite et relais associatifs sous un même toit.",
-          "Guichet unique : un·e seul·e agent·e oriente vers tous les services nécessaires. Fini le parcours du combattant ! Ouverture 6 jours/7 avec nocturnes mardi et jeudi jusqu'à 20h. Médiateur·rices numériques formé·es pour accompagner les démarches en ligne (impôts, Pôle Emploi, retraite)."],
+          "SCANDALE : la CPAM de Villefranche a fermé, obligeant les habitant·es à aller à Rodez (56 km par route !) pour leurs démarches de santé. La sous-préfecture est fragilisée, les services publics reculent partout. Pire encore : la municipalité actuelle prévoit de DÉMOLIR le bâtiment de l'ancienne CPAM pour en faire un parking et un square ! C'est le symbole même de l'abandon du service public : on démolit au lieu de transformer.",
+          "Pour faire valoir leurs droits sociaux, les Villefranchois·es doivent aujourd'hui courir entre la CAF rue de la République, Pôle Emploi, le CCAS place de la Mairie et les permanences associatives éclatées. Parcours du combattant pour les personnes âgées, les familles monoparentales, les précaires.",
+          "Nous refusons la démolition de l'ancienne CPAM et la transformons en MAISON DU PEUPLE : 600 m² réunissant point d'accueil CPAM (avec agent sur place pour accompagner les démarches), permanence CAF, services du Département, médiation numérique, permanence juridique gratuite (avocats, défenseur des droits), relais associatifs (Indecosa CGT, associations de chômeurs, secours populaire) et antenne de la sous-préfecture.",
+          "Nous exigeons la RÉOUVERTURE d'un point CPAM permanent à Villefranche : mobilisation municipale auprès de l'Assurance Maladie, motion votée en conseil municipal, soutien aux mobilisations citoyennes et syndicales. La santé n'est pas une marchandise, l'accès aux soins passe par des services publics de proximité !",
+          "Guichet unique : un·e seul·e agent·e municipal·e oriente vers tous les services nécessaires. Fini le parcours du combattant ! Ouverture 6 jours/7 avec nocturnes mardi et jeudi jusqu'à 20h. Médiateur·rices numériques formé·es pour accompagner les démarches en ligne (impôts, Pôle Emploi, retraite, carte Vitale). Transport gratuit pour les personnes âgées et handicapées depuis les villages."],
         example: {
           city: "Roubaix (Nord, 99 000 habitant·es)",
           detail: [
@@ -329,20 +333,22 @@ export const SECTIONS = [
         }
       },
       {
-        title: "Remunicipalisation de l'eau et tarification sociale",
+        title: "Aire de grand passage pour les gens du voyage : respecter la loi, combattre le racisme",
         detail: [
-          "La gestion de l'eau à Villefranche est déléguée à Veolia depuis 1995. Résultat : hausses tarifaires régulières sans justification (+18 % en 10 ans), opacité totale sur les investissements, coupures d'eau possibles pour impayés. Les familles du Tricot et de la Bastide paient leur eau 20 % plus cher que la moyenne nationale.",
-          "Remunicipalisation dès l'échéance du contrat (2027) : création d'une régie publique de l'eau et de l'assainissement avec gouvernance démocratique associant usager·es, agent·es municipaux et élu·es. Transparence totale : publication annuelle des comptes, des investissements et de la qualité de l'eau.",
-          "Tarification progressive et sociale : les 50 premiers litres par jour et par personne GRATUITS (besoins vitaux), puis tarif modéré jusqu'à 150 L/jour, tarif élevé au-delà pour pénaliser le gaspillage. Interdiction absolue des coupures d'eau. Chèque-eau de 150 €/an pour les foyers en difficulté."
+          "DOSSIER EXPLOSIF : le schéma départemental impose la création d'une aire de grand passage de 60 places route de Montauban, budget 300 000 € (Ouest Aveyron Communauté). Mobilisation massive de riverains, pétitions, discours du type « argent public gaspillé », refus de certaines intercommunalités de financer. Face à la pression, le maire Jean-Sébastien Orcibal annonce en janvier 2025 qu'il va demander à la préfecture de renoncer à l'implantation. C'est un RECUL face au racisme anti-Roms et anti-gens du voyage.",
+          "Les gens du voyage sont des citoyen·nes français·es victimes de discriminations systémiques : refus d'accès aux aires, harcèlement policier, stigmatisation médiatique. Le schéma départemental n'est PAS une « dépense inutile », c'est une OBLIGATION LÉGALE pour garantir le droit fondamental à la circulation et à l'habitat des familles du voyage. Refuser cette aire, c'est céder au racisme et violer la loi.",
+          "Nous assumons la création de l'aire de grand passage à Villefranche, conforme au schéma départemental : 60 places équipées (eau, électricité, sanitaires, containers poubelles), gestionnaire permanent, dialogue respectueux avec les associations de gens du voyage (FNASAT, URAVIF). Coût : 300 000 € financé par Ouest Aveyron Communauté, soit 2,60 € par habitant·e, moins cher qu'un repas au restaurant.",
+          "Nous lançons une campagne municipale ANTIRACISTE : expositions dans les écoles et centres sociaux sur l'histoire et la culture des gens du voyage, projection de films (« Liberté » d'Albert Dupontel), conférences avec historien·nes (Marie-Anne Valfort). Tolérance zéro contre les discours racistes : sanctions contre les élus qui tiennent des propos discriminatoires, soutien aux associations antiracistes locales.",
+          "Obligation de moyens : suivi sanitaire et social des familles accueillies (PMI, scolarisation des enfants), médiation entre riverains et voyageurs, nettoyage systématique après chaque passage. Évaluation publique annuelle : nombre de familles accueillies, durée des séjours, incidents éventuels. Transparence totale pour démontrer que la cohabitation pacifique EST possible."
         ],
-        territories: ["Toute la ville", "Tous les hameaux"],
+        territories: ["Ouest Aveyron Communauté", "Route de Montauban"],
         example: {
-          city: "Grenoble (Isère, 160 000 habitant·es)",
+          city: "Nantes Métropole, Rennes Métropole",
           detail: [
-            "Remunicipalisation de l'eau en 2000 après 150 ans de gestion privée par Veolia. Création de la Régie des Eaux de Grenoble.",
-            "Résultats spectaculaires : baisse de 7% des tarifs dès la première année, investissement de 100M€ dans la rénovation des réseaux (contre 30M€ prévus par Veolia).",
-            "Tarification progressive : les premiers m³ peu chers, prix augmentant pour les gros consommateurs. Zéro coupure d'eau, aide sociale automatique pour les impayés.",
-            "Bilan 20 ans : économies de 40M€ pour les usagers, réduction de 30% des fuites, qualité de l'eau améliorée, 200 emplois publics pérennisés."
+            "Nantes Métropole (44) : 5 aires de grand passage totalisant 300 places, budget annuel 1,2 M€ pour 24 communes. Bilan : accueil de 800 familles/an, dialogue régulier avec associations, baisse des installations sauvages de 60 %.",
+            "Rennes Métropole (35) : aire de grand passage de 100 places à Cesson-Sévigné. Équipements : eau, électricité, sanitaires, local gestionnaire. Coût : 450 000 € en 2015, soit 1 € par habitant·e. Bilan : 120 familles accueillies/an, durée moyenne 5 jours, zéro incident majeur.",
+            "Ces villes assument leurs obligations légales ET démontrent qu'un accueil digne est possible. À Villefranche, le racisme latent ne doit PAS primer sur l'État de droit et la solidarité. Les gens du voyage ont les MÊMES DROITS que tous les citoyens.",
+            "Le PCF a historiquement défendu les minorités persécutées : Juifs pendant la Shoah, travailleurs immigrés, Roms aujourd'hui. Nous ne reculerons JAMAIS face au racisme, quelle que soit la pression électorale."
           ]
         }
       },
@@ -363,6 +369,27 @@ export const SECTIONS = [
             "Bilan : 3000 femmes accompagnées par an, 60% de victimes de violences, 90% retrouvent une autonomie, 100% gratuité, modèle répliqué dans 15 villes."
           ]
         }
+      },
+      {
+        title: "Plan propreté et embellissement : brigade municipale d'entretien",
+        detail: [
+          "De nombreux habitant·es signalent l'état de propreté dégradé du centre-ville : crottes de chien non ramassées, herbes folles, berges de l'Aveyron mal entretenues, espaces verts délaissés (jardin du Tricot, square Savignac). Les commentaires en ligne pointent un sentiment de \"morosité\" et de \"potentiel non exploité\" : la bastide médiévale est magnifique, mais l'entretien quotidien ne suit pas.",
+          "Les services techniques municipaux sont en sous-effectif chronique : seulement 12 agents pour 45 bâtiments communaux, 850 logements vacants à rénover, tous les espaces verts de la ville ET les villages associés. Résultat : interventions au coup par coup, retards accumulés, dégradations qui s'aggravent (toitures qui fuient, vestiaires fermés, radiateurs en panne).",
+          "Nous créons une BRIGADE MUNICIPALE D'ENTRETIEN de 30 agent·es en CDI : nettoyage quotidien du centre-ville (Bastide, places, berges), entretien des espaces verts (tonte, taille, fleurissement), ramassage des dépôts sauvages, petites réparations de voirie (nids de poule, signalisation). Équipes de quartier permanentes : 1 brigade au Tricot, 1 à la Bastide, 1 aux Gravasses, tournées quotidiennes visibles et rassurantes.",
+          "Équipement moderne et écologique : véhicules électriques pour les déplacements, matériel ergonomique pour réduire la pénibilité, tenues professionnelles de qualité. Formation continue des agent·es : gestion différenciée des espaces verts (moins de tontes, biodiversité), techniques de nettoyage sans produits chimiques, relation aux usagers (courtoisie, écoute).",
+          "Application mobile PopVox RENFORCÉE : signalement en temps réel des problèmes par les habitant·es (propreté, voirie, éclairage), suivi transparent des interventions, réponse garantie sous 48h pour les urgences, sous 7 jours pour les autres signalements. Publication mensuelle des statistiques : nombre de signalements traités, délais moyens, satisfaction des usagers.",
+          "Budget : 1,8 M€ par an (30 agents à 60k€ brut chargé). Financement : taxe sur les logements vacants du centre-ville (propriétaires absents qui laissent pourrir le patrimoine), suppression des subventions aux clubs sportifs privés élitistes."
+        ],
+        territories: ["Toute la ville", "Tous les quartiers"],
+        example: {
+          city: "Rennes Métropole (Bretagne, 220 000 habitants)",
+          detail: [
+            "Service de propreté urbaine renforcé en 2018 : 180 agents municipaux dédiés, brigades de quartier quotidiennes, balayage mécanique ET manuel.",
+            "Application \"Dans ma rue\" : signalement citoyen en temps réel, géolocalisation automatique, suivi transparent des interventions. 45 000 signalements traités par an, taux de résolution 92%, délai moyen 3 jours.",
+            "Plan \"Ville propre\" : poubelles de tri tous les 50 mètres, sanctions contre les incivilités (150€ d'amende pour jets de mégots, 450€ pour dépôts sauvages), campagnes de sensibilisation dans les écoles.",
+            "Résultats : satisfaction des habitants passée de 62% (2017) à 81% (2023), baisse des dépôts sauvages de 40%, image de la ville améliorée, attractivité touristique renforcée."
+          ]
+        }
       }
     ],
     focus: "Aucun service public essentiel ne doit être laissé au privé."
@@ -381,11 +408,13 @@ export const SECTIONS = [
       "Faire de Villefranche une ville respirable, sobre en énergie et nourrie par son territoire agricole. La transition écologique ne sera pas un luxe de bobos : elle créera des emplois locaux, baissera les factures et protègera notre santé.",
     actions: [
       {
-        title: "Plan arbres et fraîcheur : 3000 arbres en 6 ans",
+        title: "Plan arbres et fraîcheur : 3000 arbres + bassin de baignade + Place Fontanges écologique",
         detail: [
           "Les épisodes caniculaires de 2022 et 2023 ont dépassé 40°C à Villefranche. Les cours minérales des écoles Jean Pendariès, La Chartreuse et Robert Fabre deviennent invivables l'été. Les places de la Bastide (place Notre-Dame, place Savignac) sont des fours sans aucun arbre.",
-          "Plan massif de végétalisation : inventaire participatif de toutes les surfaces bitumées avec les habitant·es, plantation de 3000 arbres d'ici 2030 (500/an) dans les cours d'école, les rues (boulevard Haute-Guyenne, avenue de Bourran), les places et les parkings.",
-          "Renaturalisation des berges de l'Alzou et de l'Aveyron : création de corridors écologiques, espaces de baignade naturelle l'été. Transformation des friches de la Rive gauche (zone du Breil) en jardins partagés ouverts à tou·tes. Objectif : -3°C en ville lors des canicules."],
+          "La majorité actuelle prévoit 2 M€ pour végétaliser la place Fontanges et créer un bassin de baignade dans l'Aveyron (été 2026). C'est BIEN, mais INSUFFISANT. Nous irons PLUS LOIN en démocratisant et en radicalisant ces projets : pas de parking souterrain privatisé à Fontanges, gratuité totale du bassin, ouverture jusqu'à 21h l'été, navettes gratuites depuis les quartiers.",
+          "PLACE FONTANGES RÉELLEMENT ÉCOLOGIQUE : nous soutenons la désimperméabilisation et la végétalisation (budget 2 M€) MAIS exigeons une consultation citoyenne AVANT les travaux (pas après), une gestion écologique totale de l'eau de pluie (récupération, filtration naturelle, réutilisation pour l'arrosage), zéro béton supplémentaire. Pas de parking souterrain payant qui privatiserait l'espace : la place Fontanges doit être un bien commun, pas une infrastructure automobile.",
+          "BASSIN DE BAIGNADE POPULAIRE : nous soutenons le projet de bassin dans l'Aveyron (été 2026) MAIS exigeons la GRATUITÉ TOTALE (pas de tarif d'accès), des horaires élargis (7h-21h l'été pour les travailleurs et familles), l'accessibilité PMR complète (rampe d'accès, vestiaires adaptés), une surveillance professionnelle (maîtres-nageurs municipaux en CDI), des navettes gratuites depuis Tricot, Bastide et Graves. L'eau est un bien commun : tout le monde doit pouvoir se baigner dignement, pas seulement ceux qui ont une voiture.",
+          "Plan massif de végétalisation : inventaire participatif de toutes les surfaces bitumées avec les habitant·es, plantation de 3000 arbres d'ici 2030 (500/an) dans les cours d'école, les rues (boulevard Haute-Guyenne, avenue de Bourran), les places et les parkings. Renaturalisation complète des berges de l'Alzou et de l'Aveyron : création de corridors écologiques, promenades ombragées, zones de pêche. Transformation des friches de la Rive gauche (zone du Breil) en jardins partagés ouverts à tou·tes. Objectif : -3°C en ville lors des canicules."],
         example: {
           city: "Clermont-Ferrand (Puy-de-Dôme, 147 000 habitant·es)",
           detail: [
