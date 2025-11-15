@@ -45,28 +45,15 @@ const ActionCard = ({ action }) => {
         </div>
       )}
 
-      {(action.example || action.validations) && (
-        <div className="grid gap-4 sm:grid-cols-2">
-          {action.example && (
-            <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-semibold">Ça marche où ?</p>
-              <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
-              {exampleParagraphs.map((paragraph, index) => (
-                <p key={index} className="mt-2 text-sm text-slate-600">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          )}
-
-          {action.validations && (
-            <div className="rounded-2xl border border-red-200 bg-red-50/70 p-4">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-red-600 font-semibold">Déjà {action.validations} personnes valident</p>
-              <p className="mt-1 text-sm text-red-700">
-                À 100 validations, on publie un guide détaillé pour appliquer cette mesure à Villefranche.
-              </p>
-            </div>
-          )}
+      {action.example && (
+        <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-semibold">Ça marche où ?</p>
+          <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
+          {exampleParagraphs.map((paragraph, index) => (
+            <p key={index} className="mt-2 text-sm text-slate-600">
+              {paragraph}
+            </p>
+          ))}
         </div>
       )}
     </article>
@@ -88,7 +75,7 @@ const ThemeSheets = () => {
           <p className="text-xs uppercase tracking-[0.4em] text-red-500">Les propositions</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Des solutions concrètes pour Villefranche</h2>
           <p className="text-base text-slate-600 max-w-4xl mx-auto">
-            Chaque mesure part d'un problème réel à Villefranche et propose une solution qui marche déjà ailleurs. Tout est chiffré, vérifié, réalisable. Tu peux valider les propositions qui te parlent : à 100 validations, on publie un guide pratique pour la mettre en œuvre.
+            Chaque mesure part d'un problème réel à Villefranche et propose une solution qui marche déjà ailleurs. Tout est chiffré, vérifié, réalisable.
           </p>
         </div>
         <div className="space-y-12">
@@ -110,9 +97,6 @@ const ThemeSheets = () => {
                     <div className="flex-1 rounded-3xl border border-red-100 bg-gradient-to-br from-red-50 to-white p-5 text-sm text-red-900">
                       <p className="text-[11px] uppercase tracking-[0.4em] text-red-500 font-semibold">Fil rouge budgétaire</p>
                       <p className="mt-2 text-base font-semibold">{section.focus}</p>
-                      <p className="mt-3 text-xs text-red-500">
-                        Cette orientation est rappelée dans chaque atelier populaire pour garantir financement public maîtrisé et suivi citoyen.
-                      </p>
                     </div>
                   )}
                 </div>
