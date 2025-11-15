@@ -1,3 +1,25 @@
+/**
+ * ============================================================================
+ * APPLICATION PROGRAMME PCF VILLEFRANCHE 2026
+ * ============================================================================
+ *
+ * Ce fichier contient toute l'interface de l'application.
+ *
+ * STRUCTURE :
+ * 1. Imports et configuration
+ * 2. Utilitaires (animations, hooks)
+ * 3. Composants de partage et affichage
+ * 4. Composants de fonctionnalités (calculateur, comparateur, etc.)
+ * 5. Composants de pages (Admin, Stats, etc.)
+ * 6. Application principale
+ *
+ * POUR MODIFIER LE CONTENU (textes, mesures) :
+ * → Allez dans src/content.js
+ *
+ * POUR MODIFIER L'APPARENCE (couleurs, styles) :
+ * → Cherchez les classes Tailwind dans ce fichier
+ */
+
 import React, { useState, useEffect, useRef } from "react";
 import { INTRO, SECTIONS, PARTICIPER, STATS, POUR_ALLER_PLUS_LOIN } from "./content";
 import logoPcf from "../logo.png";
@@ -6,7 +28,11 @@ import "./index.css";
 
 const JOIN_URL = "https://www.pcf.fr/adherer";
 
-// Hook pour détecter quand un élément entre dans le viewport
+// ============================================================================
+// UTILITAIRES - Hooks et animations
+// ============================================================================
+
+// Hook pour détecter quand un élément entre dans le viewport (pour animations)
 const useIntersectionObserver = (options = {}) => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -63,7 +89,14 @@ const AnimatedCounter = ({ target, suffix = "", prefix = "", duration = 2000 }) 
   );
 };
 
-// Fonction de génération de texte de partage
+// ============================================================================
+// PARTAGE SOCIAL - Génération de textes pour réseaux sociaux
+// ============================================================================
+
+// Fonction qui génère le texte à partager sur les réseaux sociaux
+// Paramètres :
+//   - action : la mesure à partager (contient title, detail, example)
+//   - sectionTitle : le nom du bloc (ex: "Services publics")
 const generateShareText = (action, sectionTitle) => {
   const diagnostic = Array.isArray(action.detail) ? action.detail[0] : action.detail;
   const firstSolution = Array.isArray(action.detail) && action.detail.length > 1 ? action.detail[1] : "";
@@ -201,8 +234,15 @@ const ShareButtons = ({ action, sectionTitle, color = "red" }) => {
   );
 };
 
+// ============================================================================
+// STYLES - Configuration des couleurs pour chaque bloc thématique
+// ============================================================================
+
+// Définit les couleurs utilisées pour chaque thème de mesures
+// Chaque couleur a plusieurs variantes (fond, bordure, texte, gradients...)
+// Pour changer les couleurs d'un bloc, modifiez ici
 const COLOR_STYLES = {
-  red: {
+  red: {  // Rouge - Pour "Pouvoir citoyen" et budgets
     bg: "bg-red-50",
     border: "border-red-200",
     text: "text-red-600",
@@ -259,6 +299,21 @@ const COLOR_STYLES = {
   }
 };
 
+// ============================================================================
+// CARTE DE MESURE - Affichage d'une proposition politique
+// ============================================================================
+
+// Composant qui affiche UNE mesure du programme
+// Paramètres :
+//   - action : la mesure à afficher (contient title, detail, example)
+//   - color : la couleur du thème (red, blue, green, etc.)
+//
+// Structure d'affichage :
+//   1. Header avec titre en gros + badge économies si trouvé
+//   2. Section rouge "Le Problème" = diagnostic
+//   3. Section verte "Notre Solution" = les mesures concrètes
+//   4. Section bleue "Ça marche où ?" = les exemples d'autres villes
+//   5. Boutons de partage social
 const ActionCard = ({ action, color = "red" }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const detailParagraphs = Array.isArray(action.detail) ? action.detail : [action.detail];
@@ -398,7 +453,13 @@ const NAV_LINKS = [
   { label: "Participer", icon: "✊", type: "anchor", href: "#participer" }
 ];
 
-// Carrousel des propositions phares
+// ============================================================================
+// CARROUSEL - Propositions phares en rotation
+// ============================================================================
+
+// Affiche les 6 propositions principales en carrousel animé
+// Change automatiquement toutes les 5 secondes
+// Affiche : icône, titre, impact chiffré, description courte
 const PhareCarousel = () => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
@@ -593,7 +654,18 @@ const PhareCarousel = () => {
   );
 };
 
-// Calculateur d'économies personnalisé
+// ============================================================================
+// CALCULATEUR D'ÉCONOMIES - Outil interactif
+// ============================================================================
+
+// Permet aux visiteurs de calculer combien ils économiseraient
+// avec le programme PCF selon leur situation (nombre d'enfants)
+//
+// Calcule automatiquement :
+//   - Cantines gratuites : 1600€/enfant/an
+//   - Petits déjeuners : 65€/enfant/an
+//   - Fournitures scolaires : 150€/enfant/an
+//   - Crèches/centres de loisirs : 3600€/enfant/an
 const CalculateurEconomies = () => {
   const [nbEnfants, setNbEnfants] = React.useState(0);
   const [showResult, setShowResult] = React.useState(false);
@@ -719,7 +791,12 @@ ${nbEnfants > 0 ? `✅ Cantines gratuites : ${(nbEnfants * 1600).toLocaleString(
   );
 };
 
-// Comparateur Avant/Après
+// ============================================================================
+// COMPARATEUR AVANT/APRÈS - Visualisation des changements
+// ============================================================================
+
+// Affiche 6 comparaisons visuelles "Aujourd'hui vs Avec le PCF"
+// Pour chaque mesure : situation actuelle → nouvelle situation → économies
 const ComparateurAvantApres = () => {
   const comparaisons = [
     {
@@ -892,7 +969,13 @@ const FloatingButton = () => {
   );
 };
 
-// Barre de recherche pour les mesures
+// ============================================================================
+// BARRE DE RECHERCHE - Recherche dans toutes les mesures
+// ============================================================================
+
+// Permet de chercher un mot-clé dans toutes les mesures du programme
+// Recherche dans : titre, détails, exemples, villes
+// Affiche les résultats en temps réel dès 2 caractères tapés
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = React.useState('');
   const [results, setResults] = React.useState([]);
@@ -988,7 +1071,13 @@ const SearchBar = () => {
   );
 };
 
-// Système de gestion des avis
+// ============================================================================
+// AVIS DES VISITEURS - Formulaire de commentaires
+// ============================================================================
+
+// Section où les visiteurs peuvent laisser leurs avis sur le programme
+// Les avis sont stockés dans localStorage et doivent être validés par l'admin
+// avant d'apparaître publiquement sur le site
 const AvisSection = () => {
   const [avis, setAvis] = React.useState([]);
   const [nom, setNom] = React.useState('');
@@ -1112,8 +1201,19 @@ const AvisSection = () => {
   );
 };
 
-// Panel administrateur (discret)
-// Panel administrateur (discret)
+// ============================================================================
+// ADMINISTRATION - Gestion des avis (réservé PCF)
+// ============================================================================
+
+// Interface d'administration pour valider ou supprimer les avis
+// Accès protégé par mot de passe : pcfvillefranche2026
+//
+// POUR MODIFIER LES MESURES DU PROGRAMME :
+// → N'utilisez PAS cette interface
+// → Modifiez directement le fichier src/content.js
+// → Puis faites npm run build
+//
+// Cette interface sert UNIQUEMENT à gérer les avis des visiteurs
 const AdminPanel = () => {
   const [isAdmin, setIsAdmin] = React.useState(false);
   const [password, setPassword] = React.useState('');
@@ -1308,6 +1408,17 @@ const Footer = () => {
   );
 };
 
+// ============================================================================
+// AFFICHAGE DES MESURES PAR BLOCS - Composant principal du programme
+// ============================================================================
+
+// Affiche toutes les mesures organisées par blocs thématiques
+// Navigation par onglets :
+//   - Bloc 1 : Pouvoir citoyen (rouge)
+//   - Bloc 2 : Services publics (bleu)
+//   - Bloc 3 : Écologie (vert)
+//   - Bloc 4 : Emploi (amber)
+//   - Bloc 5 : Culture (purple)
 const ThemeSheets = () => {
   const [activeTheme, setActiveTheme] = useState("bloc1");
   const activeSection = SECTIONS.find(s => s.id === activeTheme);
@@ -1388,6 +1499,17 @@ const ThemeSheets = () => {
   );
 };
 
+// ============================================================================
+// PAGE CHIFFRES - Statistiques sur Villefranche
+// ============================================================================
+
+// Page dédiée aux chiffres clés de Villefranche
+// Contient :
+//   1. Contexte national (135 milliards, rôle du maire militant)
+//   2. Chiffres locaux (population, chômage, revenus, etc.)
+//   3. Quartiers prioritaires
+//
+// Accessible via le bouton "Chiffres" dans le menu
 const StatsPage = ({ onBack }) => {
   return (
     <div className="bg-white">
@@ -1505,6 +1627,13 @@ const StatsPage = ({ onBack }) => {
   );
 };
 
+// ============================================================================
+// APPLICATION PRINCIPALE
+// ============================================================================
+
+// Point d'entrée de l'application
+// Gère la navigation entre la page d'accueil et la page Chiffres
+// Contient toute la structure du site : header, contenu, footer
 export default function App() {
   const [view, setView] = React.useState("home");
 

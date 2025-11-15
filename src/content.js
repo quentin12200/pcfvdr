@@ -1,3 +1,44 @@
+/**
+ * ============================================================================
+ * CONTENU DU PROGRAMME PCF VILLEFRANCHE 2026
+ * ============================================================================
+ *
+ * Ce fichier contient TOUT le contenu textuel du site :
+ * - Les mesures du programme
+ * - Les chiffres et statistiques
+ * - Les textes d'introduction
+ * - Les exemples d'autres villes
+ *
+ * ⚠️  C'EST ICI QU'IL FAUT MODIFIER LE CONTENU ! ⚠️
+ *
+ * STRUCTURE D'UNE MESURE :
+ * {
+ *   title: "Le titre de la mesure",
+ *   detail: [
+ *     "1er paragraphe = LE PROBLÈME à Villefranche",
+ *     "2e paragraphe = NOTRE SOLUTION (ce qu'on propose)",
+ *     "3e paragraphe = DÉTAILS de mise en œuvre (budget, comment...)"
+ *   ],
+ *   example: {
+ *     city: "Grenoble, Paris",  // Les villes où ça marche déjà
+ *     detail: [
+ *       "Exemple 1 : ce qui se fait à Grenoble...",
+ *       "Exemple 2 : ce qui se fait à Paris..."
+ *     ]
+ *   }
+ * }
+ *
+ * APRÈS MODIFICATION :
+ * 1. Sauvegardez ce fichier
+ * 2. Ouvrez un terminal
+ * 3. Tapez : npm run build
+ * 4. Redéployez le site
+ */
+
+// ============================================================================
+// INTRODUCTION - Texte de la page d'accueil
+// ============================================================================
+
 export const INTRO = {
   badge: "Un programme concret pour Villefranche",
   title: "Et si on changeait vraiment les choses à Villefranche ?",
@@ -13,7 +54,18 @@ export const INTRO = {
   signature: "Document présenté par Patrick Cabandé, responsable des communistes villefranchois"
 };
 
+// ============================================================================
+// MESURES DU PROGRAMME - Organisées en 5 blocs thématiques
+// ============================================================================
+
+// Chaque bloc (SECTIONS) contient plusieurs mesures (actions)
+// Pour ajouter une mesure : copiez-collez une mesure existante et modifiez-la
+// Pour modifier une mesure : changez directement le texte ci-dessous
+
 export const SECTIONS = [
+  // --------------------------------------------------------------------------
+  // BLOC 1 - POUVOIR CITOYEN ET RÉPUBLIQUE LOCALE (couleur rouge)
+  // --------------------------------------------------------------------------
   {
     id: "bloc1",
     title: "Bloc 1 — Pouvoir citoyen et République locale",
@@ -125,6 +177,10 @@ export const SECTIONS = [
     ],
     focus: "La Ville doit redevenir exemplaire : zéro euro sans contrôle citoyen."
   },
+
+  // --------------------------------------------------------------------------
+  // BLOC 2 - SERVICES PUBLICS ET SOLIDARITÉS (couleur bleue)
+  // --------------------------------------------------------------------------
   {
     id: "bloc2",
     title: "Bloc 2 — Services publics et solidarités",
@@ -311,6 +367,10 @@ export const SECTIONS = [
     ],
     focus: "Aucun service public essentiel ne doit être laissé au privé."
   },
+
+  // --------------------------------------------------------------------------
+  // BLOC 3 - TRANSITION ÉCOLOGIQUE POPULAIRE (couleur verte)
+  // --------------------------------------------------------------------------
   {
     id: "bloc3",
     title: "Bloc 3 — Transition écologique populaire",
@@ -403,8 +463,12 @@ export const SECTIONS = [
         }
       }
     ],
-    focus: "La transition n’est pas un gadget : elle crée des emplois locaux et protège notre santé."
+    focus: "La transition n'est pas un gadget : elle crée des emplois locaux et protège notre santé."
   },
+
+  // --------------------------------------------------------------------------
+  // BLOC 4 - TRAVAIL, ÉCONOMIE LOCALE ET CULTURE (couleur ambre/orange)
+  // --------------------------------------------------------------------------
   {
     id: "bloc4",
     title: "Bloc 4 — Travail, économie locale et culture",
@@ -518,6 +582,10 @@ export const SECTIONS = [
     ],
     focus: "La Bastide doit redevenir un centre vivant grâce aux initiatives populaires et coopératives."
   },
+
+  // --------------------------------------------------------------------------
+  // BLOC 5 - LUTTE CONTRE LES DISCRIMINATIONS (couleur violette)
+  // --------------------------------------------------------------------------
   {
     id: "bloc5",
     title: "Bloc 5 — Jeunesse, éducation et quartiers populaires",
@@ -702,6 +770,10 @@ export const SECTIONS = [
   }
 ];
 
+// ============================================================================
+// SECTION "PARTICIPER" - Appel à s'engager
+// ============================================================================
+
 export const PARTICIPER = {
   badge: "Ouvert à toutes et tous",
   title: "Envie de faire bouger les choses ?",
@@ -734,6 +806,10 @@ export const PARTICIPER = {
   ]
 };
 
+// ============================================================================
+// SECTION "POUR ALLER PLUS LOIN" - Ressources supplémentaires
+// ============================================================================
+
 export const POUR_ALLER_PLUS_LOIN = {
   title: "Tu veux creuser ?",
   intro: "Si tu veux vraiment comprendre comment on a construit ce programme, d'où viennent les chiffres, et comment ça peut marcher à Villefranche, voici de quoi nourrir ta curiosité.",
@@ -760,6 +836,16 @@ export const POUR_ALLER_PLUS_LOIN = {
     }
   ]
 };
+
+// ============================================================================
+// CHIFFRES ET STATISTIQUES - Page "Chiffres"
+// ============================================================================
+
+// Contient :
+//   - contexteNational : le texte sur les 135 milliards et le rôle du maire militant
+//   - highlights : les chiffres clés (population, chômage, etc.)
+//   - socio : les paragraphes sur la situation sociale
+//   - neighborhoods : les quartiers de Villefranche
 
 export const STATS = {
   title: "Les chiffres clés de Villefranche",
