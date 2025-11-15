@@ -809,7 +809,7 @@ export const PARTICIPER = {
   paragraphs: [
     "Ce programme, c'est pas juste pour lire. C'est fait pour être porté, débattu, amélioré. Si tu trouves que Villefranche mérite mieux, tu peux agir.",
     "On organise des rencontres dans les quartiers pour parler des vrais problèmes : logement, transports, services publics. Pas de discours, juste des discussions entre habitants. On note ce qui coince, on propose des solutions, et on construit ensemble.",
-    "Tu peux juste venir discuter, ou aller plus loin : partager le programme autour de toi, rejoindre l'équipe qui prépare 2026, ou même te présenter sur une liste. On t'accompagne, quelle que soit ton expérience. Chaque proposition a un compteur : à 100 validations, on publie un guide pratique pour la réaliser."
+    "Tu peux juste venir discuter, ou aller plus loin : partager le programme autour de toi, rejoindre l'équipe qui prépare 2026, ou même te présenter sur une liste. On t'accompagne, quelle que soit ton expérience."
   ],
   steps: [
     {
