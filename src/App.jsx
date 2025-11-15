@@ -6,9 +6,8 @@ import "./index.css";
 
 const JOIN_URL = "https://www.pcf.fr/adherer";
 const ActionCard = ({ action }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const contentId = React.useId();
   const detailParagraphs = Array.isArray(action.detail) ? action.detail : [action.detail];
+  const [diagnostic, ...measures] = detailParagraphs;
 
   const exampleParagraphs =
     action.example && action.example.detail
@@ -18,68 +17,68 @@ const ActionCard = ({ action }) => {
       : [];
 
   return (
-    <div
-      className={`rounded-3xl border border-red-100 bg-white/80 shadow-sm transition-all ${
-        isOpen ? "ring-2 ring-red-200" : "hover:border-red-200"
-      }`}
-    >
-      <button
-        type="button"
-        onClick={() => setIsOpen((prev) => !prev)}
-        aria-expanded={isOpen}
-        aria-controls={contentId}
-        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
-      >
-        <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-red-500 font-semibold">Mesure communiste</p>
-          <p className="mt-1 text-xs text-slate-500 leading-relaxed">
-            Chaque mesure communiste combine un diagnostic villefranchois précis, un financement public maîtrisé et un contrôle
-            citoyen porté par les militantes et militants du PCF pour garantir sa mise en œuvre dès 2026.
-          </p>
-          <h4 className="mt-2 text-xl font-semibold text-slate-900">{action.title}</h4>
-          <p className="mt-2 text-sm text-slate-600">{isOpen ? "Fiche détaillée ouverte" : "Cliquer pour dérouler la fiche"}</p>
-        </div>
-        <span
-          className={`flex h-10 w-10 items-center justify-center rounded-full border border-red-200 bg-white text-red-600 transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
-          aria-hidden
-        >
-          ↓
-        </span>
-      </button>
-      {action.example && (
-        <div className="px-6 pb-4 border-t border-red-50/80 bg-white space-y-1">
-          <p className="text-xs uppercase tracking-[0.3em] text-red-500 font-semibold">Exemple inspirant</p>
-          <p className="text-sm font-semibold text-slate-900">{action.example.city}</p>
-          {exampleParagraphs.map((paragraph, index) => (
-            <p key={index} className="text-sm text-slate-600">
-              {paragraph}
-            </p>
-          ))}
+    <article className="rounded-[28px] border border-red-100/80 bg-white/90 shadow-[0_20px_60px_rgba(15,23,42,0.08)] p-6 flex flex-col gap-6">
+      <header className="space-y-2">
+        <h4 className="text-2xl font-semibold text-slate-900">{action.title}</h4>
+        <p className="text-xs text-slate-500 leading-relaxed">
+          Chaque fiche s’accompagne d’un extrait du programme 2026 et d’un rappel du contrôle citoyen porté par les militantes et
+          militants communistes.
+        </p>
+      </header>
+
+      {diagnostic && (
+        <div className="rounded-2xl border border-red-100 bg-gradient-to-br from-red-50 via-white to-white p-5">
+          <p className="text-[11px] uppercase tracking-[0.4em] text-red-600 font-semibold">Diagnostic villefranchois</p>
+          <p className="mt-2 text-sm text-slate-700 leading-relaxed">{diagnostic}</p>
         </div>
       )}
-      <div
-        id={contentId}
-        className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
-      >
-        <div className="px-6 pb-6 flex flex-col gap-5">
-          <div className="space-y-4">
-            {detailParagraphs.map((paragraph, index) => (
-              <p key={index} className="text-base text-slate-700 leading-relaxed">
-                {paragraph}
-              </p>
+
+      {measures.length > 0 && (
+        <div className="space-y-3">
+          <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
+            {measures.map((paragraph, index) => (
+              <li key={index} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+                <p className="text-[10px] uppercase tracking-[0.4em] text-red-500 font-semibold">Extrait du programme</p>
+                <p className="mt-2">{paragraph}</p>
+              </li>
             ))}
-          </div>
-          {action.territories && action.territories.length > 0 && (
-            <div className="rounded-2xl border border-red-100 bg-red-50/60 p-4 text-sm text-red-700">
-              <p className="text-xs uppercase tracking-widest font-semibold">Quartiers concernés</p>
-              <p className="mt-1 text-sm font-semibold text-slate-900">{action.territories.join(" • ")}</p>
+          </ul>
+        </div>
+      )}
+
+      {action.territories && action.territories.length > 0 && (
+        <div className="rounded-2xl border border-red-100 bg-white/70 p-4 text-sm text-slate-700">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-red-500 font-semibold">Quartiers concernés</p>
+          <p className="mt-2 font-semibold text-slate-900">{action.territories.join(" • ")}</p>
+        </div>
+      )}
+
+      {(action.example || action.validations) && (
+        <div className="grid gap-4 sm:grid-cols-2">
+          {action.example && (
+            <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-semibold">Exemple inspirant</p>
+              <p className="mt-1 text-sm font-semibold text-slate-900">{action.example.city}</p>
+              {exampleParagraphs.map((paragraph, index) => (
+                <p key={index} className="mt-2 text-sm text-slate-600">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          )}
+
+          {action.validations && (
+            <div className="rounded-2xl border border-red-200 bg-red-50/70 p-4">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-red-600 font-semibold">Contrôle citoyen</p>
+              <p className="mt-1 text-2xl font-bold text-red-700">{action.validations} validations</p>
+              <p className="mt-1 text-xs text-red-600">
+                Chaque validation garantit un suivi public du financement et de la mise en œuvre.
+              </p>
             </div>
           )}
         </div>
-      </div>
-    </div>
+      )}
+    </article>
   );
 };
 
@@ -92,39 +91,52 @@ const NAV_LINKS = [
 
 const ThemeSheets = () => {
   return (
-    <section id="themes" className="max-w-6xl mx-auto px-4 py-12 space-y-10">
-      <div className="text-center">
-        <p className="text-xs uppercase tracking-[0.3em] text-red-500">Grands thèmes</p>
-        <h2 className="mt-2 text-3xl font-extrabold">Fiches thématiques complètes</h2>
-        <p className="mt-3 text-base text-slate-600 max-w-3xl mx-auto">
-          Chaque bloc reprend les propositions du programme PDF et décline des mesures complètes, prêtes à être travaillées avec
-          les habitantes et habitants des quartiers villefranchois.
-        </p>
+    <section id="themes" className="bg-slate-50/60 border-y border-red-100/60">
+      <div className="max-w-6xl mx-auto px-4 py-16 space-y-12">
+        <div className="text-center space-y-4">
+          <p className="text-xs uppercase tracking-[0.4em] text-red-500">Grands thèmes</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Extraits du programme PDF prêts à être appliqués</h2>
+          <p className="text-base text-slate-600 max-w-4xl mx-auto">
+            Chaque bloc rassemble diagnostic villefranchois, extrait authentifié du programme et modalités de contrôle citoyen. Vous
+            pouvez ainsi afficher tel quel le contenu du PDF distribué sur les marchés et suivre comment ces engagements seront mis en
+            œuvre dès 2026.
+          </p>
+        </div>
+        <div className="space-y-12">
+          {SECTIONS.map((section) => (
+            <article key={section.id} className="rounded-[36px] border border-red-100/70 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.08)] overflow-hidden">
+              <div className="p-6 sm:p-10 space-y-8">
+                <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
+                  <div className="flex items-center gap-4">
+                    <div className="h-14 w-14 rounded-2xl bg-red-50 text-3xl flex items-center justify-center border border-red-100" aria-hidden>
+                      {section.icon}
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.4em] text-red-600 font-semibold">{section.category}</p>
+                      <h3 className="mt-2 text-2xl font-bold text-slate-900">{section.title}</h3>
+                      <p className="mt-3 text-base text-slate-600">{section.description}</p>
+                    </div>
+                  </div>
+                  {section.focus && (
+                    <div className="flex-1 rounded-3xl border border-red-100 bg-gradient-to-br from-red-50 to-white p-5 text-sm text-red-900">
+                      <p className="text-[11px] uppercase tracking-[0.4em] text-red-500 font-semibold">Fil rouge budgétaire</p>
+                      <p className="mt-2 text-base font-semibold">{section.focus}</p>
+                      <p className="mt-3 text-xs text-red-500">
+                        Cette orientation est rappelée dans chaque atelier populaire pour garantir financement public maîtrisé et suivi citoyen.
+                      </p>
+                    </div>
+                  )}
+                </div>
+                <div className="grid gap-6 lg:grid-cols-2">
+                  {section.actions.map((action) => (
+                    <ActionCard key={action.title} action={action} />
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-      {SECTIONS.map((section) => (
-        <article key={section.id} className="rounded-3xl border border-red-100 bg-white shadow-sm">
-          <div className="p-6 sm:p-10 space-y-6">
-            <div className="flex flex-wrap items-start gap-4">
-              <div className="text-4xl" aria-hidden>
-                {section.icon}
-              </div>
-              <div className="flex-1 min-w-[250px]">
-                <p className="text-xs uppercase tracking-widest text-red-600 font-semibold">{section.category}</p>
-                <h3 className="mt-2 text-2xl font-bold text-slate-900">{section.title}</h3>
-                <p className="mt-2 text-base text-slate-600">{section.description}</p>
-              </div>
-            </div>
-            {section.focus && (
-              <div className="rounded-2xl bg-red-50 text-red-900 p-5 font-semibold">{section.focus}</div>
-            )}
-            <div className="grid gap-6 md:grid-cols-2">
-              {section.actions.map((action) => (
-                <ActionCard key={action.title} action={action} />
-              ))}
-            </div>
-          </div>
-        </article>
-      ))}
     </section>
   );
 };
