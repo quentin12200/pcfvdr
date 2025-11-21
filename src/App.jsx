@@ -563,10 +563,149 @@ const ActionCard = ({ action, color = "red" }) => {
 
 const NAV_LINKS = [
   { label: "Vision", icon: "👁️", type: "anchor", href: "#vision" },
+  { label: "Carte des établissements", icon: "🗺️", type: "anchor", href: "#etablissements-carte" },
   { label: "Propositions", icon: "📋", type: "anchor", href: "#themes" },
   { label: "Chiffres", icon: "📊", type: "view", view: "stats" },
   { label: "Participer", icon: "✊", type: "anchor", href: "#participer" }
 ];
+
+// Liste des SIRET d'entreprises nationales pour accès rapide
+const SIRET_OPTIONS = [
+  { siret: "55210055400013", name: "TOTALENERGIES SE" },
+  { siret: "54210765100010", name: "CARREFOUR FRANCE" },
+  { siret: "63201401900026", name: "LA POSTE" },
+  { siret: "55214450300016", name: "SNCF MOBILITES" },
+  { siret: "48050324000024", name: "AIR FRANCE" },
+  { siret: "55204944700017", name: "SOCIETE GENERALE" },
+  { siret: "58204178500034", name: "ORANGE" },
+  { siret: "77566689600013", name: "CAISSE D'EPARGNE" }
+];
+
+// ============================================================================
+// SECTION - Carte des établissements
+// ============================================================================
+
+function EtablissementsCarteSection() {
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [selectedSiret, setSelectedSiret] = React.useState("");
+
+  const normalizedSearch = searchTerm.trim().toLowerCase();
+  const filteredResults = SIRET_OPTIONS.filter(
+    ({ siret, name }) =>
+      siret.includes(normalizedSearch) || name.toLowerCase().includes(normalizedSearch)
+  );
+
+  const baseUrl = "https://app.pap-cse.org/etablissements-carte";
+  const searchUrl = normalizedSearch ? `${baseUrl}?siret=${encodeURIComponent(searchTerm.trim())}` : baseUrl;
+
+  const handleSelect = (value) => {
+    setSelectedSiret(value);
+    setSearchTerm(value);
+  };
+
+  return (
+    <section id="etablissements-carte" className="bg-slate-50 border-y border-slate-200 py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-start gap-10">
+          <div className="lg:w-5/12 space-y-4">
+            <span className="inline-block bg-amber-100 text-amber-700 rounded-full px-4 py-2 text-sm font-bold uppercase tracking-wide">
+              🗺️ Carte des établissements
+            </span>
+            <h2 className="text-3xl font-black text-slate-900 leading-tight">
+              Retrouve en un clic les établissements sur la carte nationale
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Sélectionne un SIRET d'entreprise nationale dans la liste déroulante ou saisis directement un numéro pour lancer la recherche. La recherche par SIRET reste disponible en saisie libre.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={searchUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 bg-red-600 text-white px-5 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl hover:bg-red-700 transition-all"
+              >
+                🔍 Ouvrir la carte
+              </a>
+              <a
+                href={baseUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-red-600 border-2 border-red-200 px-5 py-3 rounded-xl font-bold hover:border-red-400 hover:text-red-700 transition-all"
+              >
+                🌐 Accéder directement
+              </a>
+            </div>
+          </div>
+
+          <div className="lg:w-7/12 bg-white border border-slate-200 rounded-2xl shadow-xl p-6 space-y-6">
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700" htmlFor="siret-search">
+                Recherche par SIRET (saisie libre)
+              </label>
+              <input
+                id="siret-search"
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Ex. 55210055400013"
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-inner focus:border-red-500 focus:ring-2 focus:ring-red-200"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700" htmlFor="siret-select">
+                Liste déroulante des SIRET d'entreprises nationales
+              </label>
+              <select
+                id="siret-select"
+                value={selectedSiret}
+                onChange={(e) => handleSelect(e.target.value)}
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-inner focus:border-red-500 focus:ring-2 focus:ring-red-200"
+              >
+                <option value="">Choisir un SIRET</option>
+                {SIRET_OPTIONS.map(({ siret, name }) => (
+                  <option key={siret} value={siret}>
+                    {name} — {siret}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-sm text-slate-600">
+                <span className="inline-flex h-3 w-3 rounded-full bg-green-400"></span>
+                Résultats filtrés (saisies ou sélection) — clique sur « Ouvrir la carte » pour lancer la recherche.
+              </div>
+              <div className="grid md:grid-cols-2 gap-3">
+                {filteredResults.map(({ siret, name }) => (
+                  <div key={siret} className="border border-slate-200 rounded-xl p-3 flex items-start gap-3 bg-slate-50">
+                    <div className="mt-1 text-lg">🏢</div>
+                    <div className="flex-1">
+                      <p className="font-bold text-slate-900">{name}</p>
+                      <p className="text-sm text-slate-600">SIRET : {siret}</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleSelect(siret)}
+                      className="text-xs font-bold text-red-600 hover:text-red-700"
+                    >
+                      Utiliser
+                    </button>
+                  </div>
+                ))}
+                {!filteredResults.length && (
+                  <p className="text-sm text-slate-500 col-span-full">
+                    Aucun résultat pour cette recherche. Essaie un autre numéro de SIRET ou un nom d'entreprise.
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // ============================================================================
 // CARROUSEL - Propositions phares en rotation
@@ -1884,6 +2023,12 @@ export default function App() {
                 >
                   ✊ Participer
                 </a>
+                <a
+                  href="#etablissements-carte"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border-2 border-white text-white px-6 py-3.5 rounded-xl font-bold text-base hover:bg-white/20 transition-all"
+                >
+                  🗺️ Carte des établissements
+                </a>
               </div>
             </div>
 
@@ -1902,6 +2047,9 @@ export default function App() {
         <StatsPage onBack={() => setView("home")} />
       ) : (
         <main>
+          {/* Carte des établissements (SIRET) */}
+          <EtablissementsCarteSection />
+
           {/* Carrousel Propositions Phares */}
           <section className="bg-white py-16 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4">
